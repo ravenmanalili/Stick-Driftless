@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet">
+    <title>Finotic</title>
+</head>
+<body>
+
+    <div class="page flex flex-row justify-center">
+        <!-- Left Screen-->
+        <div class="intro flex flex-col p-2 bg-gray-100 lg-w-[945px] lg-h-[995px]">
+            <h1 class="flex py-11">FINOTIC</h1>
+            <div class="stats"></div>
+            <h2 class="font-extrabold">Welcome back!</h2>
+            
+            <div class="carousel">
+                <h3 class="carouseltext1 font-mono">Start managing your finance faster and better.</h3>
+                <h3 class="carouseltext2 hidden font-mono">Take control of your finances—effortlessly and efficiently.</h3>
+                <h3 class="carouseltext3 hidden font-mono">Optimize your financial management with ease.</h3>
+                <h3 class="carouseltext4 hidden font-mono">Finance management, redefined for speed and accuracy.</h3>
+            </div>
+
+        </div>
+
+        <!-- Right Screen with Login and Sign Up-->
+        <div class="right flex flex-col p-4 bg-gray-350 items-center justify-center w-full min-h-[695px]">
+            <h2 class="messageWC text-3xl">Welcome back!</h2>
+            <h3 class="motto text-2xl py-4">Start managing</h3>
+
+            <div class="py-2">
+
+                <form id="signIn">
+                    <!--Email-->
+                    <div class="email relative p-2">
+                        <input type="email" 
+                            class="pl-10 pr-24 py-2 border rounded-lg bg-gray-100" 
+                            placeholder="you@example.com" />
+                        <div class="absolute inset-y-0 left-0 pl-4 
+                                    flex items-center 
+                                    pointer-events-none">
+                            <img src="https://icongr.am/entypo/mail.svg?size=20&color=000000">
+                        </div>
+                    </div>
+
+                    <!--Password-->
+                    <div class="password relative p-2">
+                        <input type="password" 
+                            id="passwordInput"
+                            class="pl-10 pr-10 py-2 border rounded-lg bg-gray-100 w-full" 
+                            placeholder="At least 8 characters"
+                            minlength="8" required />
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <img src="https://icongr.am/entypo/lock-open.svg?size=20&color=000000">
+                        </div>
+                        <button type="button" 
+                                id="togglePassword" 
+                                class="absolute inset-y-0 right-4 flex items-center cursor-pointer">
+                            <img id="eyeIcon" src="https://icongr.am/entypo/eye.svg?size=20&color=000000" alt="Toggle password">
+                        </button>
+                        <p id="passwordError" class="text-red-500 text-sm hidden">Password must be at least 8 characters.</p>
+                    </div>
+
+                    <!--Forgot Password-->
+                    <p class="forgotpass flex text-sm hover:underline cursor-pointer font-semibold text-blue-700 py-2 justify-end">Forgot password?</p>
+
+                    <!--Login-->
+                    <div class="relative border rounded-lg w-xs h-10 p-2 text-center bg-blue-500 text-white cursor-pointer hover:bg-blue-700 transition-all duration-300">
+                        <button type="submit" class="absolute inset-0 w-full h-full cursor-pointer">Login</button>
+                    </div>
+
+                </form>
+                
+            </div>
+
+            <!--Sign Up-->
+            <div class="py-2">
+                <form id="signUp" class="hidden" onSubmit="return checkPassword(this)">
+                    <div class="fname relative p-1">
+                        <input type="text" 
+                            class="pl-10 pr-24 py-2 border rounded-lg bg-gray-100" 
+                            placeholder="First Name" required/>
+                        <div class="absolute inset-y-0 left-0 pl-3 
+                                    flex items-center 
+                                    pointer-events-none">
+                            <img src="https://icongr.am/entypo/user.svg?size=20&color=currentColor">
+                        </div>
+                    </div>
+
+                    <div class="lname relative p-1">
+                        <input type="text" 
+                            class="pl-10 pr-24 py-2 border rounded-lg bg-gray-100" 
+                            placeholder="Last Name" 
+                            required/>
+                        <div class="absolute inset-y-0 left-0 pl-3 
+                                    flex items-center 
+                                    pointer-events-none">
+                            <img src="https://icongr.am/entypo/v-card.svg?size=20&color=currentColor">
+                        </div>
+                    </div>
+
+                    <div class="phoneNumber relative p-1">
+                        <input type="tel" 
+                            id="phone"
+                            class="pl-10 pr-24 py-2 border rounded-lg bg-gray-100" 
+                            placeholder="Phone Number" 
+                            pattern="\d*"
+                            required/>
+                        <div class="absolute inset-y-0 left-0 pl-3 
+                                    flex items-center 
+                                    pointer-events-none">
+                            <img src="https://icongr.am/entypo/mobile.svg?size=20&color=currentColor">
+                        </div>
+                    </div>
+
+                    <div class="regEmail relative p-1">
+                        <input type="email" 
+                            class="pl-10 pr-24 py-2 border rounded-lg bg-gray-100" 
+                            title="E-mail address must be valid" 
+                            placeholder="E-mail Address"
+                            required/>
+                        <div class="absolute inset-y-0 left-0 pl-3 
+                                    flex items-center 
+                                    pointer-events-none">
+                            <img src="https://icongr.am/entypo/mail.svg?size=20&color=000000">
+                        </div>
+                    </div>
+
+                    <div id="regPassword" class="relative p-1">
+                        <input type="password" 
+                            name = "password1"
+                            id="passwordInput"
+                            class="pl-10 pr-10 py-2 border rounded-lg bg-gray-100 w-full" 
+                            placeholder="Enter Password"
+                            title="Must have one uppercase letter, number, and special character"
+                            minlength="8"
+                            pattern="(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}" 
+                            required />
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <img src="https://icongr.am/entypo/lock.svg?size=20&color=currentColor">
+                        </div>
+                        <button type="button" 
+                                id="togglePassword" 
+                                class="absolute inset-y-0 right-3 flex items-center cursor-pointer">
+                            <img id="eyeIcon" src="https://icongr.am/entypo/eye.svg?size=20&color=000000" alt="Toggle password">
+                        </button>
+                        <p id="passwordError" class="text-red-500 text-sm hidden">Password must be at least 8 characters.</p>
+                    </div>
+
+                    <div id="confirmPassword" class="relative p-1">
+                        <input type="password" 
+                            name = "password2"
+                            id="passwordInput"
+                            class="pl-10 pr-10 py-2 border rounded-lg bg-gray-100 w-full" 
+                            placeholder="Confirm Password"
+                            required />
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <img src="https://icongr.am/entypo/lock-open.svg?size=20&color=000000">
+                        </div>
+                        <button type="button" 
+                                id="togglePassword" 
+                                class="absolute inset-y-0 right-3 flex items-center cursor-pointer">
+                            <img id="eyeIcon" src="https://icongr.am/entypo/eye.svg?size=20&color=000000" alt="Toggle password">
+                        </button>
+                        <p id="passwordError" class="text-red-500 text-sm hidden">Password must be at least 8 characters.</p>
+                    </div>
+
+                    <div class="relative border rounded-lg w-xs h-10 p-2 text-center bg-green-500 text-white cursor-pointer hover:bg-green-700 transition-all duration-300">
+                        <button type="submit" class="absolute inset-0 w-full h-full cursor-pointer">Register</button>
+                    </div>
+                </form>
+
+                <div class="or flex justify-center py-3">or</div>
+                
+                <!--Socials-->
+                <div class="social flex flex-row justify-center gap-4">
+                    <div class="google flex border border-gray-300 rounded-lg w-36 p-2 cursor-pointer justify-center items-center gap-2">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-4 h-4">
+                        <button class="cursor-pointer font-semibold">Google</button>
+                    </div>
+
+                    <div class="facebook flex border border-gray-300 rounded-lg w-36 p-2 cursor-pointer justify-center items-center gap-2">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="Facebook" class="w-4 h-4">
+                        <button class="cursor-pointer font-semibold">Facebook</button>
+                    </div>
+                </div>
+                <div id="noAcc">
+                    <span class="text-gray-500">Don't you have an account?</span>
+                    <button class="signup cursor-pointer font-semibold text-blue-700 hover:underline" onclick="toggleRegister()">Sign Up</button>
+                </div>
+
+                <div id="withAcc" class="hidden">
+                    <span class="text-gray-500">Already have an account?</span>
+                    <button class="signup cursor-pointer font-semibold text-blue-700 hover:underline" onclick="toggleLogin()">Sign In</button>
+                </div>
+
+            </div>
+
+            <div class="footer text-gray-400">©2025 ALL RIGHTS RESERVED</div>
+        </div>
+    </div>
+
+    <script>
+        const passwordInput = document.getElementById("passwordInput");
+        const togglePassword = document.getElementById("togglePassword");
+        const eyeIcon = document.getElementById("eyeIcon");
+    
+        togglePassword.addEventListener("click", () => {
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eyeIcon.src = "https://icongr.am/entypo/eye-with-line.svg?size=20&color=000000";
+            } else {
+                passwordInput.type = "password";
+                eyeIcon.src = "https://icongr.am/entypo/eye.svg?size=20&color=000000";
+            }
+            
+        });
+
+        function toggleRegister() {
+            document.getElementById("signIn").classList.remove("block");
+            document.getElementById("signIn").classList.add("hidden");
+            document.getElementById("signUp").classList.remove("hidden");
+            document.getElementById("signUp").classList.add("block");
+            document.getElementById("noAcc").classList.remove("block");
+            document.getElementById("noAcc").classList.add("hidden");
+            document.getElementById("withAcc").classList.remove("hidden");
+            document.getElementById("withAcc").classList.add("block");
+        }
+
+        function toggleLogin() {
+            document.getElementById("signIn").classList.add("block");
+            document.getElementById("signIn").classList.remove("hidden");
+            document.getElementById("signUp").classList.add("hidden");
+            document.getElementById("signUp").classList.remove("block");
+            document.getElementById("withAcc").classList.remove("block");
+            document.getElementById("withAcc").classList.add("hidden");
+            document.getElementById("noAcc").classList.remove("hidden");
+            document.getElementById("noAcc").classList.add("block");
+        }
+
+        function checkPassword(form) {
+            password1 = form.password1.value;
+            password2 = form.password2.value;
+
+            if (password1 == '')
+                alert("Please enter Password");
+
+
+            else if (password2 == '')
+                alert("Please enter confirm password");
+
+
+            else if (password1 != password2) {
+                alert("\nPassword did not match: Please try again...")
+                return false;
+            }
+
+            else {
+                alert("Password Match")
+                return true;
+            }
+        }
+
+            document.getElementById('phone').addEventListener('input', function(event) {
+            // Remove any non-numeric characters
+            this.value = this.value.replace(/\D/g, '');
+        });
+        
+    </script>
+
+</body>
+</html>
