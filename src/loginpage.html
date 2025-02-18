@@ -10,24 +10,38 @@
 <body>
 
     <div class="page flex flex-row justify-center">
-        <!-- Left Screen-->
-        <div class="intro flex flex-col p-2 bg-gray-100 min-h-[710px]">
-            <h1 class="flex py-11">FINOTIC</h1>
-            <div class="stats"></div>
-            <h2 class="font-extrabold">Welcome back!</h2>
-            
-            <div class="carousel">
-                <h3 class="carouseltext1 font-mono">Start managing your finance faster and better.</h3>
-                <h3 class="carouseltext2 hidden font-mono">Take control of your finances—effortlessly and efficiently.</h3>
-                <h3 class="carouseltext3 hidden font-mono">Optimize your financial management with ease.</h3>
-                <h3 class="carouseltext4 hidden font-mono">Finance management, redefined for speed and accuracy.</h3>
-            </div>
 
+        <!-- Left Screen-->
+        <div class="intro flex flex-col p-2 bg-gray-100 min-w-[410px] min-h-[710px]">
+            <h1 class="flex py-11">FINOTIC</h1>
+            <div class="mt-auto">
+                <h2 class="font-semibold text-3xl">Welcome back!</h2>
+                <section class="mt-auto relative w-full max-w-md mx-auto overflow-hidden">
+                    <div class="flex transition-transform duration-500 ease-in-out" id="carousel">
+                    <div class="w-full flex-none flex items-center justify-center h-32">Start managing your finance faster and better</div>
+                    <div class="w-full flex-none flex items-center justify-center h-32">Take control of your finances—effortlessly and efficiently.</div>
+                    <div class="w-full flex-none flex items-center justify-center h-32">Optimize your financial management with ease.</div>
+                    <div class="w-full flex-none flex items-center justify-center h-32">Finance management, redefined for speed and accuracy.</div>
+                    </div>
+                    <div class="absolute p-2 bottom-0 left-1/2 transform -translate-x-1/2 flex items-center space-x-2">
+                    <button class="w-8 h-8 flex items-center justify-center cursor-pointer" onclick="prevSlide()">
+                        <img src="https://icongr.am/entypo/chevron-left.svg?size=24&color=currentColor">
+                    </button>
+                    <button class="w-3 h-3 bg-gray-400 rounded-full hover:bg-gray-800 cursor-pointer dot" onclick="moveToSlide(0)"></button>
+                    <button class="w-3 h-3 bg-gray-400 rounded-full hover:bg-gray-800 cursor-pointer dot" onclick="moveToSlide(1)"></button>
+                    <button class="w-3 h-3 bg-gray-400 rounded-full hover:bg-gray-800 cursor-pointer dot" onclick="moveToSlide(2)"></button>
+                    <button class="w-3 h-3 bg-gray-400 rounded-full hover:bg-gray-800 cursor-pointer dot" onclick="moveToSlide(3)"></button>
+                    <button class="w-8 h-8 flex items-center justify-center cursor-pointer" onclick="nextSlide()">
+                        <img src="https://icongr.am/entypo/chevron-right.svg?size=24&color=currentColor">
+                    </button>
+                    </div>
+                </section>
+            </div>
         </div>
 
         <!-- Right Screen with Login and Sign Up-->
         <div class="right flex flex-col pt-20 bg-gray-350 items-center justify-center w-full max-h-[710px] gap-2">
-            <h2 id="welcomelogin" class="messageWC text-3xl">Welcome back!</h2>
+            <h2 id="welcomelogin" class="messageWC text-3xl font-semibold">Welcome back!</h2>
             <h2 id="welcomeregister" class="messageWC text-3xl hidden">Welcome!</h2>
             <h3 class="motto text-2xl">Start managing</h3>
 
@@ -245,7 +259,6 @@
     </div>
 
 
-
     <!--Register Modal-->
 
     <div id="modalRegister" class="fixed hidden inset-0 p-4 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto font-[sans-serif]">
@@ -362,10 +375,8 @@
             if (password1 == '')
                 alert("Please enter Password");
 
-
             else if (password2 == '')
                 alert("Please enter confirm password");
-
 
             else if (password1 != password2) {
                 alert("\nPassword did not match: Please try again...")
@@ -388,7 +399,41 @@
             document.getElementById("modalLogin").classList.add("block");
         }
         
+        let currentSlide = 0;
+        const totalSlides = 4;
+        const carousel = document.getElementById("carousel");
+        const dots = document.querySelectorAll(".dot");
+        
+        function moveToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateCarousel();
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+        
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            updateDots();
+        }
+        
+        function updateDots() {
+            dots.forEach((dot, index) => {
+            dot.style.backgroundColor = index === currentSlide ? "black" : "gray";
+            });
+        }
+        
+        updateDots();
+        
     </script>
 
 </body>
 </html>
+
