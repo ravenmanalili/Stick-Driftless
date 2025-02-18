@@ -18,10 +18,10 @@
                 <h2 class="font-semibold text-3xl">Welcome back!</h2>
                 <section class="mt-auto relative w-full max-w-md mx-auto overflow-hidden">
                     <div class="flex transition-transform duration-500 ease-in-out" id="carousel">
-                    <div class="w-full flex-none flex items-center justify-center h-32">Start managing your finance faster and better</div>
-                    <div class="w-full flex-none flex items-center justify-center h-32">Take control of your finances—effortlessly and efficiently.</div>
-                    <div class="w-full flex-none flex items-center justify-center h-32">Optimize your financial management with ease.</div>
-                    <div class="w-full flex-none flex items-center justify-center h-32">Finance management, redefined for speed and accuracy.</div>
+                    <div class="w-full flex-none flex items-center justify-center h-36">Start managing your finance faster and better</div>
+                    <div class="w-full flex-none flex items-center justify-center h-36">Take control of your finances—effortlessly and efficiently.</div>
+                    <div class="w-full flex-none flex items-center justify-center h-36">Optimize your financial management with ease.</div>
+                    <div class="w-full flex-none flex items-center justify-center h-36">Finance management, redefined for speed and accuracy.</div>
                     </div>
                     <div class="absolute p-2 bottom-0 left-1/2 transform -translate-x-1/2 flex items-center space-x-2">
                     <button class="w-8 h-8 flex items-center justify-center cursor-pointer" onclick="prevSlide()">
@@ -42,12 +42,12 @@
         <!-- Right Screen with Login and Sign Up-->
         <div class="right flex flex-col pt-20 bg-gray-350 items-center justify-center w-full max-h-[710px] gap-2">
             <h2 id="welcomelogin" class="messageWC text-3xl font-semibold">Welcome back!</h2>
-            <h2 id="welcomeregister" class="messageWC text-3xl hidden">Welcome!</h2>
+            <h2 id="welcomeregister" class="messageWC text-3xl font-semibold hidden">Welcome!</h2>
             <h3 class="motto text-2xl">Start managing</h3>
 
         <!--Sign In-->
         <div class="py-0 flex flex-col items-center gap-2">
-            <form id="signIn" class="w-full max-w-sm" onSubmit="return userLogin(this)" action="#">
+            <form id="signIn" class="w-full max-w-sm" onSubmit="return userLogin(this)">
                 <!--Email-->
                 <div class="relative p-2">
                     <input type="email" 
@@ -91,7 +91,7 @@
 
          <!--Sign Up-->
             <div class="py-2">
-                <form id="signUp" class="hidden" onSubmit="return checkPassword(this)" action="#">
+                <form id="signUp" class="hidden" onSubmit="return checkPassword(this)">
                     <div class="fname relative p-1">
                         <input type="text" 
                             class="pl-10 pr-24 py-2 border rounded-lg bg-gray-100" 
@@ -386,7 +386,7 @@
             else {
                 document.getElementById("modalRegister").classList.remove("hidden");
                 document.getElementById("modalRegister").classList.add("block");
-                return true;
+                return false;
             }
         }
 
@@ -397,6 +397,7 @@
         function userLogin(form) {
             document.getElementById("modalLogin").classList.remove("hidden");
             document.getElementById("modalLogin").classList.add("block");
+            return false;
         }
         
         let currentSlide = 0;
