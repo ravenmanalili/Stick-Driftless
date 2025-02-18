@@ -13,13 +13,13 @@
 
         <!-- Left Screen-->
         <div class="intro flex flex-col p-12 bg-gray-100 min-w-[640px] min-h-[710px]">
-            <h1 class="finoticLogo flex cursor-pointer gap-2">
+            <h1 class="finoticLogo flex gap-2">
                 <img src="https://icongr.am/entypo/network.svg?size=70&color=0300be" alt="Finotic" class="w-8 h-8 ">
-                <button class="cursor-pointer font-semibold">FINOTIC</button>
+                <p class="font-extrabold text-2xl">FINOTIC</p>
             </h1>
-            <div class="flex flex-row">
-                <img src="https://icongr.am/entypo/documents.svg?size=100&color=044fc8" class="w-72 h-72 pt-14 mb-6">
-                <img src="https://icongr.am/entypo/database.svg?size=100&color=044fc8" class="w-72 h-72 pt-14 mb-6">
+            <div class="flex flex-row py-2 my-4">
+                <img src="https://icongr.am/entypo/documents.svg?size=100&color=00c81a" class="w-72 h-72">
+                <img src="https://icongr.am/entypo/database.svg?size=100&color=044fc8" class="w-72 h-72">
             </div>
             <div class="mt-auto">
                 <h2 class="font-semibold text-3xl">Welcome back!</h2>
@@ -188,6 +188,8 @@
                         <p id="passwordError" class="text-red-500 text-sm hidden">Password must be at least 8 characters.</p>
                     </div>
 
+                    <div id="passwordNotMatch" class="text-red-500 text-xs hidden ml-2">Password does not match.</div>
+
                     <div class="relative p-2">
                         <button type="submit" class="w-full py-2 border rounded-lg bg-green-500 text-white cursor-pointer hover:bg-green-700 transition-all duration-300">
                             Register
@@ -223,14 +225,10 @@
                     <span class="text-gray-500">Already have an account?</span>
                     <button class="signup cursor-pointer font-semibold text-blue-700 hover:underline" onclick="toggleLogin()">Sign In</button>
                 </div>
-                
             </div>
-
             <div class="footer text-gray-400 mt-auto mb-6">©2025 ALL RIGHTS RESERVED</div>
-            
         </div>
 
-        
     </div>
 
     <!--Login Modal-->
@@ -238,7 +236,6 @@
     <div id="modalLogin" class="fixed hidden inset-0 p-4 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto font-[sans-serif]">
         <div class="w-full max-w-lg bg-white shadow-lg rounded-lg p-6 relative">
             
-
             <div class="my-8 text-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-14 shrink-0 fill-green-500 inline" viewBox="0 0 512 512">
                     <path
@@ -251,19 +248,15 @@
                 <h4 class="text-xl text-gray-800 font-semibold mt-4">Login Successful!</h4>
                 <p class="text-sm text-gray-500 leading-relaxed mt-4">You may now access your financial information.</p>
             </div>
-
             <button type="button"
-                class="px-5 py-2.5 w-full rounded-lg text-white text-sm border-none outline-none bg-gray-800 hover:bg-gray-700 cursor-pointer" onClick="window.location.href=window.location.href">Proceed</button>
+                class="px-5 py-2.5 w-full rounded-lg text-white text-sm border-none outline-none bg-blue-400 hover:bg-blue-700 cursor-pointer" onClick="window.location.href=window.location.href">Proceed</button>
         </div>
     </div>
-
 
     <!--Register Modal-->
 
     <div id="modalRegister" class="fixed hidden inset-0 p-4 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto font-[sans-serif]">
         <div class="w-full max-w-lg bg-white shadow-lg rounded-lg p-6 relative">
-            
-
             <div class="my-8 text-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-14 shrink-0 fill-green-500 inline" viewBox="0 0 512 512">
                     <path
@@ -274,11 +267,10 @@
                         data-original="#000000" />
                 </svg>
                 <h4 class="text-xl text-gray-800 font-semibold mt-4">Registration Successful!</h4>
-                <p class="text-sm text-gray-500 leading-relaxed mt-4">You may now access your financial information.</p>
+                <p class="text-sm text-gray-500 leading-relaxed mt-4">You may now start accessing your financial information.</p>
             </div>
-
             <button type="button"
-                class="px-5 py-2.5 w-full rounded-lg text-white text-sm border-none outline-none bg-gray-800 hover:bg-gray-700 cursor-pointer" onClick="window.location.href=window.location.href">Proceed</button>
+                class="px-5 py-2.5 w-full rounded-lg text-white text-sm border-none outline-none bg-green-500 hover:bg-green-700 cursor-pointer" onClick="window.location.href=window.location.href">Proceed</button>
         </div>
     </div>
 
@@ -370,13 +362,16 @@
                 alert("Please enter confirm password");
 
             else if (password1 != password2) {
-                alert("\nPassword did not match: Please try again...")
+                document.getElementById("passwordNotMatch").classList.remove("hidden");
+                document.getElementById("passwordNotMatch").classList.add("block");
                 return false;
             }
 
             else {
                 document.getElementById("modalRegister").classList.remove("hidden");
                 document.getElementById("modalRegister").classList.add("block");
+                document.getElementById("passwordNotMatch").classList.add("hidden");
+                document.getElementById("passwordNotMatch").classList.remove("block");
                 return false;
             }
         }
