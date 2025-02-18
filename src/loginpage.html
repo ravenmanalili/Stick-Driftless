@@ -11,7 +11,7 @@
 
     <div class="page flex flex-row justify-center">
         <!-- Left Screen-->
-        <div class="intro flex flex-col p-2 bg-gray-100 lg-w-[945px] lg-h-[995px]">
+        <div class="intro flex flex-col p-2 bg-gray-100 min-h-[710px]">
             <h1 class="flex py-11">FINOTIC</h1>
             <div class="stats"></div>
             <h2 class="font-extrabold">Welcome back!</h2>
@@ -26,58 +26,58 @@
         </div>
 
         <!-- Right Screen with Login and Sign Up-->
-        <div class="right flex flex-col p-4 bg-gray-350 items-center justify-center w-full min-h-[695px]">
-            <h2 class="messageWC text-3xl">Welcome back!</h2>
-            <h3 class="motto text-2xl py-4">Start managing</h3>
+        <div class="right flex flex-col pt-20 bg-gray-350 items-center justify-center w-full max-h-[710px] gap-2">
+            <h2 id="welcomelogin" class="messageWC text-3xl">Welcome back!</h2>
+            <h2 id="welcomeregister" class="messageWC text-3xl hidden">Welcome!</h2>
+            <h3 class="motto text-2xl">Start managing</h3>
 
+        <!--Sign In-->
+        <div class="py-0 flex flex-col items-center gap-2">
+            <form id="signIn" class="w-full max-w-sm" onSubmit="return userLogin(this)" action="#">
+                <!--Email-->
+                <div class="relative p-2">
+                    <input type="email" 
+                        class="pl-10 pr-4 py-2 border rounded-lg bg-gray-100 w-[300px]" 
+                        placeholder="you@example.com" />
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <img src="https://icongr.am/entypo/mail.svg?size=20&color=000000">
+                    </div>
+                </div>
+        
+                <!--Password-->
+                <div class="relative p-2">
+                    <input type="password" 
+                        id="passwordInput"
+                        class="pl-10 pr-10 py-2 border rounded-lg bg-gray-100 w-[300px]" 
+                        placeholder="At least 8 characters"
+                        minlength="8" required />
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <img src="https://icongr.am/entypo/lock-open.svg?size=20&color=000000">
+                    </div>
+                    <button type="button" 
+                            id="togglePassword" 
+                            class="absolute inset-y-0 right-4 flex items-center cursor-pointer">
+                        <img id="eyeIcon" src="https://icongr.am/entypo/eye.svg?size=20&color=000000" alt="Toggle password">
+                    </button>
+                    <p id="passwordError" class="text-red-500 text-sm hidden">Password must be at least 8 characters.</p>
+                </div>
+        
+                <!--Forgot Password-->
+                <p class="text-sm hover:underline cursor-pointer font-semibold text-blue-700 py-2 text-right">Forgot password?</p>
+        
+                <!--Login Button-->
+                <div class="p-2">
+                    <button type="submit" 
+                        class="w-full py-2 border rounded-lg bg-blue-500 text-white cursor-pointer hover:bg-blue-700 transition-all duration-300">
+                        Login
+                    </button>
+                </div>
+            </form>
+        </div>
+
+         <!--Sign Up-->
             <div class="py-2">
-
-                <form id="signIn">
-                    <!--Email-->
-                    <div class="email relative p-2">
-                        <input type="email" 
-                            class="pl-10 pr-24 py-2 border rounded-lg bg-gray-100" 
-                            placeholder="you@example.com" />
-                        <div class="absolute inset-y-0 left-0 pl-4 
-                                    flex items-center 
-                                    pointer-events-none">
-                            <img src="https://icongr.am/entypo/mail.svg?size=20&color=000000">
-                        </div>
-                    </div>
-
-                    <!--Password-->
-                    <div class="password relative p-2">
-                        <input type="password" 
-                            id="passwordInput"
-                            class="pl-10 pr-10 py-2 border rounded-lg bg-gray-100 w-full" 
-                            placeholder="At least 8 characters"
-                            minlength="8" required />
-                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                            <img src="https://icongr.am/entypo/lock-open.svg?size=20&color=000000">
-                        </div>
-                        <button type="button" 
-                                id="togglePassword" 
-                                class="absolute inset-y-0 right-4 flex items-center cursor-pointer">
-                            <img id="eyeIcon" src="https://icongr.am/entypo/eye.svg?size=20&color=000000" alt="Toggle password">
-                        </button>
-                        <p id="passwordError" class="text-red-500 text-sm hidden">Password must be at least 8 characters.</p>
-                    </div>
-
-                    <!--Forgot Password-->
-                    <p class="forgotpass flex text-sm hover:underline cursor-pointer font-semibold text-blue-700 py-2 justify-end">Forgot password?</p>
-
-                    <!--Login-->
-                    <div class="relative border rounded-lg w-xs h-10 p-2 text-center bg-blue-500 text-white cursor-pointer hover:bg-blue-700 transition-all duration-300">
-                        <button type="submit" class="absolute inset-0 w-full h-full cursor-pointer">Login</button>
-                    </div>
-
-                </form>
-                
-            </div>
-
-            <!--Sign Up-->
-            <div class="py-2">
-                <form id="signUp" class="hidden" onSubmit="return checkPassword(this)">
+                <form id="signUp" class="hidden" onSubmit="return checkPassword(this)" action="#">
                     <div class="fname relative p-1">
                         <input type="text" 
                             class="pl-10 pr-24 py-2 border rounded-lg bg-gray-100" 
@@ -131,7 +131,7 @@
                     <div id="regPassword" class="relative p-1">
                         <input type="password" 
                             name = "password1"
-                            id="passwordInput"
+                            id="passwordInput2"
                             class="pl-10 pr-10 py-2 border rounded-lg bg-gray-100 w-full" 
                             placeholder="Enter Password"
                             title="Must have one uppercase letter, number, and special character"
@@ -142,9 +142,9 @@
                             <img src="https://icongr.am/entypo/lock.svg?size=20&color=currentColor">
                         </div>
                         <button type="button" 
-                                id="togglePassword" 
+                                id="togglePassword2" 
                                 class="absolute inset-y-0 right-3 flex items-center cursor-pointer">
-                            <img id="eyeIcon" src="https://icongr.am/entypo/eye.svg?size=20&color=000000" alt="Toggle password">
+                            <img id="eyeIcon2" src="https://icongr.am/entypo/eye.svg?size=20&color=000000" alt="Toggle password">
                         </button>
                         <p id="passwordError" class="text-red-500 text-sm hidden">Password must be at least 8 characters.</p>
                     </div>
@@ -152,7 +152,7 @@
                     <div id="confirmPassword" class="relative p-1">
                         <input type="password" 
                             name = "password2"
-                            id="passwordInput"
+                            id="passwordInput3"
                             class="pl-10 pr-10 py-2 border rounded-lg bg-gray-100 w-full" 
                             placeholder="Confirm Password"
                             required />
@@ -160,49 +160,127 @@
                             <img src="https://icongr.am/entypo/lock-open.svg?size=20&color=000000">
                         </div>
                         <button type="button" 
-                                id="togglePassword" 
+                                id="togglePassword3" 
                                 class="absolute inset-y-0 right-3 flex items-center cursor-pointer">
-                            <img id="eyeIcon" src="https://icongr.am/entypo/eye.svg?size=20&color=000000" alt="Toggle password">
+                            <img id="eyeIcon3" src="https://icongr.am/entypo/eye.svg?size=20&color=000000" alt="Toggle password">
                         </button>
                         <p id="passwordError" class="text-red-500 text-sm hidden">Password must be at least 8 characters.</p>
                     </div>
 
-                    <div class="relative border rounded-lg w-xs h-10 p-2 text-center bg-green-500 text-white cursor-pointer hover:bg-green-700 transition-all duration-300">
-                        <button type="submit" class="absolute inset-0 w-full h-full cursor-pointer">Register</button>
+                    <div class="relative p-1">
+                        <button type="submit" class="w-full py-2 border rounded-lg bg-green-500 text-white cursor-pointer hover:bg-green-700 transition-all duration-300">
+                            Register
+                        </button>
                     </div>
                 </form>
 
-                <div class="or flex justify-center py-3">or</div>
+                <div class="flex justify-center items-center py-1">
+                    <span class="w-32 h-px bg-gray-400 mx-2"></span>
+                    or
+                    <span class="w-32 h-px bg-gray-400 mx-2"></span>
+                </div>
                 
                 <!--Socials-->
-                <div class="social flex flex-row justify-center gap-4">
+                <div class="social flex flex-row justify-center gap-4 py-4">
                     <div class="google flex border border-gray-300 rounded-lg w-36 p-2 cursor-pointer justify-center items-center gap-2">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-4 h-4">
                         <button class="cursor-pointer font-semibold">Google</button>
                     </div>
-
+                
                     <div class="facebook flex border border-gray-300 rounded-lg w-36 p-2 cursor-pointer justify-center items-center gap-2">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="Facebook" class="w-4 h-4">
                         <button class="cursor-pointer font-semibold">Facebook</button>
                     </div>
                 </div>
-                <div id="noAcc">
+                
+                <div id="noAcc" class="flex justify-center items-center gap-2">
                     <span class="text-gray-500">Don't you have an account?</span>
                     <button class="signup cursor-pointer font-semibold text-blue-700 hover:underline" onclick="toggleRegister()">Sign Up</button>
                 </div>
-
-                <div id="withAcc" class="hidden">
+                
+                <div id="withAcc" class="hidden flex justify-center items-center gap-2">
                     <span class="text-gray-500">Already have an account?</span>
                     <button class="signup cursor-pointer font-semibold text-blue-700 hover:underline" onclick="toggleLogin()">Sign In</button>
                 </div>
-
+                
             </div>
 
-            <div class="footer text-gray-400">©2025 ALL RIGHTS RESERVED</div>
+            <div class="footer text-gray-400 mt-auto mb-6">©2025 ALL RIGHTS RESERVED</div>
+            
+        </div>
+
+        
+    </div>
+
+    <!--Login Modal-->
+
+    <div id="modalLogin" class="fixed hidden inset-0 p-4 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto font-[sans-serif]">
+        <div class="w-full max-w-lg bg-white shadow-lg rounded-lg p-6 relative">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                class="w-3.5 cursor-pointer shrink-0 fill-gray-400 hover:fill-red-500 float-right" viewBox="0 0 320.591 320.591">
+                <path
+                    d="M30.391 318.583a30.37 30.37 0 0 1-21.56-7.288c-11.774-11.844-11.774-30.973 0-42.817L266.643 10.665c12.246-11.459 31.462-10.822 42.921 1.424 10.362 11.074 10.966 28.095 1.414 39.875L51.647 311.295a30.366 30.366 0 0 1-21.256 7.288z"
+                    data-original="#000000"></path>
+                <path
+                    d="M287.9 318.583a30.37 30.37 0 0 1-21.257-8.806L8.83 51.963C-2.078 39.225-.595 20.055 12.143 9.146c11.369-9.736 28.136-9.736 39.504 0l259.331 257.813c12.243 11.462 12.876 30.679 1.414 42.922-.456.487-.927.958-1.414 1.414a30.368 30.368 0 0 1-23.078 7.288z"
+                    data-original="#000000"></path>
+            </svg>
+
+            <div class="my-8 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-14 shrink-0 fill-green-500 inline" viewBox="0 0 512 512">
+                    <path
+                        d="M383.841 171.838c-7.881-8.31-21.02-8.676-29.343-.775L221.987 296.732l-63.204-64.893c-8.005-8.213-21.13-8.393-29.35-.387-8.213 7.998-8.386 21.137-.388 29.35l77.492 79.561a20.687 20.687 0 0 0 14.869 6.275 20.744 20.744 0 0 0 14.288-5.694l147.373-139.762c8.316-7.888 8.668-21.027.774-29.344z"
+                        data-original="#000000" />
+                    <path
+                        d="M256 0C114.84 0 0 114.84 0 256s114.84 256 256 256 256-114.84 256-256S397.16 0 256 0zm0 470.487c-118.265 0-214.487-96.214-214.487-214.487 0-118.265 96.221-214.487 214.487-214.487 118.272 0 214.487 96.221 214.487 214.487 0 118.272-96.215 214.487-214.487 214.487z"
+                        data-original="#000000" />
+                </svg>
+                <h4 class="text-xl text-gray-800 font-semibold mt-4">Login Successful!</h4>
+                <p class="text-sm text-gray-500 leading-relaxed mt-4">You may now start managing your finances effortlessly.</p>
+            </div>
+
+            <button type="button"
+                class="px-5 py-2.5 w-full rounded-lg text-white text-sm border-none outline-none bg-gray-800 hover:bg-gray-700">Got it</button>
+        </div>
+    </div>
+
+
+
+    <!--Register Modal-->
+
+    <div id="modalRegister" class="fixed hidden inset-0 p-4 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto font-[sans-serif]">
+        <div class="w-full max-w-lg bg-white shadow-lg rounded-lg p-6 relative">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                class="w-3.5 cursor-pointer shrink-0 fill-gray-400 hover:fill-red-500 float-right" viewBox="0 0 320.591 320.591">
+                <path
+                    d="M30.391 318.583a30.37 30.37 0 0 1-21.56-7.288c-11.774-11.844-11.774-30.973 0-42.817L266.643 10.665c12.246-11.459 31.462-10.822 42.921 1.424 10.362 11.074 10.966 28.095 1.414 39.875L51.647 311.295a30.366 30.366 0 0 1-21.256 7.288z"
+                    data-original="#000000"></path>
+                <path
+                    d="M287.9 318.583a30.37 30.37 0 0 1-21.257-8.806L8.83 51.963C-2.078 39.225-.595 20.055 12.143 9.146c11.369-9.736 28.136-9.736 39.504 0l259.331 257.813c12.243 11.462 12.876 30.679 1.414 42.922-.456.487-.927.958-1.414 1.414a30.368 30.368 0 0 1-23.078 7.288z"
+                    data-original="#000000"></path>
+            </svg>
+
+            <div class="my-8 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-14 shrink-0 fill-green-500 inline" viewBox="0 0 512 512">
+                    <path
+                        d="M383.841 171.838c-7.881-8.31-21.02-8.676-29.343-.775L221.987 296.732l-63.204-64.893c-8.005-8.213-21.13-8.393-29.35-.387-8.213 7.998-8.386 21.137-.388 29.35l77.492 79.561a20.687 20.687 0 0 0 14.869 6.275 20.744 20.744 0 0 0 14.288-5.694l147.373-139.762c8.316-7.888 8.668-21.027.774-29.344z"
+                        data-original="#000000" />
+                    <path
+                        d="M256 0C114.84 0 0 114.84 0 256s114.84 256 256 256 256-114.84 256-256S397.16 0 256 0zm0 470.487c-118.265 0-214.487-96.214-214.487-214.487 0-118.265 96.221-214.487 214.487-214.487 118.272 0 214.487 96.221 214.487 214.487 0 118.272-96.215 214.487-214.487 214.487z"
+                        data-original="#000000" />
+                </svg>
+                <h4 class="text-xl text-gray-800 font-semibold mt-4">Registration Successful!</h4>
+                <p class="text-sm text-gray-500 leading-relaxed mt-4">You may now start managing your finances effortlessly.</p>
+            </div>
+
+            <button type="button"
+                class="px-5 py-2.5 w-full rounded-lg text-white text-sm border-none outline-none bg-gray-800 hover:bg-gray-700">Got it</button>
         </div>
     </div>
 
     <script>
+
+        //Existing Password
         const passwordInput = document.getElementById("passwordInput");
         const togglePassword = document.getElementById("togglePassword");
         const eyeIcon = document.getElementById("eyeIcon");
@@ -215,7 +293,36 @@
                 passwordInput.type = "password";
                 eyeIcon.src = "https://icongr.am/entypo/eye.svg?size=20&color=000000";
             }
-            
+        });
+
+        //New Password
+        const passwordInput2 = document.getElementById("passwordInput2");
+        const togglePassword2 = document.getElementById("togglePassword2");
+        const eyeIcon2 = document.getElementById("eyeIcon2");
+    
+        togglePassword2.addEventListener("click", () => {
+            if (passwordInput2.type === "password") {
+                passwordInput2.type = "text";
+                eyeIcon2.src = "https://icongr.am/entypo/eye-with-line.svg?size=20&color=000000";
+            } else {
+                passwordInput2.type = "password";
+                eyeIcon2.src = "https://icongr.am/entypo/eye.svg?size=20&color=000000";
+            }
+        });
+
+        //Confirm Password
+        const passwordInput3 = document.getElementById("passwordInput3");
+        const togglePassword3 = document.getElementById("togglePassword3");
+        const eyeIcon3 = document.getElementById("eyeIcon3");
+    
+        togglePassword3.addEventListener("click", () => {
+            if (passwordInput3.type === "password") {
+                passwordInput3.type = "text";
+                eyeIcon3.src = "https://icongr.am/entypo/eye-with-line.svg?size=20&color=000000";
+            } else {
+                passwordInput3.type = "password";
+                eyeIcon3.src = "https://icongr.am/entypo/eye.svg?size=20&color=000000";
+            }
         });
 
         function toggleRegister() {
@@ -227,6 +334,10 @@
             document.getElementById("noAcc").classList.add("hidden");
             document.getElementById("withAcc").classList.remove("hidden");
             document.getElementById("withAcc").classList.add("block");
+            document.getElementById("welcomelogin").classList.remove("block");
+            document.getElementById("welcomelogin").classList.add("hidden");
+            document.getElementById("welcomeregister").classList.remove("hidden");
+            document.getElementById("welcomeregister").classList.add("block");
         }
 
         function toggleLogin() {
@@ -238,6 +349,10 @@
             document.getElementById("withAcc").classList.add("hidden");
             document.getElementById("noAcc").classList.remove("hidden");
             document.getElementById("noAcc").classList.add("block");
+            document.getElementById("welcomelogin").classList.remove("hidden");
+            document.getElementById("welcomelogin").classList.add("block");
+            document.getElementById("welcomeregister").classList.remove("block");
+            document.getElementById("welcomeregister").classList.add("hidden");
         }
 
         function checkPassword(form) {
@@ -258,15 +373,20 @@
             }
 
             else {
-                alert("Password Match")
+                document.getElementById("modalRegister").classList.remove("hidden");
+                document.getElementById("modalRegister").classList.add("block");
                 return true;
             }
         }
 
             document.getElementById('phone').addEventListener('input', function(event) {
-            // Remove any non-numeric characters
             this.value = this.value.replace(/\D/g, '');
         });
+
+        function userLogin(form) {
+            document.getElementById("modalLogin").classList.remove("hidden");
+            document.getElementById("modalLogin").classList.add("block");
+        }
         
     </script>
 
