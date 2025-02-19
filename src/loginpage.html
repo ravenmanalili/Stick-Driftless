@@ -13,22 +13,22 @@
     <div id="page" class="justify-center">
         <div class="flex flex-col lg:flex-row h-screen w-screen justify-center items-center">
             <!-- Left Container -->
-            <div id="left" class="flex flex-col items-center text-center max-sm:pl-24 max-sm:mt-24 max-sm:-mb-8">
+            <div id="left" class="flex flex-col items-center text-center max-sm:pl-24 max-sm:mt-84 max-sm:-mb-8">
                 <h1 class="finoticLogo flex gap-2">
-                    <img src="https://icongr.am/entypo/network.svg?size=70&color=0300be" alt="Finotic" class="max-sm:w-16 max-sm:h-16 md:w-8 md:h-8">
-                    <p class="font-extrabold max-sm:text-6xl md:text-2xl">FINOTIC</p>
+                    <img src="https://icongr.am/entypo/network.svg?size=70&color=0300be" alt="Finotic" class="max-sm:w-16 max-sm:h-16 md:w-10 md:h-10">
+                    <p class="font-extrabold max-sm:text-6xl sm:text-4xl md:text-4xl">FINOTIC</p>
                 </h1>
                 <div class="py-2 my-4 sm:hidden md:hidden lg:block">
-                    <img src="https://icongr.am/entypo/documents.svg?size=100&color=2cc800" class="max-sm:hidden">
+                    <img src="https://icongr.am/entypo/documents.svg?size=148&color=0eb003" class="max-sm:hidden">
                 </div>
                 <div class="mt-auto">
                     <h2 class="font-semibold text-3xl sm:hidden md:hidden lg:block max-sm:hidden">Welcome back!</h2>
                     <section class="mt-auto relative w-full max-w-md overflow-hidden max-sm:hidden max-lg:hidden">
                         <div class="flex transition-transform duration-500 ease-in-out" id="carousel">
-                            <div class="w-full flex-none flex items-center justify-center h-36">Start managing your finance faster and better</div>
-                            <div class="w-full flex-none flex items-center justify-center h-36">Take control of your finances—effortlessly and efficiently.</div>
-                            <div class="w-full flex-none flex items-center justify-center h-36">Optimize your financial management with ease.</div>
-                            <div class="w-full flex-none flex items-center justify-center h-36">Finance management, redefined for speed and accuracy.</div>
+                            <div class="w-full flex-none flex items-center justify-center h-36 text-xl">Start managing your finance faster and better</div>
+                            <div class="w-full flex-none flex items-center justify-center h-36 text-xl">Take control of your finances—effortlessly and efficiently.</div>
+                            <div class="w-full flex-none flex items-center justify-center h-36 text-xl">Optimize your financial management with ease.</div>
+                            <div class="w-full flex-none flex items-center justify-center h-36 text-xl">Finance management, redefined for speed and accuracy.</div>
                         </div>
                         <div class="absolute p-2 bottom-0 left-1/2 transform -translate-x-1/2 flex items-center space-x-2">
                             <button class="w-8 h-8 flex items-center justify-center cursor-pointer" onclick="prevSlide()">
@@ -47,15 +47,15 @@
             </div>
         
             <!-- Right Container -->
-            <div class="h-fit w-3xl flex justify-center items-center bg-white m-4 rounded-2xl max-sm:text-2xl md:text-sm lg:text-sm xl:text-sm max-sm:pl-48">
-                <div id="right" class="flex flex-col pt-4 bg-gray-350 items-center justify-center w-full h-fit gap-2 rounded-2xl">
-                    <h2 id="welcomeLogin" class="messageWC md:text-3xl max-sm:text-6xl font-semibold block">Welcome!</h2>
-                    <h2 id="welcomeRegister" class="messageWC text-3xl font-semibold hidden">Welcome!</h2>
-                    <h3 class="motto text-2xl">Start managing</h3>
-        
+            <div class="h-fit w-[40rem] flex justify-center items-center bg-white m-6 rounded-3xl max-sm:pl-28 max-sm:text-2xl md:text-sm lg:text-sm xl:text-lg xl:w-[50rem] xl:m-8">
+                <div id="right" class="flex flex-col pt-6 bg-gray-350 items-center justify-center w-full h-fit gap-3 rounded-3xl xl:pt-8 xl:gap-4">
+                    <h2 id="welcomeLogin" class="messageWC md:text-3xl max-sm:text-6xl sm:text-4xl font-semibold block xl:text-4xl">Welcome!</h2>
+                    <h2 id="welcomeRegister" class="messageWC md:text-3xl max-sm:text-6xl sm:text-4xl font-semibold hidden xl:text-4xl">Welcome!</h2>
+                    <h3 class="motto text-2xl xl:text-3xl">Start managing</h3>
+            
                     <!-- Login Form -->
-                    <div class="py-0 flex flex-col items-center gap-2">
-                        <form id="signIn" class="w-full max-w-sm" onSubmit="return userLogin(this)">
+                    <div class="py-0 flex flex-col items-center gap-3 xl:gap-4">
+                        <form id="signIn" class="w-full max-w-sm xl:max-w-md" onSubmit="return userLogin(this)">
                             <div class="relative p-2">
                                 <input type="email" 
                                     class="pl-10 pr-4 py-2 border rounded-lg bg-gray-100 w-[300px]" 
@@ -69,6 +69,7 @@
                                 <input type="password" 
                                     id="passwordInput"
                                     class="pl-10 pr-10 py-2 border rounded-lg bg-gray-100 w-[300px]" 
+                                    title="Must have at least one uppercase letter, lowercase letter, number, and special character"
                                     placeholder="At least 8 characters"
                                     minlength="8"
                                     pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}" 
@@ -83,12 +84,12 @@
                                 </button>
                                 <p id="passwordError" class="text-red-500 text-sm hidden">Password must be at least 8 characters.</p>
                             </div>
-
-                            <p class="hover:underline cursor-pointer font-semibold text-blue-700 py-2 text-right max-sm:text-2xl md:text-sm lg:text-sm xl:text-sm">Forgot password?</p>
+            
+                            <p class="hover:underline cursor-pointer font-semibold text-blue-700 py-3 text-right max-sm:text-2xl md:text-sm lg:text-sm xl:text-base xl:py-4">Forgot password?</p>
                     
-                            <div class="p-2">
+                            <div class="p-3 xl:p-4">
                                 <button type="submit" 
-                                    class="w-full py-2 border rounded-lg bg-blue-500 text-white cursor-pointer hover:bg-blue-700 transition-all duration-300">
+                                    class="w-full py-3 border rounded-xl bg-blue-500 text-white cursor-pointer hover:bg-blue-700 transition-all duration-300 xl:py-4 xl:text-lg">
                                     Login
                                 </button>
                             </div>
@@ -200,7 +201,7 @@
                         </div>
                     </div>
         
-                    <div class="social flex flex-row justify-center gap-4 py-4">
+                    <div class="social flex flex-row justify-center gap-4 py-1">
                         <div class="google flex border border-gray-300 rounded-lg w-36 p-2 cursor-pointer justify-center items-center gap-2">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-4 h-4">
                             <button class="cursor-pointer font-semibold">Google</button>
@@ -212,10 +213,10 @@
                     </div>
         
                     <div id="noAcc" class="flex justify-center items-center gap-2 max-sm:text-2xl md:text-sm lg:text-sm xl:text-sm">
-                        <span class="text-gray-500">Don't you have an account?</span>
-                        <button class="signup cursor-pointer font-semibold text-blue-700 hover:underline" onclick="toggleRegister()">Sign Up</button>
+                        <span class="text-gray-500 max-sm:text-2xl md:text-sm lg:text-sm xl:text-lg">Don't you have an account?</span>
+                        <button class="signup cursor-pointer font-semibold text-blue-700 hover:underline max-sm:text-2xl md:text-sm lg:text-sm xl:text-lg" onclick="toggleRegister()">Sign Up</button>
                     </div>
-                    <div class="footer text-gray-400 mt-auto mb-6 text-sm">©2025 ALL RIGHTS RESERVED</div>
+                    <div class="footer text-gray-400 mt-auto mb-6 max-sm:text-2xl md:text-sm lg:text-sm xl:text-lg">©2025 ALL RIGHTS RESERVED</div>
                 </div>
             </div>
         </div>
@@ -324,6 +325,9 @@
             document.getElementById("welcomeRegister").classList.remove("hidden");
             document.getElementById("welcomeRegister").classList.add("block");
             document.getElementById("signIn").reset();
+            document.getElementById("passwordNotMatch").classList.add("hidden");
+            document.getElementById("passwordNotMatch").classList.remove("block");
+
         }
 
         function toggleLogin() {
