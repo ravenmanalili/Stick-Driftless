@@ -49,7 +49,7 @@
             <!-- Right Container -->
             <div class="h-fit w-3xl flex justify-center items-center bg-white m-4 rounded-2xl max-sm:text-2xl md:text-sm lg:text-sm xl:text-sm max-sm:pl-48">
                 <div id="right" class="flex flex-col pt-4 bg-gray-350 items-center justify-center w-full h-fit gap-2 rounded-2xl">
-                    <h2 id="welcomeLogin" class="messageWC md:text-3xl max-sm:text-6xl font-semibold block">Welcome back!</h2>
+                    <h2 id="welcomeLogin" class="messageWC md:text-3xl max-sm:text-6xl font-semibold block">Welcome!</h2>
                     <h2 id="welcomeRegister" class="messageWC text-3xl font-semibold hidden">Welcome!</h2>
                     <h3 class="motto text-2xl">Start managing</h3>
         
@@ -78,14 +78,14 @@
                                 </div>
                                 <button type="button" 
                                         id="togglePassword" 
-                                        class="absolute inset-y-0 right-4 flex items-center cursor-pointer">
+                                        class="absolute inset-y-0 right-5 flex items-center cursor-pointer">
                                     <img id="eyeIcon" src="https://icongr.am/entypo/eye.svg?size=20&color=000000" alt="Toggle password">
                                 </button>
                                 <p id="passwordError" class="text-red-500 text-sm hidden">Password must be at least 8 characters.</p>
                             </div>
                     
                             <!--Forgot Password-->
-                            <p class="text-sm hover:underline cursor-pointer font-semibold text-blue-700 py-2 text-right">Forgot password?</p>
+                            <p class="hover:underline cursor-pointer font-semibold text-blue-700 py-2 text-right max-sm:text-2xl md:text-sm lg:text-sm xl:text-sm">Forgot password?</p>
                     
                             <!--Login Button-->
                             <div class="p-2">
@@ -101,9 +101,12 @@
                     <div class="py-2">
                         <form id="signUp" class="hidden" onSubmit="return checkPassword(this)">
                             <div class="fName relative p-2">
-                                <input type="text" 
+                                <input type="text"
+                                    id="firstName" 
                                     class="pl-10 pr-24 py-2 border rounded-lg bg-gray-100" 
-                                    placeholder="First Name" required/>
+                                    placeholder="First Name"
+                                    pattern="[A-Za-z\s]+"
+                                    required/>
                                 <div class="absolute inset-y-0 left-0 pl-3 
                                             flex items-center 
                                             pointer-events-none">
@@ -113,8 +116,10 @@
 
                             <div class="lName relative p-2">
                                 <input type="text" 
+                                    id="lastName"
                                     class="pl-10 pr-24 py-2 border rounded-lg bg-gray-100" 
-                                    placeholder="Last Name" 
+                                    placeholder="Last Name"
+                                    pattern="[A-Za-z\s]+"
                                     required/>
                                 <div class="absolute inset-y-0 left-0 pl-3 
                                             flex items-center 
@@ -165,7 +170,7 @@
                                 </div>
                                 <button type="button" 
                                         id="togglePassword2" 
-                                        class="absolute inset-y-0 right-3 flex items-center cursor-pointer">
+                                        class="absolute inset-y-0 right-5 flex items-center cursor-pointer">
                                     <img id="eyeIcon2" src="https://icongr.am/entypo/eye.svg?size=20&color=000000" alt="Toggle password">
                                 </button>
                                 <p id="passwordError" class="text-red-500 text-sm hidden">Password must be at least 8 characters.</p>
@@ -183,7 +188,7 @@
                                 </div>
                                 <button type="button" 
                                         id="togglePassword3" 
-                                        class="absolute inset-y-0 right-3 flex items-center cursor-pointer">
+                                        class="absolute inset-y-0 right-5 flex items-center cursor-pointer">
                                     <img id="eyeIcon3" src="https://icongr.am/entypo/eye.svg?size=20&color=000000" alt="Toggle password">
                                 </button>
                                 <p id="passwordError" class="text-red-500 text-sm hidden">Password must be at least 8 characters.</p>
@@ -223,7 +228,7 @@
                         </div>
                     </div>
         
-                    <div id="noAcc" class="flex justify-center items-center gap-2 text-sm">
+                    <div id="noAcc" class="flex justify-center items-center gap-2 max-sm:text-2xl md:text-sm lg:text-sm xl:text-sm">
                         <span class="text-gray-500">Don't you have an account?</span>
                         <button class="signup cursor-pointer font-semibold text-blue-700 hover:underline" onclick="toggleRegister()">Sign Up</button>
                     </div>
@@ -273,10 +278,7 @@
                 <button type="button"
                     class="px-5 py-2.5 w-full rounded-lg text-white text-sm border-none outline-none bg-green-500 hover:bg-green-700 cursor-pointer" onClick="window.location.href=window.location.href">Proceed</button>
             </div>
-
         </div>
-
-        
     </div>
 
     <script>
@@ -360,19 +362,12 @@
             password1 = form.password1.value;
             password2 = form.password2.value;
 
-            if (password1 == '')
-                alert("Please enter Password");
-
-            else if (password2 == '')
-                alert("Please enter confirm password");
-
-            else if (password1 != password2) {
+            if (password1 != password2) {
                 document.getElementById("passwordNotMatch").classList.remove("hidden");
                 document.getElementById("passwordNotMatch").classList.add("block");
                 return false;
-            }
 
-            else {
+            } else {
                 document.getElementById("modalRegister").classList.remove("hidden");
                 document.getElementById("modalRegister").classList.add("block");
                 document.getElementById("passwordNotMatch").classList.add("hidden");
@@ -421,6 +416,14 @@
             dot.style.backgroundColor = index === currentSlide ? "black" : "gray";
             });
         }
+
+        document.getElementById("firstName").addEventListener("input", function (event) {
+        this.value = this.value.replace(/[^A-Za-z\s]/g, ""); 
+        });
+
+        document.getElementById("lastName").addEventListener("input", function (event) {
+        this.value = this.value.replace(/[^A-Za-z\s]/g, ""); 
+        });
         
         updateDots();
         
