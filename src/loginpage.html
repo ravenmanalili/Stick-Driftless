@@ -11,15 +11,15 @@
 <body class="bg-gray-100">
 
     <div id="page" class="justify-center">
-        <div class="flex flex-col lg:flex-row h-screen w-screen justify-center items-center">
+        <div class="grid grid-cols-2 max-md:grid-cols-1 max-lg:grid-cols-1 lg:flex-row h-screen w-screen justify-center items-center">
             <!-- Left Container -->
-            <div id="left" class="flex flex-col items-center text-center max-sm:pl-24 max-sm:mt-84 max-sm:-mb-8">
-                <h1 class="finoticLogo flex gap-2">
-                    <img src="https://icongr.am/entypo/network.svg?size=70&color=0300be" alt="Finotic" class="max-sm:w-16 max-sm:h-16 md:w-10 md:h-10">
-                    <p class="font-extrabold max-sm:text-6xl sm:text-4xl md:text-4xl">FINOTIC</p>
+            <div id="left" class="grid grid-cols-2 max-sm:grid-cols-1 sm:grid-cols-1 items-center text-center max-sm:mx-auto max-sm:mt-8 max-sm:mb-4 sm:mx-auto sm:mt-8 sm:mb-4">
+                <h1 class="finoticLogo flex flex-cols-1">
+                    <img src="https://icongr.am/entypo/network.svg?size=70&color=0300be" alt="Finotic" class="max-sm:w-16 max-sm:h-16 md:w-16 md:h-16 lg:w-10 lg:h-10">
+                    <p class="font-extrabold max-sm:text-6xl sm:text-6xl md:text-6xl lg:text-4xl">FINOTIC</p>
                 </h1>
-                <div class="py-2 my-4 sm:hidden md:hidden lg:block">
-                    <img src="https://icongr.am/entypo/documents.svg?size=148&color=0eb003" class="max-sm:hidden">
+                <div class="sm:hidden md:hidden lg:block">
+                    <img src="https://icongr.am/entypo/documents.svg?size=148&color=0eb003" class="max-sm:hidden p-6 mx-auto">
                 </div>
                 <div class="mt-auto">
                     <h2 class="font-semibold text-3xl sm:hidden md:hidden lg:block max-sm:hidden">Manage today!</h2>
@@ -47,9 +47,9 @@
             </div>
         
             <!-- Right Container -->
-            <div class="h-fit w-[40rem] flex justify-center items-center bg-white m-6 rounded-3xl max-sm:pl-28 max-sm:text-2xl md:text-sm lg:text-sm xl:text-lg xl:w-[50rem] xl:m-8">
+            <div class="h-fit max-sm:w-screen sm:w-screen max-md:w-full md:w-full lg:w-full xl:w-4xl w-[40rem] lg:flex lg:justify-center lg:items-center bg-white rounded-3xl">
                 <div id="right" class="flex flex-col pt-6 bg-gray-350 items-center justify-center w-full h-fit gap-3 rounded-3xl xl:pt-8 xl:gap-4">
-                    <h2 id="welcomeLogin" class="messageWC md:text-3xl max-sm:text-6xl sm:text-4xl font-semibold block xl:text-4xl">Welcome!</h2>
+                    <h2 id="welcomeLogin" class="messageWC md:text-3xl max-sm:text-6xl sm:text-4xl font-semibold xl:text-4xl">Welcome!</h2>
                     <h2 id="welcomeRegister" class="messageWC md:text-3xl max-sm:text-6xl sm:text-4xl font-semibold hidden xl:text-4xl">Welcome!</h2>
                     <h3 class="motto text-2xl xl:text-3xl">Start managing</h3>
             
@@ -196,7 +196,7 @@
                         </div>
                         
                         <div id="withAcc" class="hidden flex justify-center items-center gap-2">
-                            <span class="text-gray-500">Already have an account?</span>
+                            <span class="text-gray-500 max-sm:text-sm md:text-sm lg:text-sm xl:text-lg">Already have an account?</span>
                             <button class="signup cursor-pointer font-semibold text-blue-700 hover:underline" onclick="toggleLogin()">Sign In</button>
                         </div>
                     </div>
@@ -213,10 +213,10 @@
                     </div>
         
                     <div id="noAcc" class="flex justify-center items-center gap-2 max-sm:text-2xl md:text-sm lg:text-sm xl:text-sm">
-                        <span class="text-gray-500 max-sm:text-2xl md:text-sm lg:text-sm xl:text-lg">Don't you have an account?</span>
-                        <button class="signup cursor-pointer font-semibold text-blue-700 hover:underline max-sm:text-2xl md:text-sm lg:text-sm xl:text-lg" onclick="toggleRegister()">Sign Up</button>
+                        <span class="text-gray-500 max-sm:text-sm md:text-sm lg:text-sm xl:text-lg">Don't you have an account?</span>
+                        <button class="signup cursor-pointer font-semibold text-blue-700 hover:underline max-sm:text-sm md:text-sm lg:text-sm xl:text-lg" onclick="toggleRegister()">Sign Up</button>
                     </div>
-                    <div class="footer text-gray-400 mt-auto mb-6 max-sm:text-2xl md:text-sm lg:text-sm xl:text-lg">©2025 ALL RIGHTS RESERVED</div>
+                    <div class="footer text-gray-400 mt-auto mb-6">©2025 ALL RIGHTS RESERVED</div>
                 </div>
             </div>
         </div>
