@@ -23,7 +23,7 @@
         
         
         <div class="calendar max-sm:max-w-3xl sm:max-w-3xl md:max-w-lg max-w-xl w-full">
-            <div class="md:p-8 p-5 bg-gray-200 rounded-t-2xl max-md:min-h-full min-h-[600px]">
+            <div class="md:p-8 p-5 bg-gray-200 rounded-t-2xl max-md:min-h-full min-h-[600px] bg-gradient-to-b from-green-400 to-gray-100">
                 <div class="px-4 flex items-center justify-between">
                     <span tabindex="0" class="current-date focus:outline-none text-2xl font-bold text-gray-800"></span>
                     <div class="flex items-center">
@@ -258,23 +258,55 @@
                 </div>
             </div>
 
-            <header class="md:py-4 py-5 md:px-16 px-5 bg-gray-50 pb-5 font-semibold text-2xl">My Schedule</header>
-            <div class="md:py-4 py-5 md:px-16 px-5 bg-gray-50 rounded-b-2xl h-64 overflow-scroll">
-                <div class="px-4">
-                    <div class="border-b pb-4 border-gray-400 border-dashed">
-                        <p class="text-xs font-light leading-3 text-gray-500">9:00 AM</p>
-                        <a tabindex="0" class="focus:outline-none text-lg font-medium leading-5 text-gray-800 mt-2">Business Solutions Team Meeting</a>
-                        <p class="text-sm pt-2 leading-4 leading-none text-gray-600">Discussion on latest project</p>
-                    </div>
-                    <div class="border-b pb-4 border-gray-400 border-dashed pt-5">
-                        <p class="text-xs font-light leading-3 text-gray-500">10:00 AM</p>
-                        <a tabindex="0" class="focus:outline-none text-lg font-medium leading-5 text-gray-800 mt-2">Back-end Development for e-Commerce website</a>
-                        <p class="text-sm pt-2 leading-4 leading-none text-gray-600">API setup</p>
-                    </div>
-                    <div class="border-b pb-4 border-gray-400 border-dashed pt-5">
-                        <p class="text-xs font-light leading-3 text-gray-500">11:00 AM</p>
-                        <a tabindex="0" class="focus:outline-none text-lg font-medium leading-5 text-gray-800 mt-2">Front-end Development for e-Commerce website</a>
-                        <p class="text-sm pt-2 leading-4 leading-none text-gray-600">Develop page UI</p>
+            <div class="bg-gradient-to-b from-gray-50 to-blue-300">
+                <header class="md:py-4 py-5 md:px-16 px-5 bg-gray-50 flex justify-between border-b pb-4 border-gray-300 shadow-lg pt-5 relative bg-blue-100">
+                    <div class="pb-3 font-semibold text-2xl">My Schedule</div>
+                    <div class="pb-1 font-semibold text-3xl cursor-pointer">+</div>
+                </header>
+                
+                <div class="md:py-7 py-5 md:px-16 px-5  rounded-b-2xl h-52 overflow-y-scroll">
+                    <div class="px-4">
+                        <div class="border-b pb-6 border-gray-400 border-dashed pt-5 relative">
+                            <p class="text-xs font-light leading-3 text-gray-500">9:00 AM</p>
+                            <a tabindex="0" class="focus:outline-none text-lg font-medium leading-5 text-gray-800 mt-2">Business Solutions Team Meeting</a>
+                            <p class="text-sm pt-2 leading-4 text-gray-600">Discussion on latest project</p>
+                            <div class="flex justify-end space-x-2 mt-3">
+                                <button class="done hover:cursor-pointer p-2">
+                                    <img src="https://icongr.am/entypo/check.svg?size=20&color=00ff00">
+                                </button>
+                                <button class="delete hover:cursor-pointer p-2">
+                                    <img src="https://icongr.am/entypo/trash.svg?size=20&color=ff0000">
+                                </button>
+                            </div>
+                        </div>
+                    
+                        <div class="border-b pb-6 border-gray-400 border-dashed pt-5 relative">
+                            <p class="text-xs font-light leading-3 text-gray-500">10:00 AM</p>
+                            <a tabindex="0" class="focus:outline-none text-lg font-medium leading-5 text-gray-800 mt-2">Back-end Development for e-Commerce website</a>
+                            <p class="text-sm pt-2 leading-4 text-gray-600">API setup</p>
+                            <div class="flex justify-end space-x-2 mt-3">
+                                <button class="done hover:cursor-pointer p-2">
+                                    <img src="https://icongr.am/entypo/check.svg?size=20&color=00ff00">
+                                </button>
+                                <button class="delete hover:cursor-pointer p-2">
+                                    <img src="https://icongr.am/entypo/trash.svg?size=20&color=ff0000">
+                                </button>
+                            </div>
+                        </div>
+                    
+                        <div class="border-b pb-6 border-gray-400 border-dashed pt-5 relative">
+                            <p class="text-xs font-light leading-3 text-gray-500">11:00 AM</p>
+                            <a tabindex="0" class="focus:outline-none text-lg font-medium leading-5 text-gray-800 mt-2">Front-end Development for e-Commerce website</a>
+                            <p class="text-sm pt-2 leading-4 text-gray-600">Develop page UI</p>
+                            <div class="flex justify-end space-x-2 mt-3">
+                                <button class="done hover:cursor-pointer p-2">
+                                    <img src="https://icongr.am/entypo/check.svg?size=20&color=00ff00">
+                                </button>
+                                <button class="delete hover:cursor-pointer p-2">
+                                    <img src="https://icongr.am/entypo/trash.svg?size=20&color=ff0000">
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
