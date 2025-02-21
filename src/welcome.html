@@ -9,14 +9,18 @@
 </head>
 <body class="">
     <section class="flex flex-col md:flex-row lg:flex-row gap-4 p-4">
-        <div class="welcomeContainer bg-blue-700 rounded-2xl md:w-full md:h-72 lg:h-96 lg:w-[600px] xl:h-96 xl:w-[1350px]">
-            <div class="welcome p-12 flex flex-col max-sm:gap-4 sm:gap-4 lg:gap-8 text-white">
+        <div class="welcomeContainer bg-gradient-to-r from-blue-800 to-green-400 rounded-2xl md:w-full md:h-72 lg:h-96 lg:w-[600px] xl:h-96 xl:w-[1350px] flex xl:justify-between xl:items-center max-lg:justify-center max-lg:items-center p-12">
+            <div class="welcome flex flex-col max-sm:gap-4 sm:gap-4 lg:gap-8 text-white">
                 <div class="max-sm:text-2xl sm:text-2xl md:text-2xl lg:text-4xl xl:text-5xl">Welcome!</div>
                 <div class="max-sm:text-2xl sm:text-2xl md:text-2xl lg:text-4xl xl:text-5xl font-semibold">Rands Cunanan</div>
-                <div class="max-sm:text-lg sm:text-lg md:text-lg lg:text-2xl xl:text-2xl">randscunanan@yahoo.com</div>
+                <div class="max-sm:text-lg sm:text-lg md:text-lg lg:text-xl xl:text-2xl">randscunanan@yahoo.com</div>
                 <button type="button" class="max-sm:text-lg sm:text-lg md:text-lg lg:text-2xl xl:text-2xl font-semibold max-sm:w-48 max-sm:h-12 w-64 h-16 rounded-4xl bg-white text-blue-700 hover:bg-gray-100 hover:text-blue-800 cursor-pointer">Continue</button>
             </div>
+            <div class="xl:flex max-sm:w-8 max-sm:h-8 xl:w-64 xl:h-64 rounded-full bg-gray-300 xl:items-center xl:justify-center text-gray-500 max-sm:hidden sm:hidden">
+                <img src="https://icongr.am/entypo/user.svg?size=128&color=969696">
+            </div>
         </div>
+        
         
         <div class="calendar max-sm:max-w-3xl sm:max-w-3xl md:max-w-lg max-w-xl w-full">
             <div class="md:p-8 p-5 bg-gray-200 rounded-t-2xl max-md:min-h-full min-h-[600px]">
@@ -254,9 +258,9 @@
                 </div>
             </div>
 
-            <div class="md:py-4 py-5 md:px-16 px-5 bg-gray-50 rounded-b-2xl">
+            <header class="md:py-4 py-5 md:px-16 px-5 bg-gray-50 pb-5 font-semibold text-2xl">My Schedule</header>
+            <div class="md:py-4 py-5 md:px-16 px-5 bg-gray-50 rounded-b-2xl h-64 overflow-scroll">
                 <div class="px-4">
-                    <header class="pb-5 font-semibold text-2xl">My Schedule</header>
                     <div class="border-b pb-4 border-gray-400 border-dashed">
                         <p class="text-xs font-light leading-3 text-gray-500">9:00 AM</p>
                         <a tabindex="0" class="focus:outline-none text-lg font-medium leading-5 text-gray-800 mt-2">Business Solutions Team Meeting</a>
