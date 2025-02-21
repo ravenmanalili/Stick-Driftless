@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="./output.css" rel="stylesheet">
+    <title>StaffBanana</title>
+</head>
+<body class="">
+    <section class="flex flex-col md:flex-row lg:flex-row gap-4 p-4">
+        <div class="welcomeContainer bg-blue-700 rounded-2xl md:w-full md:h-72 lg:h-96 lg:w-[600px] xl:h-96 xl:w-[1350px]">
+            <div class="welcome p-12 flex flex-col max-sm:gap-4 sm:gap-4 lg:gap-8 text-white">
+                <div class="max-sm:text-2xl sm:text-2xl md:text-2xl lg:text-4xl xl:text-5xl">Welcome!</div>
+                <div class="max-sm:text-2xl sm:text-2xl md:text-2xl lg:text-4xl xl:text-5xl font-semibold">Rands Cunanan</div>
+                <div class="max-sm:text-lg sm:text-lg md:text-lg lg:text-2xl xl:text-2xl">randscunanan@yahoo.com</div>
+                <button type="button" class="max-sm:text-lg sm:text-lg md:text-lg lg:text-2xl xl:text-2xl font-semibold max-sm:w-48 max-sm:h-12 w-64 h-16 rounded-4xl bg-white text-blue-700 hover:bg-gray-100 hover:text-blue-800 cursor-pointer">Continue</button>
+            </div>
+        </div>
+        
+        <div class="calendar max-sm:max-w-3xl sm:max-w-3xl md:max-w-lg max-w-xl w-full">
+            <div class="md:p-8 p-5 bg-gray-200 rounded-t-2xl max-md:min-h-full min-h-[600px]">
+                <div class="px-4 flex items-center justify-between">
+                    <span tabindex="0" class="current-date focus:outline-none text-2xl font-bold text-gray-800"></span>
+                    <div class="flex items-center">
+                        <button aria-label="calendar backward" class="prevMonth hover:text-gray-400 text-gray-800 cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <polyline points="15 6 9 12 15 18" />
+                        </svg>
+                    </button>
+                    <button aria-label="calendar forward" class="nextMonth hover:text-gray-400 ml-3 text-gray-800 cursor-pointer"> 
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler  icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <polyline points="9 6 15 12 9 18" />
+                        </svg>
+                    </button>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-12 overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <div class="w-full flex justify-center">
+                                        <p class="text-base font-medium text-center text-gray-800">M</p>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="w-full flex justify-center">
+                                        <p class="text-base font-medium text-center text-gray-800">T</p>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="w-full flex justify-center">
+                                        <p class="text-base font-medium text-center text-gray-800">W</p>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="w-full flex justify-center">
+                                        <p class="text-base font-medium text-center text-gray-800">Th</p>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="w-full flex justify-center">
+                                        <p class="text-base font-medium text-center text-gray-800">F</p>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="w-full flex justify-center">
+                                        <p class="text-base font-medium text-center text-gray-800">Sa</p>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="w-full flex justify-center">
+                                        <p class="text-base font-medium text-center text-gray-800">Su</p>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="days">
+                            <tr>
+                                <td class="pt-6">
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center"></div>
+                                </td>
+                                <td class="pt-6">
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center"></div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center"></div>
+                                </td>
+                                <td class="pt-6">
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">1</p>
+                                    </div>
+                                </td>
+                                <td class="pt-6">
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">2</p>
+                                    </div>
+                                </td>
+                                <td class="pt-6">
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500">3</p>
+                                    </div>
+                                </td>
+                                <td class="pt-6">
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500">4</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">5</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">6</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">7</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">8</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">9</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500">10</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500">11</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">12</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">13</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">14</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">15</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">16</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500">17</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500">18</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">19</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">20</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">21</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">22</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">23</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500">24</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500">25</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">26</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">27</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">28</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">29</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">30</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="md:py-4 py-5 md:px-16 px-5 bg-gray-50 rounded-b-2xl">
+                <div class="px-4">
+                    <header class="pb-5 font-semibold text-2xl">My Schedule</header>
+                    <div class="border-b pb-4 border-gray-400 border-dashed">
+                        <p class="text-xs font-light leading-3 text-gray-500">9:00 AM</p>
+                        <a tabindex="0" class="focus:outline-none text-lg font-medium leading-5 text-gray-800 mt-2">Business Solutions Team Meeting</a>
+                        <p class="text-sm pt-2 leading-4 leading-none text-gray-600">Discussion on latest project</p>
+                    </div>
+                    <div class="border-b pb-4 border-gray-400 border-dashed pt-5">
+                        <p class="text-xs font-light leading-3 text-gray-500">10:00 AM</p>
+                        <a tabindex="0" class="focus:outline-none text-lg font-medium leading-5 text-gray-800 mt-2">Back-end Development for e-Commerce website</a>
+                        <p class="text-sm pt-2 leading-4 leading-none text-gray-600">API setup</p>
+                    </div>
+                    <div class="border-b pb-4 border-gray-400 border-dashed pt-5">
+                        <p class="text-xs font-light leading-3 text-gray-500">11:00 AM</p>
+                        <a tabindex="0" class="focus:outline-none text-lg font-medium leading-5 text-gray-800 mt-2">Front-end Development for e-Commerce website</a>
+                        <p class="text-sm pt-2 leading-4 leading-none text-gray-600">Develop page UI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<script defer>
+    
+    const currentDate = document.querySelector(".current-date"),
+    daysTag = document.querySelector(".days"),
+    prevBtn = document.querySelector(".prevMonth"),
+    nextBtn = document.querySelector(".nextMonth");
+
+    let date = new Date(),
+        currYear = date.getFullYear(),
+        currMonth = date.getMonth();
+
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    const renderCalendar = () => {
+        let firstDay = new Date(currYear, currMonth, 1).getDay(); 
+        firstDay = (firstDay === 0) ? 6 : firstDay - 1; 
+        let lastDate = new Date(currYear, currMonth + 1, 0).getDate();
+
+        let tableTag = "";
+        let dayCount = 1;
+
+        for (let row = 0; row < 6; row++) { 
+            let rowHtml = "<tr>";
+            for (let col = 0; col < 7; col++) { 
+                if (row === 0 && col < firstDay) {
+                    rowHtml += `<td class="pt-6"><div class="px-2 py-2"></div></td>`; 
+                } else if (dayCount <= lastDate) {
+                    rowHtml += `<td class="pt-6">
+                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                        <p class="text-base text-gray-500 font-medium">${dayCount}</p>
+                                    </div>
+                                </td>`;
+                    dayCount++;
+                } else {
+                    rowHtml += `<td class="pt-6"><div class="px-2 py-2"></div></td>`; 
+                }
+            }
+            rowHtml += "</tr>";
+            tableTag += rowHtml;
+        }
+
+        currentDate.innerText = `${months[currMonth]} ${currYear}`;
+        daysTag.innerHTML = tableTag;
+    };
+
+    prevBtn.addEventListener("click", () => {
+        currMonth -= 1;
+        if (currMonth < 0) {
+            currMonth = 11;
+            currYear -= 1;
+        }
+        renderCalendar();
+    });
+
+    nextBtn.addEventListener("click", () => {
+        currMonth += 1;
+        if (currMonth > 11) {
+            currMonth = 0;
+            currYear += 1;
+        }
+        renderCalendar();
+    });
+
+    renderCalendar();
+
+</script>
+
+</body>
+</html>
