@@ -13,7 +13,6 @@
             <div class="welcome flex flex-col max-sm:gap-4 sm:gap-4 lg:gap-8 text-white">
                 <div class="max-sm:text-2xl sm:text-2xl md:text-2xl lg:text-4xl xl:text-5xl">Welcome!</div>
                 <div class="max-sm:text-2xl sm:text-2xl md:text-2xl lg:text-4xl xl:text-5xl font-semibold">Rands Cunanan</div>
-                <div class="max-sm:text-lg sm:text-lg md:text-lg lg:text-xl xl:text-2xl">randscunanan@yahoo.com</div>
                 <button type="button" class="max-sm:text-lg sm:text-lg md:text-lg lg:text-2xl xl:text-2xl font-semibold max-sm:w-48 max-sm:h-12 w-64 h-16 rounded-4xl bg-white text-blue-700 hover:bg-gray-100 hover:text-blue-800 cursor-pointer">Continue</button>
             </div>
             <div class="xl:flex max-sm:w-8 max-sm:h-8 xl:w-64 xl:h-64 rounded-full bg-gray-300 xl:items-center xl:justify-center text-gray-500 max-sm:hidden sm:hidden">
@@ -326,36 +325,45 @@
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     const renderCalendar = () => {
-        let firstDay = new Date(currYear, currMonth, 1).getDay(); 
-        firstDay = (firstDay === 0) ? 6 : firstDay - 1; 
-        let lastDate = new Date(currYear, currMonth + 1, 0).getDate();
+    let firstDay = new Date(currYear, currMonth, 1).getDay(); 
+    firstDay = (firstDay === 0) ? 6 : firstDay - 1; 
+    let lastDate = new Date(currYear, currMonth + 1, 0).getDate();
+    let today = new Date();
+    let isCurrentMonth = today.getFullYear() === currYear && today.getMonth() === currMonth;
+    let currentDay = today.getDate();
 
-        let tableTag = "";
-        let dayCount = 1;
+    let tableTag = "";
+    let dayCount = 1;
 
-        for (let row = 0; row < 6; row++) { 
-            let rowHtml = "<tr>";
-            for (let col = 0; col < 7; col++) { 
-                if (row === 0 && col < firstDay) {
-                    rowHtml += `<td class="pt-6"><div class="px-2 py-2"></div></td>`; 
-                } else if (dayCount <= lastDate) {
-                    rowHtml += `<td class="pt-6">
-                                    <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
-                                        <p class="text-base text-gray-500 font-medium">${dayCount}</p>
+    for (let row = 0; row < 6; row++) { 
+        let rowHtml = "<tr>";
+        for (let col = 0; col < 7; col++) { 
+            if (row === 0 && col < firstDay) {
+                rowHtml += `<td class="pt-6"><div class="px-2 py-2"></div></td>`; 
+            } else if (dayCount <= lastDate) {
+                let isToday = isCurrentMonth && dayCount === currentDay;
+                rowHtml += `<td class="pt-6">
+                                <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                    <div class="w-8 h-8 flex items-center justify-center rounded-full ${isToday ? 'bg-blue-500 text-white' : 'text-gray-500'}">
+                                        <p class="text-base font-medium">${dayCount}</p>
                                     </div>
-                                </td>`;
-                    dayCount++;
-                } else {
-                    rowHtml += `<td class="pt-6"><div class="px-2 py-2"></div></td>`; 
-                }
+                                </div>
+                            </td>`;
+                dayCount++;
+            } else {
+                rowHtml += `<td class="pt-6"><div class="px-2 py-2"></div></td>`; 
             }
-            rowHtml += "</tr>";
-            tableTag += rowHtml;
         }
+        rowHtml += "</tr>";
+        tableTag += rowHtml;
+    }
 
         currentDate.innerText = `${months[currMonth]} ${currYear}`;
         daysTag.innerHTML = tableTag;
     };
+
+
+
 
     prevBtn.addEventListener("click", () => {
         currMonth -= 1;
