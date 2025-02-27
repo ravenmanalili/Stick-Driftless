@@ -49,8 +49,23 @@
       <a href="#category" class="flex justify-center p-6 m-4 text-2xl font-extrabold text-white transition duration-500 transform rounded-lg cursor-pointer w-xs max-sm:w-64 h-fit bg-gradient-to-r from-blue-700 to-blue-500 hover:scale-110">Shop Now</a>
     </div>
 
-    <div class="flex flex-col">
-      <img src="images/frontpageroller.png" class="h-full p-6 m-4 transition duration-500 transform cursor-pointer w-3xl hover:scale-110">
+    <div class="relative w-full max-w-3xl overflow-hidden">
+      <div class="flex transition-transform duration-500 ease-in-out" id="carousel">
+          <div class="flex-shrink-0 w-full">
+              <img src="images/frontpageroller1.png" class="h-full p-6 m-4 transition duration-500 transform cursor-pointer w-3xl hover:scale-110">
+          </div>
+          <div class="flex-shrink-0 w-full">
+              <img src="images/frontpageroller2.png" class="h-full p-6 m-4 transition duration-500 transform cursor-pointer w-3xl hover:scale-110">
+          </div>
+          <div class="flex-shrink-0 w-full">
+              <img src="images/frontpageroller3.png" class="h-full p-6 m-4 transition duration-500 transform cursor-pointer w-3xl hover:scale-110">
+          </div>
+      </div>
+      <div id="dots" class="absolute flex space-x-2 transform -translate-x-1/2 bottom-2 left-1/2">
+          <span class="w-4 h-4 bg-gray-300 rounded-full cursor-pointer" onclick="goToSlide(0)"></span>
+          <span class="w-4 h-4 bg-gray-300 rounded-full cursor-pointer" onclick="goToSlide(1)"></span>
+          <span class="w-4 h-4 bg-gray-300 rounded-full cursor-pointer" onclick="goToSlide(2)"></span>
+      </div>
     </div>
   </section>
 
@@ -84,7 +99,6 @@
         </a>
         <p class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Retro</p>
       </div>
-      
     </div>
   </section>
 
@@ -231,10 +245,32 @@
         about.style.display = "flex";
       }
     }
-    
+
+    let index = 0;
+    const slides = document.querySelectorAll("#carousel img");
+    const dots = document.querySelectorAll("#dots span");
+    const totalSlides = slides.length;
+
+    function showSlide(i) {
+        document.getElementById("carousel").style.transform = `translateX(-${i * 100}%)`;
+        dots.forEach(dot => dot.classList.remove("bg-gray-800"));
+        dots[i].classList.add("bg-gray-800");
+    }
+
+    function goToSlide(i) {
+        index = i;
+        showSlide(index);
+    }
+
+    function autoSlide() {
+        index = (index + 1) % totalSlides;
+        showSlide(index);
+        setTimeout(autoSlide, 3000);
+    }
+
+    setTimeout(autoSlide, 3000);
+    showSlide(index);
   </script>
-
 </body>
-
 </html>
 
