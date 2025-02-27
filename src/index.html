@@ -13,9 +13,9 @@
     }
   </style>
 </head>
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden dark:bg-gray-950 dark:text-gray-100">
 
-  <nav id="topNavbar" class="fixed z-50 flex justify-between w-full gap-56 bg-gradient-to-r from-blue-500 to-blue-300 h-fit">
+  <nav id="topNavbar" class="fixed z-50 flex justify-between w-full gap-56 bg-gradient-to-r from-blue-500 to-blue-300 dark:bg-gradient-to-r dark:from-blue-950 dark:to-blue-900 h-fit">
     <header class="flex m-auto mx-6 text-3xl font-extrabold cursor-pointer xl:mx-auto max-sm:text-sm max-md:text-md">Stick-Driftless</header>
     <section id="burgerMenu" class="flex items-center mx-6 xl:hidden">
       <button class="m-4 text-lg font-semibold cursor-pointer hover:text-gray-700" onClick="toggleDropDown()">☰</button>
@@ -31,8 +31,8 @@
     </section>
   </nav>
 
-  <section id="dropDown" class="fixed z-50 hidden w-screen transition-all duration-500 top-14 bg-gradient-to-r from-blue-300 to-blue-100">
-    <p class="float-right m-4 text-lg font-semibold cursor-pointer" onClick="closeDropDown()">X</p>
+  <section id="dropDown" class="fixed z-50 hidden w-screen transition-all duration-500 top-14 bg-gradient-to-r from-blue-300 to-blue-100 dark:bg-gradient-to-r dark:from-blue-950 dark:to-blue-900">
+    <p class="float-right m-4 text-lg font-semibold cursor-pointer hover:text-gray-700" onClick="closeDropDown()">X</p>
     <div class="flex flex-col items-center justify-center pt-8">
       <a href="#" class="m-4 text-lg font-semibold hover:underline">Search</a>
       <a href="#" class="m-4 text-lg font-semibold hover:underline">Home</a>
@@ -42,78 +42,92 @@
     </div>
   </section>
 
-  <section id="welcome" class="flex flex-row items-center justify-center max-xl:flex-col">
+  <section id="welcomeFrontpage" class="flex flex-row items-center justify-center max-xl:flex-col">
     <div class="flex flex-col max-xl:justify-center max-xl:items-center max-xl:pt-32 max-xl:text-center">
       <h1 class="max-w-md m-4 text-6xl font-bold">Find the controller that suits your playstyle</h1>
       <p class="max-w-sm m-4 text-3xl">Controllers that will help you win your next ranked match</p>
-      <a href="#category" class="flex justify-center p-6 m-4 text-2xl font-extrabold text-white transition duration-500 transform rounded-lg cursor-pointer w-xs max-sm:w-64 h-fit bg-gradient-to-r from-blue-700 to-blue-500 hover:scale-110">Shop Now</a>
+      <a href="#category" class="flex justify-center p-6 m-4 text-2xl font-extrabold text-gray-100 transition duration-500 transform rounded-lg cursor-pointer w-xs max-sm:w-64 h-fit bg-gradient-to-r from-blue-700 to-blue-500 dark:bg-gradient-to-r dark:from-blue-950 dark:to-blue-900 hover:scale-110">Shop Now</a>
     </div>
 
-    <div class="flex flex-col">
-      <img src="images/frontpageroller.png" class="h-full p-6 m-4 transition duration-500 transform cursor-pointer w-3xl hover:scale-110">
+    <div class="relative w-full max-w-3xl overflow-hidden">
+      <div class="flex transition-transform duration-500 ease-in-out" id="carousel">
+          <div class="flex-shrink-0 w-full">
+              <img src="images/frontpageroller1.png" class="h-full p-6 m-4 transition duration-500 transform cursor-pointer w-3xl hover:scale-110">
+          </div>
+          <div class="flex-shrink-0 w-full">
+              <img src="images/frontpageroller2.png" class="h-full p-6 m-4 transition duration-500 transform cursor-pointer w-3xl hover:scale-110">
+          </div>
+          <div class="flex-shrink-0 w-full">
+              <img src="images/frontpageroller3.png" class="h-full p-6 m-4 transition duration-500 transform cursor-pointer w-3xl hover:scale-110">
+          </div>
+      </div>
+      <div id="dots" class="absolute flex space-x-2 transform -translate-x-1/2 bottom-2 left-1/2">
+          <span class="w-4 h-4 bg-gray-300 rounded-full cursor-pointer" onclick="goToSlide(0)"></span>
+          <span class="w-4 h-4 bg-gray-300 rounded-full cursor-pointer" onclick="goToSlide(1)"></span>
+          <span class="w-4 h-4 bg-gray-300 rounded-full cursor-pointer" onclick="goToSlide(2)"></span>
+      </div>
     </div>
   </section>
 
-  <section id="category" class="flex flex-col items-center justify-center pt-18">
+  <section id="categoryOfControllers" class="flex flex-col items-center justify-center pt-18">
     <h1 class="p-8 text-4xl font-semibold">Categories</h1>
     <div class="grid grid-cols-4 gap-x-8 max-xl:grid-cols-2 max-md:grid-cols-1">
       <div class="flex flex-col items-center justify-center">
-        <a href="#" class="transition duration-500 transform border border-black rounded-lg hover:scale-110">
+        <a href="#" class="transition duration-500 transform border border-black dark:border-gray-100 rounded-lg hover:scale-110">
           <img src="images/playstation.png" class="h-full m-1 w-sm">
         </a>
         <p class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">PlayStation</p>
       </div>
 
       <div class="flex flex-col items-center justify-center">
-        <a href="#" class="transition duration-500 transform border border-black rounded-lg hover:scale-110">
+        <a href="#" class="transition duration-500 transform border border-black dark:border-gray-100 rounded-lg hover:scale-110">
           <img src="images/xbox.png" class="h-full m-1 w-sm">
         </a>
         <p class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Xbox</p>
       </div>
 
       <div class="flex flex-col items-center justify-center">
-        <a href="#" class="transition duration-500 transform border border-black rounded-lg hover:scale-110">
+        <a href="#" class="transition duration-500 transform border border-black dark:border-gray-100 rounded-lg hover:scale-110">
           <img src="images/nintendo.png" class="h-full m-1 w-sm">
         </a>
         <p class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Switch</p>
       </div>
 
       <div class="flex flex-col items-center justify-center">
-        <a href="#" class="transition duration-500 transform border border-black rounded-lg hover:scale-110">
+        <a href="#" class="transition duration-500 transform border border-black dark:border-gray-100 rounded-lg hover:scale-110">
           <img src="images/classic.png" class="h-full m-1 w-sm">
         </a>
         <p class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Retro</p>
       </div>
-      
     </div>
   </section>
 
-  <section id="featured" class="flex flex-col items-center justify-center pt-18">
+  <section id="featuredControllers" class="flex flex-col items-center justify-center pt-18">
     <h1 class="max-w-3xl p-8 text-4xl font-semibold text-center">Aim with precision, dominate the competition</h1>
 
     <div class="grid grid-cols-4 gap-x-8 max-xl:grid-cols-2 max-md:grid-cols-1">
       <div class="flex flex-col max-w-sm m-4 max-sm:justify-center max-sm:items-center max-md:justify-center max-md:items-center max-sm:text-center max-md:text-center">
         <h2 class="m-4 text-3xl font-semibold">Featured</h2>
         <p class="m-4 text-xl">Our controllers are 100% legit. They are not macros nor cheating devices. However, do be cautious whether or not competitive rules allow use of our controllers during participated tournament.</p>
-        <a href="#" class="flex justify-center p-6 m-4 text-2xl font-extrabold text-white transition duration-500 transform rounded-lg cursor-pointer w-xs max-sm:w-64 h-fit bg-gradient-to-r from-blue-700 to-blue-500 hover:scale-110">Shop all Favourites</a>
+        <a href="#" class="flex justify-center p-6 m-4 text-2xl font-extrabold text-gray-100 transition duration-500 transform rounded-lg cursor-pointer w-xs max-sm:w-64 h-fit bg-gradient-to-r from-blue-700 to-blue-500 hover:scale-110 dark:bg-gradient-to-r dark:from-blue-950 dark:to-blue-900">Shop all Favourites</a>
       </div>
 
       <div class="flex flex-col items-center justify-center">
-        <a href="#" class="transition duration-500 transform border border-black rounded-lg hover:scale-110">
+        <a href="#" class="transition duration-500 transform border border-black dark:border-gray-100 rounded-lg hover:scale-110">
           <img src="images/scuf-reflex-pro.png" class="h-full m-1 w-sm">
         </a>
         <p class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Scuf Reflex Pro</p>
       </div>
 
       <div class="flex flex-col items-center justify-center">
-        <a href="#" class="transition duration-500 transform border border-black rounded-lg hover:scale-110">
+        <a href="#" class="transition duration-500 transform border border-black dark:border-gray-100 rounded-lg hover:scale-110">
           <img src="images/razer-wolverine-v2-pro.png" class="h-full m-1 w-sm">
         </a>
         <p class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Razer Wolverine</p>
       </div>
 
       <div class="flex flex-col items-center justify-center">
-        <a href="#" class="transition duration-500 transform border border-black rounded-lg hover:scale-110">
+        <a href="#" class="transition duration-500 transform border border-black dark:border-gray-100 rounded-lg hover:scale-110">
           <img src="images/victrix-pro-bfg.png" class="h-full m-1 w-sm">
         </a>
         <p class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Victrix Pro BFG</p>
@@ -130,19 +144,19 @@
         <p class="m-4 text-xl">Set the theme of your controller to your liking. Add additional buttons or paddles for a superb gameplay experience.</p>
       </div>
       <div class="flex flex-col items-center justify-center pb-12">
-        <a href="#" class="transition duration-500 transform border border-black rounded-lg hover:scale-110">
-          <img src="https://icongr.am/entypo/game-controller.svg?size=128&color=0091ff" class="h-full p-6 m-1 w-sm">
+        <a href="#" class="transition duration-500 transform border border-black dark:border-gray-100 rounded-lg hover:scale-110">
+          <img src="https://icongr.am/entypo/game-controller.svg?size=128&color=1e00aa" class="h-full p-6 m-1 w-sm">
         </a>
         <p class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Customize your controller</p>
       </div>
     </div>
   </section>
 
-  <section class="flex flex-row justify-center w-screen pb-32 max-xl:pt-8 max-xl:flex-col max-xl:items-center max-xl:gap-4 h-fit gap-72 max-xl:bg-gradient-to-r max-xl:from-blue-500 max-xl:to-blue-300">
+  <section class="flex flex-row justify-center w-screen pb-32 max-xl:pt-8 max-xl:flex-col max-xl:items-center max-xl:gap-4 h-fit gap-72 max-xl:bg-gradient-to-r max-xl:from-blue-500 max-xl:to-blue-300 max-xl:dark:bg-gradient-to-r max-xl:dark:from-blue-950 max-xl:dark:to-blue-900">
     <header class="flex text-3xl font-extrabold cursor-pointer max-xl:hidden">Stick-Driftless</header>
     <div class="flex flex-col">
       <p class="mb-4 text-lg text-gray-400 max-xl:hidden">Connect</p>
-      <button class="mb-4 text-lg text-gray-400 max-xl:font-semibold max-xl:text-white max-xl:cursor-pointer xl:hidden hover:underline" onClick="toggleConnectContent()">Connect</button>
+      <button class="mb-4 text-lg text-gray-400 max-xl:font-semibold max-xl:text-gray-100 max-xl:cursor-pointer xl:hidden hover:underline" onClick="toggleConnectContent()">Connect</button>
       <div id="socials" class="flex flex-col max-xl:hidden xl:hidden">
         <a href="#" class="text-lg max-xl:pr-6">Instagram</a>
         <a href="#" class="text-lg max-xl:pr-6">Tiktok</a>
@@ -159,7 +173,7 @@
 
     <div class="flex flex-col">
       <p class="mb-4 text-lg text-gray-400 max-xl:hidden">Resources</p>
-      <button class="mb-4 text-lg text-gray-400 max-xl:font-semibold max-xl:text-white max-xl:cursor-pointer xl:hidden hover:underline" onClick="toggleResourcesContent()">Resources</button>
+      <button class="mb-4 text-lg text-gray-400 max-xl:font-semibold max-xl:text-gray-100 max-xl:cursor-pointer xl:hidden hover:underline" onClick="toggleResourcesContent()">Resources</button>
       <div id="resources" class="flex flex-col max-xl:hidden xl:hidden">
         <a href="#" class="text-lg max-xl:pr-6">Return Policy</a>
         <a href="#" class="text-lg max-xl:pr-6">Track an Order</a>
@@ -176,7 +190,7 @@
 
     <div class="flex flex-col">
       <p class="mb-4 text-lg text-gray-400 max-xl:hidden">About</p>
-      <button class="mb-4 text-lg text-gray-400 max-xl:font-semibold max-xl:text-white max-xl:cursor-pointer xl:hidden hover:underline" onClick="toggleAboutContent()">About</button>
+      <button class="mb-4 text-lg text-gray-400 max-xl:font-semibold max-xl:text-gray-100 max-xl:cursor-pointer xl:hidden hover:underline" onClick="toggleAboutContent()">About</button>
       <div id="about" class="flex flex-col max-xl:hidden xl:hidden">
         <a href="#" class="text-lg max-xl:pr-6">Our Story</a>
         <a href="#" class="text-lg max-xl:pr-6">Staff</a>
@@ -188,7 +202,7 @@
     </div>
   </section>
 
-  <footer class="flex justify-center text-gray-400 pb-14 max-xl:bg-gradient-to-r max-xl:from-blue-500 max-xl:to-blue-300 max-xl:text-white">©Stick-Driftless 2025</footer>
+  <footer class="flex justify-center text-gray-400 pb-14 max-xl:bg-gradient-to-r max-xl:from-blue-500 max-xl:to-blue-300 max-xl:dark:bg-gradient-to-r max-xl:dark:from-blue-950 max-xl:dark:to-blue-900 max-xl:text-gray-100">©Stick-Driftless 2025</footer>
 
   <script>
     function toggleDropDown() {
@@ -231,10 +245,34 @@
         about.style.display = "flex";
       }
     }
-    
+
+    let index = 0;
+    const slides = document.querySelectorAll("#carousel img");
+    const dots = document.querySelectorAll("#dots span");
+    const totalSlides = slides.length;
+
+    function showSlide(i) {
+        document.getElementById("carousel").style.transform = `translateX(-${i * 100}%)`;
+        dots.forEach(dot => dot.classList.remove("bg-gray-800"));
+        dots.forEach(dot => dot.classList.remove("dark:bg-blue-900"));
+        dots[i].classList.add("bg-gray-800");
+        dots[i].classList.add("dark:bg-blue-900");
+    }
+
+    function goToSlide(i) {
+        index = i;
+        showSlide(index);
+    }
+
+    function autoSlide() {
+        index = (index + 1) % totalSlides;
+        showSlide(index);
+        setTimeout(autoSlide, 4000);
+    }
+
+    setTimeout(autoSlide, 4000);
+    showSlide(index);
   </script>
-
 </body>
-
 </html>
 
