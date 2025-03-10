@@ -17,12 +17,12 @@
 
   <nav id="topNavbar" class="fixed z-50 h-fit w-full bg-gradient-to-r from-blue-500 to-blue-300 dark:bg-gradient-to-r dark:from-blue-950 dark:to-blue-900">
     <section class="flex justify-between">
-      <header class="max-md:text-md m-auto mx-6 flex cursor-pointer text-3xl font-extrabold max-sm:text-2xl xl:mx-auto">Stick-Driftless</header>
+      <a href="index.html" class="max-md:text-md m-auto mx-6 flex cursor-pointer text-3xl font-extrabold max-sm:text-2xl xl:mx-auto">Stick-Driftless</a>
       <section id="burgerButton" class="mx-6 flex items-center xl:hidden">
         <button class="m-4 cursor-pointer text-lg font-semibold hover:text-gray-700" onClick="toggleBurgerMenu()">☰</button>
       </section>
       <section id="searchInputField" class="max-xl:hidden">
-        <form class="relative flex items-center max-xl:flex-col">
+        <form action="results.html" method="GET" class="relative flex items-center max-xl:flex-col">
           <input type="text" class="w-3xl m-4 rounded-lg border border-gray-300 p-3 px-20 text-lg font-semibold" placeholder="Looking for something?">
           <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center px-12">
             <img src="https://icongr.am/entypo/magnifying-glass.svg?size=20&color=f3f4f6" class="dark:block">
@@ -30,14 +30,14 @@
         </form>
       </section>
       <section id="rightHeader" class="mx-6 flex items-center max-xl:hidden xl:mx-auto"> 
-        <div class="m-4 cursor-pointer text-lg font-semibold hover:underline">Cart (0)</div>
-        <a href="" class="m-4 cursor-pointer text-lg font-semibold hover:underline">Sign Up</a>
+        <a href="cart.html" class="m-4 cursor-pointer text-lg font-semibold hover:underline">Cart</a>
+        <a href="registration.html" class="m-4 cursor-pointer text-lg font-semibold hover:underline">Sign Up</a>
       </section>
     </section>
     <section id="menu" class="mx-6 flex items-center justify-center max-xl:hidden xl:mx-auto">
       <a href="index.html" class="m-2 mx-4 mb-4 text-lg font-semibold hover:underline">Home</a>
       <a href="catalogue.html" class="m-2 mx-4 mb-4 text-lg font-semibold hover:underline">Catalogue</a>
-      <a href="#" class="m-2 mx-4 mb-4 text-lg font-semibold hover:underline">Community</a>
+      <a href="customize.html" class="m-2 mx-4 mb-4 text-lg font-semibold hover:underline">Customization</a>
     </section>
   </nav>
 
@@ -58,9 +58,9 @@
       </form>
       <a href="index.html" class="m-4 text-lg font-semibold hover:underline">Home</a>
       <a href="catalogue.html" class="m-4 text-lg font-semibold hover:underline">Catalogue</a>
-      <a href="#" class="m-4 text-lg font-semibold hover:underline">Community</a>
-      <a href="" class="m-4 text-lg font-semibold hover:underline">Sign Up</a>
-      <a href="" class="m-4 text-lg font-semibold hover:underline">Cart</a>
+      <a href="customize.html" class="m-4 text-lg font-semibold hover:underline">Customization</a>
+      <a href="registration.html" class="m-4 text-lg font-semibold hover:underline">Sign Up</a>
+      <a href="cart.html" class="m-4 text-lg font-semibold hover:underline">Cart</a>
     </div>
   </section>
 
@@ -91,7 +91,7 @@
     </div>
   </section>
 
-  <section id="controllerCategory" class="flex flex-col items-center justify-center pt-8">
+  <section id="controllerCategory" class="flex flex-col items-center justify-center max-xl:pt-16 xl:pt-36">
     <h1 class="p-8 text-4xl font-semibold">Categories</h1>
     <div class="grid grid-cols-4 gap-x-8 max-xl:grid-cols-1 max-xl:gap-x-4 max-md:grid-cols-1">
       <div class="flex flex-col items-center justify-center">
@@ -165,15 +165,15 @@
         <p class="m-4 text-xl">Set the theme of your controller to your liking. Add additional buttons or paddles for a superb gameplay experience.</p>
       </div>
       <div class="flex flex-col items-center justify-center pb-12">
-        <a href="#" class="transform rounded-lg border border-black transition duration-500 hover:scale-110 dark:border-gray-100">
+        <a href="customize.html" class="transform rounded-lg border border-black transition duration-500 hover:scale-110 dark:border-gray-100">
           <img src="https://icongr.am/entypo/game-controller.svg?size=128&color=1e00aa" class="w-sm max-xl:w-xs m-1 h-full p-6">
         </a>
-        <p class="m-4 cursor-pointer p-6 text-2xl font-semibold hover:underline">Customize your controller</p>
+        <a href="customize.html" class="m-4 cursor-pointer p-6 text-2xl font-semibold hover:underline">Customize your controller</a>
       </div>
     </div>
   </section>
 
-  <section class="flex h-fit w-screen flex-row justify-center gap-72 pb-32 max-xl:flex-col max-xl:items-center max-xl:gap-4 max-xl:bg-gradient-to-r max-xl:from-blue-500 max-xl:to-blue-300 max-xl:pt-8 max-xl:dark:bg-gradient-to-r max-xl:dark:from-blue-950 max-xl:dark:to-blue-900">
+  <section class="flex h-fit w-screen flex-row justify-center gap-72 pb-32 pt-12 max-xl:flex-col max-xl:items-center max-xl:gap-4 max-xl:bg-gradient-to-r max-xl:from-blue-500 max-xl:to-blue-300 max-xl:pt-8 max-xl:dark:bg-gradient-to-r max-xl:dark:from-blue-950 max-xl:dark:to-blue-900 xl:dark:bg-gradient-to-r xl:dark:from-blue-950 xl:dark:to-blue-900">
     <header class="flex cursor-pointer text-3xl font-extrabold max-xl:hidden">Stick-Driftless</header>
     <div class="flex flex-col">
       <p class="mb-4 text-lg text-gray-400 max-xl:hidden">Connect</p>
@@ -223,7 +223,7 @@
     </div>
   </section>
 
-  <footer class="flex justify-center pb-14 text-gray-400 max-xl:bg-gradient-to-r max-xl:from-blue-500 max-xl:to-blue-300 max-xl:text-gray-100 max-xl:dark:bg-gradient-to-r max-xl:dark:from-blue-950 max-xl:dark:to-blue-900">©Stick-Driftless 2025</footer>
+  <footer class="flex justify-center pb-14 text-gray-400 dark:bg-gradient-to-r dark:from-blue-950 dark:to-blue-900 max-xl:bg-gradient-to-r max-xl:from-blue-500 max-xl:to-blue-300 max-xl:text-gray-100">©Stick-Driftless 2025</footer>
 
   <script>
     function toggleBurgerMenu() {
