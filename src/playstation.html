@@ -64,40 +64,51 @@
     </div>
   </section>
 
+  <section id="customizePlaystation">
+    <header class="flex items-center justify-center pt-40 text-4xl font-semibold">Customize your gamepad</header>
+    <div class="flex justify-center">
+        <div class="h-full pt-20 ">
+            <img src="images/CustomControllerDefault.png" class="w-2xl">
+        </div>
 
-  <section id="controllerCategory" class="flex flex-col items-center justify-center max-xl:pt-16 xl:pt-36">
-    <h1 class="p-8 text-4xl font-semibold">Select a Category</h1>
-    <div class="grid grid-cols-4 gap-x-8 max-xl:grid-cols-1 max-xl:gap-x-4 max-md:grid-cols-1">
-      <div class="flex flex-col items-center justify-center">
-        <a href="playstation.html" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
-          <img src="images/playstation.png" class="h-full m-1 w-sm max-xl:w-xs">
-        </a>
-        <a href="playstation.html" class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">PlayStation</a>
-      </div>
+        <div class="flex flex-col pt-20 designSelection">
+            <form class="flex flex-col">
+                <label for="theme">Color/Theme:</label>
+                <select name="theme" id="theme" class="p-2 text-xl dark:bg-gray-800">
+                    <option value="Red">Red</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Diamond">Diamond</option>
+                    <option value="Damascus">Damascus</option>
+                </select>
 
-      <div class="flex flex-col items-center justify-center">
-        <a href="#" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
-          <img src="images/xbox.png" class="h-full m-1 w-sm max-xl:w-xs">
-        </a>
-        <p class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Xbox</p>
-      </div>
+                <label for="backButtons">Back Buttons:</label>
+                <select name="backButtons" id="backButtons" class="p-2 text-xl dark:bg-gray-800">
+                    <option value="BackButtons">Back Buttons</option>
+                    <option value="BackPaddles">Back Paddles</option>
+                    <option value="None">None</option>
+                </select>
 
-      <div class="flex flex-col items-center justify-center">
-        <a href="#" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
-          <img src="images/nintendo.png" class="h-full m-1 w-sm max-xl:w-xs">
-        </a>
-        <p class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Switch</p>
-      </div>
+                <label for="triggers">Triggers:</label>
+                <select name="triggers" id="triggers" class="p-2 text-xl dark:bg-gray-800">
+                    <option value="Mouse Click Triggers">Mouse Click Triggers</option>
+                    <option value="Regular Triggers">Regular Triggers</option>
+                </select>
 
-      <div class="flex flex-col items-center justify-center">
-        <a href="#" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
-          <img src="images/classic.png" class="h-full m-1 w-sm max-xl:w-xs">
-        </a>
-        <p class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Retro</p>
-      </div>
+                <label for="thumbGrip">Thumb Grip:</label>
+                <select name="thumbGrip" id="thumbGrip" class="p-2 text-xl dark:bg-gray-800">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+
+                <div class="flex flex-row gap-3 pt-4 submitButtons">
+                    <button type="submit" class="p-2 font-semibold bg-blue-700 rounded-lg">Create and Save to Collection</button>
+                    <button type="submit" class="p-2 font-semibold bg-blue-700 rounded-lg">Create and Place Order</button>
+                </div>
+            </form>
+        </div>
     </div>
   </section>
-
+    
   <script>
     function toggleBurgerMenu() {
       var dropDown = document.getElementById("burgerMenu");
