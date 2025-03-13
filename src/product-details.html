@@ -14,7 +14,6 @@
   </style>
 </head>
 <body class="overflow-x-hidden dark:bg-gray-950 dark:text-gray-100">
-
   <nav id="topNavbar" class="fixed z-50 w-full h-fit bg-gradient-to-r from-blue-500 to-blue-300 dark:bg-gradient-to-r dark:from-blue-950 dark:to-blue-900">
     <section class="flex justify-between">
       <a href="index.html" class="flex m-auto mx-6 text-3xl font-extrabold cursor-pointer max-md:text-md max-sm:text-2xl xl:mx-auto">Stick-Driftless</a>
@@ -82,8 +81,6 @@
         </div>
     </div>
   </section>
-
-
 
   <!-- <section class="flex flex-row justify-center w-screen pt-12 pb-32 h-fit gap-72 max-xl:flex-col max-xl:items-center max-xl:gap-4 max-xl:bg-gradient-to-r max-xl:from-blue-500 max-xl:to-blue-300 max-xl:pt-8 max-xl:dark:bg-gradient-to-r max-xl:dark:from-blue-950 max-xl:dark:to-blue-900 xl:dark:bg-gradient-to-r xl:dark:from-blue-950 xl:dark:to-blue-900">
     <header class="flex text-3xl font-extrabold cursor-pointer max-xl:hidden">Stick-Driftless</header>
@@ -196,7 +193,6 @@
         index = i;
         showSlide(index);
         
-        // Reset the timer
         clearTimeout(timeoutId);
         timeoutId = setTimeout(autoSlide, 4000);
     }
@@ -208,7 +204,6 @@
         timeoutId = setTimeout(autoSlide, 4000);
     }
 
-    // Start the first auto-slide
     timeoutId = setTimeout(autoSlide, 4000);
     showSlide(index);
   </script>
