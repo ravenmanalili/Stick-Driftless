@@ -8,10 +8,10 @@
     <title>StaffBanana</title>
 </head>
 <body class="">
-    <section class="mx-auto flex flex-col gap-3 p-1 max-md:mx-0 max-sm:-mx-6 xl:flex-row">
-        <div class="flex w-full flex-col gap-1">
+    <section class="flex flex-col gap-3 p-1 mx-auto max-md:mx-0 max-sm:-mx-6 xl:flex-row">
+        <div class="flex flex-col w-full gap-1">
             <div class="welcomeContainer flex h-full w-full rounded-2xl bg-[#1B76B5] p-12 max-xl:items-center max-xl:justify-center xl:items-center xl:justify-between">
-                <div class="welcome flex flex-col text-white max-sm:gap-4 sm:gap-4 lg:gap-4">
+                <div class="flex flex-col text-white welcome max-sm:gap-4 sm:gap-4 lg:gap-4">
                     <div class="max-w-2xl font-semibold max-sm:text-2xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-5xl">
                         Welcome to StaffBanana!
                     </div>
@@ -21,61 +21,61 @@
                     <div class="max-w-xl max-sm:text-sm sm:text-sm md:text-sm lg:text-xl xl:text-2xl">
                         Your all-in-one solution for managing your team and streamlining workflows with our intuitive platform.
                     </div>
-                    <button type="button" onclick="" class="h-16 w-64 cursor-pointer rounded bg-white font-semibold text-blue-700 transition duration-500 hover:scale-110 max-sm:h-12 max-sm:w-48 max-sm:text-lg sm:text-lg md:text-lg lg:text-2xl xl:text-2xl">
+                    <button type="button" onclick="" class="w-64 h-16 font-semibold text-blue-700 transition duration-500 bg-white rounded cursor-pointer hover:scale-110 max-sm:h-12 max-sm:w-48 max-sm:text-lg sm:text-lg md:text-lg lg:text-2xl xl:text-2xl">
                     Continue
                     </button>
                 </div>
             </div>
     
-            <div class="governmentDetails mx-auto mt-2 flex w-full max-xl:items-center max-xl:justify-center xl:items-center xl:justify-between">
-                <table class="w-full overflow-hidden rounded-2xl border border-gray-300">
+            <div class="flex w-full mx-auto mt-2 governmentDetails max-xl:items-center max-xl:justify-center xl:items-center xl:justify-between">
+                <table class="w-full overflow-hidden border border-gray-300 rounded-2xl">
                     <thead>
                         <tr>
                             <th colspan="2" class="rounded-t-2xl border border-gray-900 bg-[#1B76B5] px-3 py-2 text-lg text-white">Government Details</th>
                         </tr>
                     </thead>
-                    <tbody class="rounded-b-2xl border border-gray-900 bg-white">
+                    <tbody class="bg-white border border-gray-900 rounded-b-2xl">
                         <tr class="border-b border-gray-300">
-                            <td class="border-r border-gray-300 px-4 py-2 font-semibold">Employee Number</td>
+                            <td class="px-4 py-2 font-semibold border-r border-gray-300">Employee Number</td>
                             <td class="px-4 py-2">Placeholder</td>
                         </tr>
                         <tr class="border-b border-gray-300">
-                            <td class="border-r border-gray-300 px-4 py-2 font-semibold">SSS</td>
+                            <td class="px-4 py-2 font-semibold border-r border-gray-300">SSS</td>
                             <td class="px-4 py-2">Placeholder</td>
                         </tr>
                         <tr class="border-b border-gray-300">
-                            <td class="border-r border-gray-300 px-4 py-2 font-semibold">PHILHEALTH</td>
+                            <td class="px-4 py-2 font-semibold border-r border-gray-300">PHILHEALTH</td>
                             <td class="px-4 py-2">Placeholder</td>
                         </tr>
                         <tr class="border-b border-gray-300">
-                            <td class="border-r border-gray-300 px-4 py-2 font-semibold">HDMF</td>
+                            <td class="px-4 py-2 font-semibold border-r border-gray-300">HDMF</td>
                             <td class="px-4 py-2">Placeholder</td>
                         </tr>
                         <tr class="border-b border-gray-300">
-                            <td class="border-r border-gray-300 px-4 py-2 font-semibold">TIN</td>
+                            <td class="px-4 py-2 font-semibold border-r border-gray-300">TIN</td>
                             <td class="px-4 py-2">Placeholder</td>
                         </tr>
                         <tr>
-                            <td class="rounded-bl-2xl border-r border-gray-300 px-4 py-2 font-semibold">HMO</td>
-                            <td class="rounded-br-2xl px-4 py-2">Placeholder</td>
+                            <td class="px-4 py-2 font-semibold border-r border-gray-300 rounded-bl-2xl">HMO</td>
+                            <td class="px-4 py-2 rounded-br-2xl">Placeholder</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     
-        <div class="calendar w-full xl:max-w-xl">
+        <div class="w-full calendar xl:max-w-xl">
             <div class="min-h-[700px] rounded-2xl border border-gray-800 bg-white p-5">
                 <div class="flex items-center justify-between px-4">
-                    <span tabindex="0" class="current-date text-2xl font-bold text-gray-800 focus:outline-none"></span>
+                    <span tabindex="0" class="text-2xl font-bold text-gray-800 current-date focus:outline-none"></span>
                     <div class="flex items-center">
-                        <button aria-label="calendar backward" class="prevMonth cursor-pointer text-gray-800 hover:text-gray-400">
+                        <button aria-label="calendar backward" class="text-gray-800 cursor-pointer prevMonth hover:text-gray-400">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <polyline points="15 6 9 12 15 18" />
                         </svg>
                     </button>
-                    <button aria-label="calendar forward" class="nextMonth ml-3 cursor-pointer text-gray-800 hover:text-gray-400"> 
+                    <button aria-label="calendar forward" class="ml-3 text-gray-800 cursor-pointer nextMonth hover:text-gray-400"> 
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <polyline points="9 6 15 12 9 18" />
@@ -84,7 +84,7 @@
                     </div>
                 </div>
     
-                <div class="flex items-center justify-between overflow-x-auto pt-12">
+                <div class="flex items-center justify-between pt-12 overflow-x-auto">
                     <table class="w-full">
                         <thead>
                             <tr class="weekdays">
@@ -122,9 +122,9 @@
             let rowHtml = "<tr>";
             for (let col = 0; col < 7; col++) { 
                 rowHtml += (row === 0 && col < firstDay) || dayCount > lastDate 
-                    ? `<td class="border-b border-l border-r border-gray-300 pt-6"><div class="h-8 w-8 max-sm:mb-4 max-sm:px-0 sm:mb-4 sm:px-0 md:mb-4 md:px-2"></div></td>`
-                    : `<td class="border-b border-l border-r border-gray-300 pt-6">
-                            <div class="flex w-full items-center justify-center max-sm:mb-4 max-sm:px-0 sm:mb-4 sm:px-0 md:mb-4 md:px-2">
+                    ? `<td class="pt-6 border-b border-l border-r border-gray-300"><div class="w-8 h-8 max-sm:mb-4 max-sm:px-0 sm:mb-4 sm:px-0 md:mb-4 md:px-2"></div></td>`
+                    : `<td class="pt-6 border-b border-l border-r border-gray-300">
+                            <div class="flex items-center justify-center w-full max-sm:mb-4 max-sm:px-0 sm:mb-4 sm:px-0 md:mb-4 md:px-2">
                                 <div class="w-8 h-8 flex items-center justify-center rounded-full ${isCurrentMonth && dayCount === currentDay ? 'bg-[#1B76B5] text-white' : 'text-gray-500'}">
                                     <p class="text-base font-medium">${dayCount++}</p>
                                 </div>
@@ -147,7 +147,7 @@
         document.addEventListener("DOMContentLoaded", () => {
         const weekdays = ["Su", "M", "T", "W", "Th", "F", "Sa"];
         document.querySelector(".weekdays").innerHTML = weekdays
-            .map(day => `<th class="border-b border-l border-r border-t border-gray-300"><div class="flex w-full justify-center"><p class="text-base font-medium text-gray-800">${day}</p></div></th>`)
+            .map(day => `<th class="border-t border-b border-l border-r border-gray-300"><div class="flex justify-center w-full"><p class="text-base font-medium text-gray-800">${day}</p></div></th>`)
             .join("");
         });
     
