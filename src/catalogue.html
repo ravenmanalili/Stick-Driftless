@@ -65,74 +65,8 @@
 
   <h1 class="flex text-4xl font-semibold text-center py-7 max-xl:justify-center max-xl:pt-24 xl:justify-start xl:px-32 xl:pt-40">Featured</h1>
   <section id="catalogueControllers" class="flex flex-col items-center justify-center pb-40">
-    <div class="grid grid-cols-4 gap-x-8 gap-y-8 max-xl:grid-cols-1 max-xl:gap-x-4 max-md:grid-cols-1">
-      <div class="flex flex-col justify-center">
-        <a href="#" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
-          <img src="images/scuf-reflex-pro.png" class="h-full m-1 w-sm max-xl:w-xs">
-        </a>
-        <p class="pt-6 text-2xl font-semibold cursor-pointer">Scuf Reflex Pro</p>
-        <p class="text-2xl cursor-pointer">$49.99</p>
-      </div>
-
-      <div class="flex flex-col justify-center">
-        <a href="#" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
-          <img src="images/razer-wolverine-v2-pro.png" class="h-full m-1 w-sm max-xl:w-xs">
-        </a>
-        <div class="flex flex-col justify-center">
-            <p class="pt-6 text-2xl font-semibold cursor-pointer">Razer Wolverine</p>
-            <p class="text-2xl cursor-pointer">$49.99</p>
-        </div>
-      </div>
-
-      <div class="flex flex-col justify-center">
-        <a href="#" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
-          <img src="images/victrix-pro-bfg.png" class="h-full m-1 w-sm max-xl:w-xs">
-        </a>
-        <p class="pt-6 text-2xl font-semibold cursor-pointer">Victrix Pro BFG</p>
-        <p class="text-2xl cursor-pointer">$49.99</p>
-      </div>
-
-      <div class="flex flex-col justify-center">
-        <a href="#" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
-          <img src="images/victrix-pro-bfg.png" class="h-full m-1 w-sm max-xl:w-xs">
-        </a>
-        <p class="pt-6 text-2xl font-semibold cursor-pointer">Victrix Pro BFG</p>
-        <p class="text-2xl cursor-pointer">$49.99</p>
-      </div>
-
-      <div class="flex flex-col justify-center">
-        <a href="#" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
-          <img src="images/scuf-reflex-pro.png" class="h-full m-1 w-sm max-xl:w-xs">
-        </a>
-        <p class="pt-6 text-2xl font-semibold cursor-pointer">Scuf Reflex Pro</p>
-        <p class="text-2xl cursor-pointer">$49.99</p>
-      </div>
-
-      <div class="flex flex-col justify-center">
-        <a href="#" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
-          <img src="images/razer-wolverine-v2-pro.png" class="h-full m-1 w-sm max-xl:w-xs">
-        </a>
-        <div class="flex flex-col justify-center">
-            <p class="pt-6 text-2xl font-semibold cursor-pointer">Razer Wolverine</p>
-            <p class="text-2xl cursor-pointer">$49.99</p>
-        </div>
-      </div>
-
-      <div class="flex flex-col justify-center">
-        <a href="#" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
-          <img src="images/victrix-pro-bfg.png" class="h-full m-1 w-sm max-xl:w-xs">
-        </a>
-        <p class="pt-6 text-2xl font-semibold cursor-pointer">Victrix Pro BFG</p>
-        <p class="text-2xl cursor-pointer">$49.99</p>
-      </div>
-
-      <div class="flex flex-col justify-center">
-        <a href="#" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
-          <img src="images/victrix-pro-bfg.png" class="h-full m-1 w-sm max-xl:w-xs">
-        </a>
-        <p class="pt-6 text-2xl font-semibold cursor-pointer">Victrix Pro BFG</p>
-        <p class="text-2xl cursor-pointer">$49.99</p>
-      </div>
+    <div id="product-container" class="grid grid-cols-4 gap-x-8 gap-y-8 max-xl:grid-cols-1 max-xl:gap-x-4 max-md:grid-cols-1">
+      
 
     </div>
   </section>
@@ -190,6 +124,22 @@
   <footer class="flex justify-center text-gray-400 pb-14 dark:bg-gradient-to-r dark:from-blue-950 dark:to-blue-900 max-xl:bg-gradient-to-r max-xl:from-blue-500 max-xl:to-blue-300 max-xl:text-gray-100">©Stick-Driftless 2025</footer>
 
   <script>
+     const products = [
+            { name: "Scuf Reflex Pro", price: "$49.99", image: "images/scuf-reflex-pro.png" },
+            { name: "Razer Wolverine", price: "$79.99", image: "images/razer-wolverine-v2-pro.png" },
+            { name: "Victrix Pro BFG", price: "$69.99", image: "images/victrix-pro-bfg.png" }
+        ];
+
+        document.getElementById("product-container").innerHTML = products.map(product => `
+            <div class="flex flex-col items-center justify-center">
+                <a href="#" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
+                    <img src="${product.image}" class="h-full m-1 w-sm max-xl:w-xs">
+                </a>
+                <p class="pt-6 text-2xl font-semibold cursor-pointer">${product.name}</p>
+                <p class="text-2xl cursor-pointer">${product.price}</p>
+            </div>
+        `).join("");
+
     function toggleBurgerMenu() {
       var dropDown = document.getElementById("burgerMenu");
       if (dropDown.style.display === "block") {
@@ -257,6 +207,8 @@
 
     setTimeout(autoSlide, 4000);
     showSlide(index);
+
+    
   </script>
 </body>
 </html>
