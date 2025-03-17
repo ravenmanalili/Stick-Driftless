@@ -161,75 +161,7 @@
 
   <footer class="flex justify-center text-gray-400 pb-14 dark:bg-gradient-to-r dark:from-blue-950 dark:to-blue-900 max-xl:bg-gradient-to-r max-xl:from-blue-500 max-xl:to-blue-300 max-xl:text-gray-100">©Stick-Driftless 2025</footer>
     
-  <script>
-    function toggleBurgerMenu() {
-      var dropDown = document.getElementById("burgerMenu");
-      if (dropDown.style.display === "block") {
-        dropDown.classList.toggle("max-xl:hidden");
-      } else {
-        dropDown.classList.toggle("max-xl:hidden")
-      }
-    }
-
-    function closeDropDown() {
-      var dropDown = document.getElementById("burgerMenu");
-      dropDown.classList.toggle("max-xl:hidden")
-    }
-
-    function toggleConnectContent() {
-      var socials = document.getElementById("socials");
-      if (socials.style.display === "flex") {
-        socials.classList.toggle("max-xl:hidden")
-      } else {
-        socials.classList.toggle("max-xl:hidden")
-      }
-    }
-
-    function toggleResourcesContent() {
-      var resources = document.getElementById("resources");
-      if (resources.style.display === "flex") {
-        resources.classList.toggle("max-xl:hidden")
-      } else {
-        resources.classList.toggle("max-xl:hidden")
-      }
-    }
-
-    function toggleAboutContent() {
-      var about = document.getElementById("about");
-      if (about.style.display === "flex") {
-        about.classList.toggle("max-xl:hidden")
-      } else {
-        about.classList.toggle("max-xl:hidden")
-      }
-    }
-
-    let index = 0;
-    const slides = document.querySelectorAll("#carousel img");
-    const dots = document.querySelectorAll("#dots span");
-    const totalSlides = slides.length;
-
-    function showSlide(i) {
-        document.getElementById("carousel").style.transform = `translateX(-${i * 100}%)`;
-        dots.forEach(dot => dot.classList.remove("bg-gray-800"));
-        dots.forEach(dot => dot.classList.remove("dark:bg-blue-900"));
-        dots[i].classList.add("bg-gray-800");
-        dots[i].classList.add("dark:bg-blue-900");
-    }
-
-    function goToSlide(i) {
-        index = i;
-        showSlide(index);
-    }
-
-    function autoSlide() {
-        index = (index + 1) % totalSlides;
-        showSlide(index);
-        setTimeout(autoSlide, 4000);
-    }
-
-    setTimeout(autoSlide, 4000);
-    showSlide(index);
-  </script>
+  <script src="config.js"></script>
 </body>
 </html>
 
