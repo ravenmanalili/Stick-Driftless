@@ -6,7 +6,11 @@ const products = [
     { name: "PS4 Nagashock Gaming", price: "$30.99", image: "images/nagashock.png" },
     { name: "Zombie Core Xbox Elite", price: "$153.99", image: "images/zombie-face.png" },
     { name: "Gold Fade Xbox Series X/S", price: "$119.95", image: "images/gold-fade-xbox.png" },
-    { name: "Xbox 360 Spartan Controller", price: "$174.99", image:"images/spartan-controller.png"}
+    { name: "Xbox 360 Spartan Controller", price: "$174.99", image:"images/spartan-controller.png"},
+    { name: "PS4 Galaxy Controller", price: "$25.99", image:"images/ps4-galaxy.png"},
+    { name: "PS5 Wooden Controller", price: "$29.99", image:"images/ps5-wood.png"},
+    { name: "PS5 Standard Green Controller", price: "$39.99", image:"images/ps5-green.png"},
+    { name: "Xbox 360 Black Controller", price: "$29.99", image:"images/xbox360.png"},
 ];
 
 document.getElementById("product-container").innerHTML = products.map(product => `
