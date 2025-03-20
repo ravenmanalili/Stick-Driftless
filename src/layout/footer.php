@@ -1,22 +1,5 @@
-<!doctype html>
-<html class="scroll-smooth">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
-  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-  <title>Stick-Driftless</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-    body {
-      font-family: 'Montserrat', sans-serif;
-    }
-  </style>
-</head>
-<body class="overflow-x-hidden dark:bg-gray-950 dark:text-gray-100">
-
-  <section class="flex flex-row justify-center w-screen pt-12 pb-32 h-fit gap-72 max-xl:flex-col max-xl:items-center max-xl:gap-4 max-xl:bg-gradient-to-r max-xl:from-blue-500 max-xl:to-blue-300 max-xl:pt-8 max-xl:dark:bg-gradient-to-r max-xl:dark:from-blue-950 max-xl:dark:to-blue-900 xl:dark:bg-gradient-to-r xl:dark:from-blue-950 xl:dark:to-blue-900">
-    <header class="flex text-3xl font-extrabold cursor-pointer max-xl:hidden">Stick-Driftless</header>
+<section class="flex flex-row justify-center w-screen pt-12 pb-32 h-fit gap-72 max-xl:flex-col max-xl:items-center max-xl:gap-4 max-xl:bg-gradient-to-r max-xl:from-blue-500 max-xl:to-blue-300 max-xl:pt-8 max-xl:dark:bg-gradient-to-r max-xl:dark:from-blue-950 max-xl:dark:to-blue-900 xl:dark:bg-gradient-to-r xl:dark:from-blue-950 xl:dark:to-blue-900">
+    <a href="index.php?page=home" class="flex text-3xl font-extrabold cursor-pointer max-xl:hidden">Stick-Driftless</a href="index.php?page=home">
     <div class="flex flex-col">
       <p class="mb-4 text-lg text-gray-400 max-xl:hidden">Connect</p>
       <button class="mb-4 text-lg text-gray-400 hover:underline max-xl:cursor-pointer max-xl:font-semibold max-xl:text-gray-100 xl:hidden" onClick="toggleConnectContent()">Connect</button>
@@ -63,11 +46,9 @@
         <a href="#" class="text-lg max-xl:pr-6">Staff</a>
       </div>
     </div>
-  </section>
+</section>
 
-  <footer class="flex justify-center text-gray-400 pb-14 dark:bg-gradient-to-r dark:from-blue-950 dark:to-blue-900 max-xl:bg-gradient-to-r max-xl:from-blue-500 max-xl:to-blue-300 max-xl:text-gray-100">©Stick-Driftless 2025</footer>
+<footer class="flex justify-center text-gray-400 pb-14 dark:bg-gradient-to-r dark:from-blue-950 dark:to-blue-900 max-xl:bg-gradient-to-r max-xl:from-blue-500 max-xl:to-blue-300 max-xl:text-gray-100">©Stick-Driftless 2025</footer>
 
-  <script src="config.js"></script>
-</body>
-</html>
+
 

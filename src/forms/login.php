@@ -16,7 +16,7 @@
 <body class="overflow-x-hidden dark:bg-gray-950 dark:text-gray-100">
     <section class="flex items-center justify-center min-h-dvh">
         <div class="flex flex-col h-full p-8 px-16 rounded-lg dark:bg-gray-900">
-            <a href="index.html" class="flex p-6 m-auto mx-6 text-4xl font-extrabold cursor-pointer max-md:text-md max-sm:text-3xl xl:mx-auto">Stick-Driftless</a>
+            <a href="../index.php" class="flex p-6 m-auto mx-6 text-4xl font-extrabold cursor-pointer max-md:text-md max-sm:text-3xl xl:mx-auto">Stick-Driftless</a>
             <div class="flex flex-col justify-start loginForm">
                 <p class="pt-6 text-2xl font-bold">Log in</p>
                 <div class="flex flex-col gap-3 py-3 xl:gap-4">
