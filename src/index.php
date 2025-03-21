@@ -1,3 +1,7 @@
+<?php
+include 'db_connection.php';
+?>
+
 <!doctype html>
 <html class="scroll-smooth">
 <head>
@@ -14,7 +18,9 @@
   </style>
 </head>
 <body class="overflow-x-hidden dark:bg-gray-950 dark:text-gray-100">
+  
   <?php include 'layout/header.php'; ?>
+  
 
   <?php
   // Check if a page is set in the URL, otherwise default to 'home'
@@ -32,6 +38,7 @@
       'xbox' => 'pages/customize/xbox.php',
       'product-details' => 'pages/product-details/product-details.php',
       'results' => 'pages/results/results.php',
+      'inventory' => 'pages/inventory/inventory.php',
   ];
 
   // Include the requested page if it's allowed, otherwise load home.php
@@ -118,6 +125,8 @@
   // Start the first auto-slide
   timeoutId = setTimeout(autoSlide, 4000);
   showSlide(index);
+
+  
   
 </script>
 
