@@ -1,6 +1,5 @@
 <?php 
   include('../../db_connection.php');
-
   $queryGamepads = "SELECT * FROM gamepad";
   $sqlGamepads = mysqli_query($connection, $queryGamepads);
 
