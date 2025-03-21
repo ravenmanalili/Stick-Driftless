@@ -1,3 +1,7 @@
+<?php
+include 'db_connection.php';
+?>
+
 <!doctype html>
 <html class="scroll-smooth">
 <head>
@@ -14,7 +18,9 @@
   </style>
 </head>
 <body class="overflow-x-hidden dark:bg-gray-950 dark:text-gray-100">
+  
   <?php include 'layout/header.php'; ?>
+  
 
   <?php
   // Check if a page is set in the URL, otherwise default to 'home'
