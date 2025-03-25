@@ -38,6 +38,7 @@ include 'db_connection.php';
       'xbox' => 'pages/customize/xbox.php',
       'product-details' => 'pages/product-details/product-details.php',
       'results' => 'pages/results/results.php',
+      'inventory' => 'pages/inventory/inventory.php',
   ];
 
   // Include the requested page if it's allowed, otherwise load home.php
@@ -124,6 +125,8 @@ include 'db_connection.php';
   // Start the first auto-slide
   timeoutId = setTimeout(autoSlide, 4000);
   showSlide(index);
+
+  
   
 </script>
 
