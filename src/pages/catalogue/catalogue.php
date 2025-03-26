@@ -12,7 +12,7 @@
         while($results = mysqli_fetch_array($sqlGamepads)) 
           { ?>
             <div class="flex flex-col items-center justify-center">
-              <a href="#" class="flex h-96 transform items-center justify-center rounded-lg border border-black transition duration-500 hover:scale-110 dark:border-gray-100">
+              <a href="index.php?page=product-details" class="flex h-96 transform items-center justify-center rounded-lg border border-black transition duration-500 hover:scale-110 dark:border-gray-100">
                   <img src="../../assets/images/<?php echo $results['gamepad_image']?>" class="w-sm max-xl:w-xs m-1 h-fit">
               </a>
               <p class="max-w-sm cursor-pointer pt-6 text-2xl font-semibold">
