@@ -15,7 +15,7 @@
 </head>
 <body class="overflow-x-hidden dark:bg-gray-950 dark:text-gray-100">
     <section class="flex items-center justify-center min-h-dvh">
-        <div class="flex flex-col h-full p-8 px-16 rounded-lg dark:bg-gray-900">
+        <div class="flex flex-col h-full p-8 px-16 bg-gray-200 rounded-lg dark:bg-gray-900">
             <a href="../index.php" class="flex p-6 m-auto mx-6 text-4xl font-extrabold cursor-pointer max-md:text-md max-sm:text-3xl xl:mx-auto">Stick-Driftless</a>
             <div class="flex flex-col justify-start loginForm">
                 <p class="pt-6 text-2xl font-bold">Log in</p>
@@ -27,7 +27,8 @@
                                 placeholder="you@example.com"
                                 required />
                             <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                                <img src="https://icongr.am/entypo/mail.svg?size=20&color=ffffff">
+                                <img src="https://icongr.am/entypo/mail.svg?size=20&color=ffffff" class="hidden dark:block">
+                                <img src="https://icongr.am/entypo/mail.svg?size=20&color=000000" class="dark:hidden">
                             </div>
                         </div>
                         <div class="relative py-2">
@@ -40,7 +41,8 @@
                                 pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}" 
                                 required />
                             <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                                <img src="https://icongr.am/entypo/lock.svg?size=20&color=ffffff">
+                                <img src="https://icongr.am/entypo/lock.svg?size=20&color=ffffff" class="hidden dark:block">
+                                <img src="https://icongr.am/entypo/lock.svg?size=20&color=000000" class="dark:hidden">
                             </div>
                             <button type="button" 
                                     id="togglePassword" 
