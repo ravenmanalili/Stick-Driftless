@@ -6,9 +6,10 @@
     </section>
     <section id="searchInputField" class="max-xl:hidden">
       <form action="index.php?page=results" method="GET" class="relative flex items-center max-xl:flex-col">
-        <input type="text" class="w-3xl m-4 rounded-lg border border-gray-300 p-3 px-20 text-lg font-semibold" placeholder="Looking for something?">
+        <input type="text" class="w-3xl m-4 rounded-lg border border-black p-3 px-20 text-lg font-semibold dark:border-gray-300" placeholder="Looking for something?">
         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center px-12">
-          <img src="https://icongr.am/entypo/magnifying-glass.svg?size=20&color=f3f4f6" class="dark:block">
+          <img src="https://icongr.am/entypo/magnifying-glass.svg?size=20&color=ffffff" class="hidden dark:block">
+          <img src="https://icongr.am/entypo/magnifying-glass.svg?size=20&color=000000" class="block dark:hidden">
         </div>
       </form>
     </section>
@@ -35,9 +36,10 @@
 <section id="burgerMenu" class="fixed top-14 z-50 w-screen bg-gradient-to-r from-blue-300 to-blue-100 transition-all duration-500 dark:bg-gradient-to-r dark:from-blue-950 dark:to-blue-950 max-xl:hidden xl:hidden">
   <div class="flex flex-col items-center justify-center pt-8">
     <form action="index.php?page=results" method="GET" class="relative max-xl:flex-col">
-      <input type="text" class="w-2xl m-4 rounded-lg border border-gray-300 p-3 px-12 text-lg font-semibold max-md:w-fit max-md:text-sm" placeholder="Looking for something?">
+      <input type="text" class="w-2xl m-4 rounded-lg border border-black p-3 px-12 text-lg font-semibold dark:border-gray-300 max-md:w-fit max-md:text-sm" placeholder="Looking for something?">
       <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center px-8">
-        <img src="https://icongr.am/entypo/magnifying-glass.svg?size=20&color=f3f4f6" class="dark:block">
+        <img src="https://icongr.am/entypo/magnifying-glass.svg?size=20&color=ffffff" class="hidden dark:block">
+        <img src="https://icongr.am/entypo/magnifying-glass.svg?size=20&color=000000" class="block dark:hidden">
       </div>
     </form>
     

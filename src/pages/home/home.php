@@ -8,13 +8,13 @@
     <div class="relative w-full max-w-3xl overflow-hidden">
       <div class="flex transition-transform duration-500 ease-in-out" id="carousel">
           <div class="flex-shrink-0 w-full">
-              <img src="assets/images/frontpageroller1.png" class="h-full p-6 transition duration-500 transform cursor-pointer w-3xl max-xl:w-lg hover:scale-110 max-xl:mx-32 max-md:mx-0 md:mx-32 xl:mx-0">
+              <img src="assets/images/frontpageroller1.png" class="h-full p-6 transition duration-500 transform cursor-pointer w-3xl max-xl:w-2xl hover:scale-110 max-xl:mx-12 max-md:mx-0 md:mx-12 xl:mx-0">
           </div>
           <div class="flex-shrink-0 w-full">
-              <img src="assets/images/frontpageroller2.png" class="h-full p-6 transition duration-500 transform cursor-pointer w-3xl max-xl:w-lg hover:scale-110 max-xl:mx-32 max-md:mx-0 md:mx-32 xl:mx-0">
+              <img src="assets/images/frontpageroller2.png" class="h-full p-6 transition duration-500 transform cursor-pointer w-3xl max-xl:w-2xl hover:scale-110 max-xl:mx-12 max-md:mx-0 md:mx-12 xl:mx-0">
           </div>
           <div class="flex-shrink-0 w-full">
-              <img src="assets/images/frontpageroller3.png" class="h-full p-6 transition duration-500 transform cursor-pointer w-3xl max-xl:w-lg hover:scale-110 max-xl:mx-32 max-md:mx-0 md:mx-32 xl:mx-0">
+              <img src="assets/images/frontpageroller3.png" class="h-full p-6 transition duration-500 transform cursor-pointer w-3xl max-xl:w-2xl hover:scale-110 max-xl:mx-12 max-md:mx-0 md:mx-12 xl:mx-0">
           </div>
       </div>
       <div id="dots" class="absolute flex space-x-2 transform -translate-x-1/2 bottom-2 left-1/2">
@@ -27,7 +27,7 @@
 
   <section id="featuredControllers" class="flex flex-col items-center justify-center pt-36">
     <h1 class="max-w-3xl p-8 text-4xl font-semibold text-center">Aim with precision, dominate the competition</h1>
-    <div class="grid grid-cols-4 gap-x-8 max-xl:grid-cols-1 max-xl:gap-x-4 max-md:grid-cols-1">
+    <div class="grid grid-cols-4 gap-x-8 max-xl:grid-cols-3 max-xl:gap-x-4 max-md:grid-cols-1">
       <div class="flex flex-col max-w-sm m-4 max-md:items-center max-md:justify-center max-md:text-center max-sm:items-center max-sm:justify-center max-sm:text-center">
         <h2 class="m-4 text-3xl font-semibold">Featured</h2>
         <p class="m-4 text-xl">Our controllers are 100% legit. They are not macros nor cheating devices. However, do be cautious whether or not competitive rules allow use of our controllers during participated tournament.</p>
