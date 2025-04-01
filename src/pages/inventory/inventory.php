@@ -4,13 +4,13 @@
   $sqlGamepads = mysqli_query($connection, $queryGamepads);
 ?>
 
-<section id="inventory" class="min-h-dvh mx-auto flex flex-col gap-4 pt-40 xl:px-40">
+<section id="inventory" class="flex flex-col gap-4 pt-40 mx-auto max-xl:pt-20 min-h-dvh xl:px-40">
     <header id="inventoryHeader" class="flex flex-row justify-between">
         <div class="text-3xl font-semibold">Inventory Management</div>
         <div id="inventorySearchInputField" class="-m-4 max-xl:hidden">
             <form action="index.php?page=results" method="GET" class="relative flex items-center max-xl:flex-col">
-                <input type="text" class="w-lg text-md m-4 rounded-lg border border-gray-300 p-3 px-20 font-semibold" placeholder="Search Inventory">
-                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center px-12">
+                <input type="text" class="p-3 px-20 m-4 font-semibold border border-gray-300 rounded-lg w-lg text-md" placeholder="Search Inventory">
+                <div class="absolute inset-y-0 left-0 flex items-center px-12 pointer-events-none">
                 <img src="https://icongr.am/entypo/magnifying-glass.svg?size=20&color=f3f4f6" class="dark:block">
                 </div>
             </form>
@@ -30,22 +30,22 @@
     </div>
 
     <div id="inventoryCatalogue">
-        <div class="grid grid-cols-4 gap-x-8 gap-y-8 max-xl:grid-cols-1 max-xl:gap-x-4 max-md:grid-cols-1">
+        <div class="grid grid-cols-4 gap-x-8 gap-y-8 max-xl:grid-cols-3 max-xl:gap-x-4 max-md:grid-cols-1">
             <?php 
                 while($results = mysqli_fetch_array($sqlGamepads)) 
                 { ?>
             <div class="flex flex-col items-center justify-center">
-                <div class="relative flex h-full flex-col items-center justify-center rounded-lg border border-black p-2 dark:border-gray-100">
-                    <button class="openInventoryModal min-h-12 max-h-12 cursor-pointer" 
+                <div class="relative flex flex-col items-center justify-center h-full p-2 border border-black rounded-lg dark:border-gray-100">
+                    <button class="cursor-pointer openInventoryModal min-h-12 max-h-12" 
                             data-gamepad-id="<?php echo $results['gamepad_id']; ?>"
                             data-gamepad-name="<?php echo $results['gamepad_name']; ?>"
                             data-gamepad-platform="<?php echo $results['platform']; ?>"
                             data-gamepad-price="<?php echo $results['price']; ?>">
-                        <img src="https://icongr.am/entypo/edit.svg?size=20&color=000000" class="absolute right-4 top-4 block h-8 w-8 dark:hidden">
-                        <img src="https://icongr.am/entypo/edit.svg?size=20&color=ffffff" class="absolute right-4 top-4 hidden h-8 w-8 dark:block">
+                        <img src="https://icongr.am/entypo/edit.svg?size=20&color=000000" class="absolute block w-8 h-8 right-4 top-4 dark:hidden">
+                        <img src="https://icongr.am/entypo/edit.svg?size=20&color=ffffff" class="absolute hidden w-8 h-8 right-4 top-4 dark:block">
                     </button>
                             <div class="min-h-80 max-h-80">
-                                <img src="../../assets/images/<?php echo $results['gamepad_image']?>" class="w-sm max-xl:w-xs m-1 h-fit">
+                                <img src="../../assets/images/<?php echo $results['gamepad_image']?>" class="m-1 w-sm max-xl:w-xs h-fit">
                             </div>
                             <p class="max-w-sm pt-6 text-2xl font-semibold">
                                 <?php echo $results['gamepad_name'] ?>
@@ -60,16 +60,16 @@
         </div>
     </div>
 
-    <div id="inventoryModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black/50">
-        <div class="relative flex w-96 flex-col gap-y-4 rounded-lg bg-sky-600 p-6 shadow-lg dark:bg-gray-800">
-            <form class="update-inventory flex flex-col gap-y-4" action="/inventory/inventory.php" method="post">
+    <div id="inventoryModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/50">
+        <div class="relative flex flex-col p-6 rounded-lg shadow-lg w-96 gap-y-4 bg-sky-600 dark:bg-gray-800">
+            <form class="flex flex-col update-inventory gap-y-4" action="/inventory/inventory.php" method="post">
                 <h2 class="text-xl font-bold text-white">Update</h2>
-                <input type="text" name="updateControllerName" placeholder="Name" class="rounded-lg border border-white p-2 text-white"/>
-                <input type="text" name="updateControllerPlatform" placeholder="Platform" class="rounded-lg border border-white p-2 text-white"/>
-                <input type="number" name="updateControllerPrice" step="0.01" placeholder="Price" class="rounded-lg border border-white p-2 text-white"/>
-                <button type="submit" class="mt-4 cursor-pointer rounded bg-green-800 px-4 py-2 text-white hover:bg-green-900">Save Changes</button>
+                <input type="text" name="updateControllerName" placeholder="Name" class="p-2 text-white border border-white rounded-lg"/>
+                <input type="text" name="updateControllerPlatform" placeholder="Platform" class="p-2 text-white border border-white rounded-lg"/>
+                <input type="number" name="updateControllerPrice" step="0.01" placeholder="Price" class="p-2 text-white border border-white rounded-lg"/>
+                <button type="submit" class="px-4 py-2 mt-4 text-white bg-green-800 rounded cursor-pointer hover:bg-green-900">Save Changes</button>
             </form>
-            <button id="closeInventoryModal" class="mt-4 cursor-pointer rounded bg-red-800 px-4 py-2 text-white hover:bg-red-900 dark:bg-red-900 dark:hover:bg-red-800">Close</button>
+            <button id="closeInventoryModal" class="px-4 py-2 mt-4 text-white bg-red-800 rounded cursor-pointer hover:bg-red-900 dark:bg-red-900 dark:hover:bg-red-800">Close</button>
         </div>
     </div>
 

@@ -1,7 +1,7 @@
 <section id="customizePlaystation" class="pb-48">
   <header class="flex items-center justify-center pt-40 text-4xl font-semibold">Customize your gamepad</header>
-  <div class="flex justify-center">
-      <div class="h-full pt-20">
+  <div class="flex justify-center max-xl:flex-col">
+      <div class="h-full pt-20 max-lg:flex max-lg:justify-center">
           <img src="assets/images/CustomControllerPlaystation.png" class="w-2xl">
       </div>
 
