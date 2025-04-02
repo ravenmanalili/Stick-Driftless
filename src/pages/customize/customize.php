@@ -1,6 +1,6 @@
 <section id="controllerCategory" class="flex flex-col items-center justify-center pb-40 max-xl:pt-16 xl:pt-36">
   <h1 class="p-8 text-4xl font-semibold text-center">Select a Category</h1>
-  <div class="grid grid-cols-4 gap-x-8 max-xl:grid-cols-1 max-xl:gap-x-4 max-md:grid-cols-1">
+  <div class="grid grid-cols-4 gap-x-8 max-xl:grid-cols-2 max-xl:gap-x-4 max-md:grid-cols-1">
     <div class="flex flex-col items-center justify-center">
       <a href="index.php?page=playstation" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
         <img src="assets/images/playstation.png" class="h-full m-1 w-sm max-xl:w-xs">
