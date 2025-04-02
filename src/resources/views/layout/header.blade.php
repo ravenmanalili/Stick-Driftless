@@ -1,4 +1,4 @@
-<nav id="topNavbar" class="fixed z-50 h-fit w-full bg-gradient-to-r from-blue-500 to-blue-300 dark:bg-gradient-to-r dark:from-blue-950 dark:to-blue-900">
+<nav id="topNavbar" class="fixed top-0 z-50 h-fit w-full bg-gradient-to-r from-blue-500 to-blue-300 dark:bg-gradient-to-r dark:from-blue-950 dark:to-blue-900">
   <section class="flex justify-between">
     <a href="index.php?page=home" class="max-md:text-md m-auto mx-6 flex cursor-pointer text-3xl font-extrabold max-sm:text-2xl xl:mx-auto">Stick-Driftless</a>
     <section id="burgerButton" class="mx-6 flex items-center xl:hidden">

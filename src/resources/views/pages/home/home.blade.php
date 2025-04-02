@@ -1,8 +1,6 @@
 @extends('layout.app')
 
-
-
-<section id="welcomeFrontpage" class="flex flex-row items-center justify-center max-xl:flex-col xl:pt-16">
+<section id="welcomeFrontpage" class="flex flex-row items-center justify-center max-xl:flex-col xl:pt-12">
     <div class="flex flex-col max-xl:items-center max-xl:justify-center max-xl:pt-20 max-xl:text-center">
       <h1 class="m-4 max-w-md text-6xl font-bold max-xl:text-5xl">Find the controller that suits your playstyle</h1>
       <p class="m-4 max-w-sm text-3xl max-xl:text-2xl">Controllers that will help you win your next ranked match</p>
