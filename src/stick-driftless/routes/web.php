@@ -1,0 +1,28 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CatalogueController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CustomizeController;
+use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\PlayStationController;
+use App\Http\Controllers\ProductDetailsController;
+use App\Http\Controllers\ResultsController;
+use App\Http\Controllers\RetroController;
+use App\Http\Controllers\SwitchController;
+use App\Http\Controllers\UpdateController;
+use App\Http\Controllers\XboxController;
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/catalogue', [CatalogueController::class, 'index'])->name('catalogue');
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+Route::get('/customize', [CustomizeController::class, 'index'])->name('customize');
+Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory');
+Route::get('/playstation', [PlayStationController::class, 'index'])->name('playstation');
+Route::get('/product-details', [ProductDetailsController::class, 'index'])->name('product-details');
+Route::get('/results', [ResultsController::class, 'index'])->name('results');
+Route::get('/retro', [RetroController::class, 'index'])->name('retro');
+Route::get('/switch', [SwitchController::class, 'index'])->name('switch');
+Route::get('/update', [UpdateController::class, 'index'])->name('update');
+Route::get('/xbox', [XboxController::class, 'index'])->name('xbox');
