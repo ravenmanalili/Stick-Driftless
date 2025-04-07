@@ -1,5 +1,5 @@
-<section class="flex flex-row justify-center w-screen pt-12 pb-32 h-fit gap-72 max-xl:flex-col max-xl:items-center max-xl:gap-4 max-xl:bg-gradient-to-r max-xl:from-blue-500 max-xl:to-blue-300 max-xl:pt-8 max-xl:dark:bg-gradient-to-r max-xl:dark:from-blue-950 max-xl:dark:to-blue-900 xl:dark:bg-gradient-to-r xl:dark:from-blue-950 xl:dark:to-blue-900">
-    <a href="index.php?page=home" class="flex text-3xl font-extrabold cursor-pointer max-xl:hidden">Stick-Driftless</a href="index.php?page=home">
+<section class="flex flex-row justify-center w-screen pt-12 pb-32 h-fit gap-52 max-xl:flex-col max-xl:items-center max-xl:gap-4 max-xl:bg-gradient-to-r max-xl:from-blue-500 max-xl:to-blue-300 max-xl:pt-8 max-xl:dark:bg-gradient-to-r max-xl:dark:from-blue-950 max-xl:dark:to-blue-900 xl:dark:bg-gradient-to-r xl:dark:from-blue-950 xl:dark:to-blue-900">
+    <a href="{{ route('home') }}" class="flex text-3xl font-extrabold cursor-pointer max-xl:hidden">Stick-Driftless</a href="{{ route('home') }}">
     <div class="flex flex-col">
       <p class="mb-4 text-lg text-gray-400 max-xl:hidden">Connect</p>
       <button class="mb-4 text-lg text-black hover:underline dark:text-gray-400 max-xl:cursor-pointer max-xl:font-semibold max-xl:text-black dark:max-xl:text-gray-100 xl:hidden" onClick="toggleConnectContent()">Connect</button>

@@ -30,33 +30,33 @@
 
   <section id="featuredControllers" class="flex flex-col items-center justify-center pt-36">
     <h1 class="max-w-3xl p-8 text-4xl font-semibold text-center">Aim with precision, dominate the competition</h1>
-    <div class="grid grid-cols-4 gap-x-8 max-xl:grid-cols-3 max-xl:gap-x-4 max-md:grid-cols-1">
+    <div class="grid grid-cols-4 gap-x-8 max-xl:grid-cols-1 max-xl:gap-x-4">
       <div class="flex flex-col max-w-sm m-4 max-md:items-center max-md:justify-center max-md:text-center max-sm:items-center max-sm:justify-center max-sm:text-center">
         <h2 class="m-4 text-3xl font-semibold">Featured</h2>
         <p class="m-4 text-xl">Our controllers are 100% legit. They are not macros nor cheating devices. However, do be cautious whether or not competitive rules allow use of our controllers during participated tournament.</p>
-        <a href="{{ route('catalogue') }}" class="flex justify-center p-6 m-4 text-2xl font-extrabold text-gray-100 transition duration-500 transform rounded-lg cursor-pointer w-xs h-fit bg-gradient-to-r from-blue-700 to-blue-500 hover:scale-110 dark:bg-gradient-to-r dark:from-blue-950 dark:to-blue-900 max-sm:w-64">Shop all Favourites</a>
+        <a href="{{ route('catalogue') }}" class="flex justify-center p-6 m-4 text-2xl font-extrabold text-gray-100 transition duration-500 transform rounded-lg cursor-pointer 2xl:w-xs xl:w-[248px] h-fit bg-gradient-to-r from-blue-700 to-blue-500 hover:scale-110 dark:bg-gradient-to-r dark:from-blue-950 dark:to-blue-900 max-sm:w-64 text-center">Shop all Favourites</a>
       </div>
 
-      <div class="flex flex-col items-center justify-center hover:underline">
-        <a href="{{ route('product-details') }}" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
-          <img src="{{ asset('assets/images/scuf-reflex-pro.png') }}" class="h-full m-1 w-sm max-xl:w-xs">
-        </a>
-        <a href="{{ route('product-details') }}" class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Scuf Reflex Pro</a>
-      </div>
+        <div class="flex flex-col items-center justify-center hover:underline">
+          <a href="{{ route('product-details') }}" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
+            <img src="{{ asset('assets/images/scuf-reflex-pro.png') }}" class="h-full m-1 w-sm max-xl:w-xs">
+          </a>
+          <a href="{{ route('product-details') }}" class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Scuf Reflex Pro</a>
+        </div>
 
-      <div class="flex flex-col items-center justify-center hover:underline">
-        <a href="{{ route('product-details') }}" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
-          <img src="{{ asset('assets/images/razer-wolverine-v2-pro.png') }}" class="h-full m-1 w-sm max-xl:w-xs">
-        </a>
-        <a href="{{ route('product-details') }}" class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Razer Wolverine</a>
-      </div>
+        <div class="flex flex-col items-center justify-center hover:underline">
+          <a href="{{ route('product-details') }}" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
+            <img src="{{ asset('assets/images/razer-wolverine-v2-pro.png') }}" class="h-full m-1 w-sm max-xl:w-xs">
+          </a>
+          <a href="{{ route('product-details') }}" class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Razer Wolverine</a>
+        </div>
 
-      <div class="flex flex-col items-center justify-center hover:underline">
-        <a href="{{ route('product-details') }}" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
-          <img src="{{ asset('assets/images/victrix-pro-bfg.png') }}" class="h-full m-1 w-sm max-xl:w-xs">
-        </a>
-        <a href="{{ route('product-details') }}" class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Victrix Pro BFG</a>
-      </div>
+        <div class="flex flex-col items-center justify-center hover:underline">
+          <a href="{{ route('product-details') }}" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
+            <img src="{{ asset('assets/images/victrix-pro-bfg.png') }}" class="h-full m-1 w-sm max-xl:w-xs">
+          </a>
+          <a href="{{ route('product-details') }}" class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Victrix Pro BFG</a>
+        </div>
 
     </div>
   </section>
