@@ -39,7 +39,7 @@
                 while($results = mysqli_fetch_array($sqlGamepads)) 
                 { ?>
             <div class="flex flex-col items-center justify-center">
-                <div class="relative flex flex-col items-center justify-center h-full p-2 border border-black rounded-lg dark:border-gray-100">
+                <div class="relative flex flex-col items-center justify-center h-full p-2 border border-black rounded-lg 2xl:w-96 dark:border-gray-100">
                     <button class="cursor-pointer openInventoryModal min-h-12 max-h-12" 
                             data-gamepad-id="<?php echo $results['gamepad_id']; ?>"
                             data-gamepad-name="<?php echo $results['gamepad_name']; ?>"
