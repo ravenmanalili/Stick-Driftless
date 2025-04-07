@@ -4,7 +4,7 @@
 
 <section id="productDetails" class="flex flex-row items-center justify-center pt-20">
   <div class="flex flex-col h-full">
-      <img src="assets/images/scuf-reflex-pro.png" class="w-full">
+  <img src="{{ asset('assets/images/scuf-reflex-pro.png') }}" class="w-full">
       <div class="flex flex-row">
       </div>
   </div>

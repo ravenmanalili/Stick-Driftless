@@ -49,7 +49,7 @@
                         <img src="https://icongr.am/entypo/edit.svg?size=20&color=ffffff" class="absolute hidden w-8 h-8 right-4 top-4 dark:block">
                     </button>
                             <div class="min-h-80 max-h-80">
-                                <img src="../../assets/images/<?php echo $results['gamepad_image']?>" class="m-1 w-sm max-xl:w-xs h-fit">
+                                <img src="assets/images/<?php echo $results['gamepad_image']?>" class="m-1 w-sm max-xl:w-xs h-fit">
                             </div>
                             <p class="max-w-sm pt-6 text-2xl font-semibold">
                                 <?php echo $results['gamepad_name'] ?>

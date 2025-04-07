@@ -11,13 +11,13 @@
     <div class="relative w-full max-w-3xl overflow-hidden">
       <div class="flex transition-transform duration-500 ease-in-out" id="carousel">
           <div class="flex-shrink-0 w-full">
-              <img src="{{ asset('images/frontpageroller1.png') }}" class="h-full p-6 transition duration-500 transform cursor-pointer w-3xl max-xl:w-2xl hover:scale-110 max-xl:mx-12 max-md:mx-0 md:mx-12 xl:mx-0">
+              <img src="{{ asset('assets/images/frontpageroller1.png') }}" class="h-full p-6 transition duration-500 transform cursor-pointer w-3xl max-xl:w-2xl hover:scale-110 max-xl:mx-12 max-md:mx-0 md:mx-12 xl:mx-0">
           </div>
           <div class="flex-shrink-0 w-full">
-              <img src="{{ asset('images/frontpageroller2.png') }}" class="h-full p-6 transition duration-500 transform cursor-pointer w-3xl max-xl:w-2xl hover:scale-110 max-xl:mx-12 max-md:mx-0 md:mx-12 xl:mx-0">
+              <img src="{{ asset('assets/images/frontpageroller2.png') }}" class="h-full p-6 transition duration-500 transform cursor-pointer w-3xl max-xl:w-2xl hover:scale-110 max-xl:mx-12 max-md:mx-0 md:mx-12 xl:mx-0">
           </div>
           <div class="flex-shrink-0 w-full">
-              <img src="{{ asset('images/frontpageroller3.png') }}" class="h-full p-6 transition duration-500 transform cursor-pointer w-3xl max-xl:w-2xl hover:scale-110 max-xl:mx-12 max-md:mx-0 md:mx-12 xl:mx-0">
+              <img src="{{ asset('assets/images/frontpageroller3.png') }}" class="h-full p-6 transition duration-500 transform cursor-pointer w-3xl max-xl:w-2xl hover:scale-110 max-xl:mx-12 max-md:mx-0 md:mx-12 xl:mx-0">
           </div>
       </div>
       <div id="dots" class="absolute flex space-x-2 transform -translate-x-1/2 bottom-2 left-1/2">
@@ -37,23 +37,23 @@
         <a href="{{ route('catalogue') }}" class="flex justify-center p-6 m-4 text-2xl font-extrabold text-gray-100 transition duration-500 transform rounded-lg cursor-pointer w-xs h-fit bg-gradient-to-r from-blue-700 to-blue-500 hover:scale-110 dark:bg-gradient-to-r dark:from-blue-950 dark:to-blue-900 max-sm:w-64">Shop all Favourites</a>
       </div>
 
-      <div class="flex flex-col items-center justify-center">
+      <div class="flex flex-col items-center justify-center hover:underline">
         <a href="{{ route('product-details') }}" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
-          <img src="{{ asset('images/scuf-reflex-pro.png') }}" class="h-full m-1 w-sm max-xl:w-xs">
+          <img src="{{ asset('assets/images/scuf-reflex-pro.png') }}" class="h-full m-1 w-sm max-xl:w-xs">
         </a>
         <a href="{{ route('product-details') }}" class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Scuf Reflex Pro</a>
       </div>
 
-      <div class="flex flex-col items-center justify-center">
+      <div class="flex flex-col items-center justify-center hover:underline">
         <a href="{{ route('product-details') }}" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
-          <img src="{{ asset('images/razer-wolverine-v2-pro.png') }}" class="h-full m-1 w-sm max-xl:w-xs">
+          <img src="{{ asset('assets/images/razer-wolverine-v2-pro.png') }}" class="h-full m-1 w-sm max-xl:w-xs">
         </a>
         <a href="{{ route('product-details') }}" class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Razer Wolverine</a>
       </div>
 
-      <div class="flex flex-col items-center justify-center">
+      <div class="flex flex-col items-center justify-center hover:underline">
         <a href="{{ route('product-details') }}" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
-          <img src="{{ asset('images/victrix-pro-bfg.png') }}" class="h-full m-1 w-sm max-xl:w-xs">
+          <img src="{{ asset('assets/images/victrix-pro-bfg.png') }}" class="h-full m-1 w-sm max-xl:w-xs">
         </a>
         <a href="{{ route('product-details') }}" class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Victrix Pro BFG</a>
       </div>
@@ -68,7 +68,7 @@
         <h2 class="m-4 text-3xl font-semibold">Customization</h2>
         <p class="m-4 text-xl">Set the theme of your controller to your liking. Add additional buttons or paddles for a superb gameplay experience.</p>
       </div>
-      <div class="flex flex-col items-center justify-center pb-12">
+      <div class="flex flex-col items-center justify-center pb-12 hover:underline">
         <a href="{{ route('customize') }}" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
           <img src="https://icongr.am/entypo/game-controller.svg?size=128&color=1e00aa" class="h-full p-6 m-1 w-sm max-xl:w-xs">
         </a>

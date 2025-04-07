@@ -6,7 +6,7 @@
   <header class="flex items-center justify-center pt-40 text-4xl font-semibold">Customize your gamepad</header>
   <div class="flex justify-center max-xl:flex-col">
       <div class="h-full pt-20 max-lg:flex max-lg:justify-center">
-          <img src="{{ asset('images/CustomControllerPlayStation.png') }}" class="w-2xl">
+          <img src="{{ asset('assets/images/CustomControllerPlayStation.png') }}" class="w-2xl">
       </div>
 
       <div class="flex flex-col pt-20 designSelection">
