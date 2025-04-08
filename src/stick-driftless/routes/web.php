@@ -19,6 +19,7 @@ Route::get('/catalogue', [CatalogueController::class, 'index'])->name('catalogue
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::get('/customize', [CustomizeController::class, 'index'])->name('customize');
 Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory');
+Route::match(['post', 'put'], '/inventory/update', [InventoryController::class, 'update'])->name('inventory.update');
 Route::get('/playstation', [PlayStationController::class, 'index'])->name('playstation');
 Route::get('/product-details', [ProductDetailsController::class, 'index'])->name('product-details');
 Route::get('/results', [ResultsController::class, 'index'])->name('results');
