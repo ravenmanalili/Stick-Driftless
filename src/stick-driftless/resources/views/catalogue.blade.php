@@ -10,7 +10,7 @@
             <img src="{{ asset('assets/images/' . $gamepad->gamepad_image) }}" class="m-1 w-sm max-xl:w-xs h-fit">
         </a>
         <a href="{{ url('product-details') }}" class="max-w-sm pt-6 font-semibold cursor-pointer 2xl:text-2xl max-2xl:text-md">
-          {{ $gamepad->gamepad_name }}
+          {{ \Illuminate\Support\Str::limit($gamepad->gamepad_name, 15, '...') }}
         </a>
         <a href="{{ url('product-details') }}" class="2xl:text-2xl max-2xl:text-md">
           ${{ number_format($gamepad->price, 2) }}
