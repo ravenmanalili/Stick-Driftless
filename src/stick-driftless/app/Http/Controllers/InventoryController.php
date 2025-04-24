@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class InventoryController extends Controller
 {
@@ -31,7 +32,7 @@ class InventoryController extends Controller
     {
         // Log incoming request for debugging
         Log::info('Update request received', [
-            'request_data' => $request->all()
+            'request_data' => $request->except(['gamepad_image']) // Don't log binary image data
         ]);
 
         $validator = Validator::make($request->all(), [
@@ -39,6 +40,7 @@ class InventoryController extends Controller
             'gamepad_name' => 'required|string|max:255',
             'platform' => 'required|string|max:255',
             'price' => 'required|numeric|min:0',
+            'gamepad_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -51,16 +53,41 @@ class InventoryController extends Controller
         }
 
         try {
-            // Use direct SQL update to ensure all fields are updated
             DB::beginTransaction();
             
-            $updated = DB::table('gamepad')
+            // Get current gamepad data to access current image
+            $currentGamepad = DB::table('gamepad')
                 ->where('gamepad_id', $request->gamepad_id)
-                ->update([
-                    'gamepad_name' => $request->gamepad_name,
-                    'platform' => $request->platform,
-                    'price' => $request->price
-                ]);
+                ->first();
+            
+            // Prepare update data
+            $updateData = [
+                'gamepad_name' => $request->gamepad_name,
+                'platform' => $request->platform,
+                'price' => $request->price
+            ];
+            
+            // Handle image upload if provided
+            if ($request->hasFile('gamepad_image')) {
+                $image = $request->file('gamepad_image');
+                $imageName = time() . '_' . $request->gamepad_id . '.' . $image->getClientOriginalExtension();
+                
+                // Store the new image in the public assets/images directory
+                $image->move(public_path('assets/images'), $imageName);
+                
+                // Delete old image if it exists and is not a default image
+                if ($currentGamepad && $currentGamepad->gamepad_image && file_exists(public_path('assets/images/' . $currentGamepad->gamepad_image))) {
+                    unlink(public_path('assets/images/' . $currentGamepad->gamepad_image));
+                }
+                
+                // Add image name to update data
+                $updateData['gamepad_image'] = $imageName;
+            }
+            
+            // Perform the update
+            $updatedGamepad = DB::table('gamepad')
+                ->where('gamepad_id', $request->gamepad_id)
+                ->update($updateData);
 
             // Get updated gamepad for response
             $gamepad = DB::table('gamepad')
@@ -71,11 +98,7 @@ class InventoryController extends Controller
             
             Log::info('Gamepad updated successfully', [
                 'gamepad_id' => $request->gamepad_id,
-                'updated_data' => [
-                    'gamepad_name' => $request->gamepad_name,
-                    'platform' => $request->platform,
-                    'price' => $request->price
-                ],
+                'updated_data' => array_merge($updateData, ['gamepad_image' => $updateData['gamepad_image'] ?? 'unchanged']),
                 'result' => $gamepad
             ]);
             

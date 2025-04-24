@@ -59,13 +59,20 @@
         <div class="relative flex flex-col p-6 rounded-lg shadow-lg w-96 gap-y-4 bg-sky-600 dark:bg-gray-800">
             <h2 class="text-xl font-bold text-white">Update</h2>
             
-            <!-- Regular (non-Ajax) form -->
-            <form id="updateInventoryForm" class="flex flex-col gap-y-4" action="{{ route('inventory.update') }}" method="POST">
+            <!-- Form with image upload -->
+            <form id="updateInventoryForm" class="flex flex-col gap-y-4" action="{{ route('inventory.update') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <input type="text" name="gamepad_name" placeholder="Name" class="p-2 text-black border border-white rounded-lg dark:text-white"/>
                 <input type="text" name="platform" placeholder="Platform" class="p-2 text-black border border-white rounded-lg dark:text-white"/>
                 <input type="number" name="price" step="0.01" placeholder="Price" class="p-2 text-black border border-white rounded-lg dark:text-white"/>
+                
+                <!-- Image upload field -->
+                <div class="flex flex-col gap-y-2">
+                    <label for="gamepad_image" class="text-white">Product Image (2 MB)</label>
+                    <input type="file" name="gamepad_image" id="gamepad_image" accept="image/*" class="p-2 text-white border border-white rounded-lg"/>
+                </div>
+                
                 <input type="hidden" name="gamepad_id" value="">
                 <button type="submit" class="px-4 py-2 mt-4 text-white bg-green-900 rounded cursor-pointer hover:bg-green-950 hover:text-gray-400">Save Changes</button>
             </form>
@@ -74,124 +81,124 @@
         </div>
     </div>
 
-<script>
-    document.querySelectorAll(".openInventoryModal").forEach((button) => {
-        button.addEventListener("click", () => {
-            const gamepadId = button.getAttribute('data-gamepad-id');
-            const gamepadName = button.getAttribute('data-gamepad-name');
-            const gamepadPlatform = button.getAttribute('data-gamepad-platform');
-            const gamepadPrice = button.getAttribute('data-gamepad-price');
+    <script>
+        document.querySelectorAll(".openInventoryModal").forEach((button) => {
+            button.addEventListener("click", () => {
+                const gamepadId = button.getAttribute('data-gamepad-id');
+                const gamepadName = button.getAttribute('data-gamepad-name');
+                const gamepadPlatform = button.getAttribute('data-gamepad-platform');
+                const gamepadPrice = button.getAttribute('data-gamepad-price');
+                const gamepadImage = button.closest('.flex.flex-col').querySelector('img[src*="assets/images/"]')?.src || '';
+                const imageName = gamepadImage.split('/').pop();
 
-            document.querySelector("#inventoryModal h2").textContent = `Update Gamepad Information`;
-
-            document.querySelector('input[name="gamepad_name"]').value = gamepadName;
-            document.querySelector('input[name="platform"]').value = gamepadPlatform;
-            document.querySelector('input[name="price"]').value = gamepadPrice;
-            document.querySelector('input[name="gamepad_id"]').value = gamepadId;
-
-            document.getElementById("inventoryModal").classList.remove("hidden");
-        });
-    });
-
-    document.getElementById('updateInventoryForm').addEventListener('submit', async (event) => {
-        event.preventDefault();
-        
-        const form = event.target;
-        
-        const gamepadId = document.querySelector('input[name="gamepad_id"]').value;
-        const gamepadName = document.querySelector('input[name="gamepad_name"]').value;
-        const platform = document.querySelector('input[name="platform"]').value;
-        const price = document.querySelector('input[name="price"]').value;
-        
-        const formDataObj = {
-            gamepad_id: gamepadId,
-            gamepad_name: gamepadName,
-            platform: platform,
-            price: price,
-            _token: '{{ csrf_token() }}',
-            _method: 'PUT'
-        };
-        
-        console.log('Sending data:', formDataObj);
-        
-        try {
-            const response = await fetch("{{ route('inventory.update') }}", {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                    'Accept': 'application/json',
-                    'X-Requested-With': 'XMLHttpRequest'
-                },
-                body: JSON.stringify(formDataObj)
-            });
-            
-            const responseText = await response.text();
-            console.log('Raw response:', responseText);
-            
-            let result;
-            try {
-                result = JSON.parse(responseText);
-            } catch (e) {
-                console.error("Invalid JSON response:", responseText);
-                throw new Error("Invalid server response format");
-            }
-            
-            if (!response.ok) {
-                throw new Error(result.message || 'Request failed');
-            }
-
-            if (result.success) {
-                const gamepadCard = document.querySelector(`button[data-gamepad-id="${gamepadId}"]`).closest('.flex.flex-col');
+                document.querySelector("#inventoryModal h2").textContent = "Update Gamepad Information";
+                document.querySelector('input[name="gamepad_name"]').value = gamepadName;
+                document.querySelector('input[name="platform"]').value = gamepadPlatform;
+                document.querySelector('input[name="price"]').value = gamepadPrice;
+                document.querySelector('input[name="gamepad_id"]').value = gamepadId;
                 
-                const button = gamepadCard.querySelector('.openInventoryModal');
-                button.setAttribute('data-gamepad-name', gamepadName);
-                button.setAttribute('data-gamepad-platform', platform);
-                button.setAttribute('data-gamepad-price', price);
-                
-                const paragraphs = gamepadCard.querySelectorAll('p');
-                
-                const nameElement = gamepadCard.querySelector('p.max-w-sm.pt-6.text-2xl.font-semibold');
-                const priceElement = gamepadCard.querySelector('p.text-2xl:not(.max-w-sm)');
-                
-                console.log('Name Element:', nameElement);
-                console.log('Price Element:', priceElement);
-                
-                // Safer update - find by position if classes don't work
-                if (!nameElement || !priceElement) {
-                    if (paragraphs.length >= 2) {
-                        // First paragraph is name
-                        paragraphs[0].textContent = gamepadName;
-                        // Second paragraph is price
-                        paragraphs[1].textContent = `$${price}`;
-                        
-                        console.log('Updated by position - Name:', gamepadName, 'Price:', price);
-                    }
-                } else {
-                    nameElement.textContent = gamepadName;
-                    priceElement.textContent = `$${price}`;
-                    console.log('Updated by class - Name:', gamepadName, 'Price:', price);
+                // Display current image name
+                const currentImageElement = document.getElementById('currentImageName');
+                if (currentImageElement && imageName) {
+                    currentImageElement.textContent = imageName;
+                } else if (currentImageElement) {
+                    currentImageElement.textContent = "No image";
                 }
 
-                // Close the modal
-                document.getElementById("inventoryModal").classList.add("hidden");
-                
-                // Show success message
-                alert('Gamepad updated successfully!');
-            } else {
-                alert(result.message || 'Failed to update gamepad');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('An error occurred while updating the gamepad: ' + error.message);
-        }
-    });
+                document.getElementById("inventoryModal").classList.remove("hidden");
+            });
+        });
 
-    // Close modal functionality
-    document.getElementById("closeInventoryModal").addEventListener("click", () => {
-        document.getElementById("inventoryModal").classList.add("hidden");
-    });
-    
-</script>
+        document.getElementById('updateInventoryForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            try {
+                const response = await fetch("{{ route('inventory.update') }}", {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    body: formData
+                });
+                
+                const responseText = await response.text();
+                console.log('Raw response:', responseText);
+                
+                let result;
+                try {
+                    result = JSON.parse(responseText);
+                } catch (e) {
+                    console.error("Invalid JSON response:", responseText);
+                    throw new Error("Invalid server response format");
+                }
+                
+                if (!response.ok) {
+                    throw new Error(result.message || 'Request failed');
+                }
+
+                if (result.success) {
+                    const gamepadId = formData.get('gamepad_id');
+                    const gamepadName = formData.get('gamepad_name');
+                    const platform = formData.get('platform');
+                    const price = formData.get('price');
+                    
+                    // Find the gamepad card
+                    const button = document.querySelector(`button[data-gamepad-id="${gamepadId}"]`);
+                    if (!button) {
+                        console.error('Button not found for gamepad ID:', gamepadId);
+                        alert('Updated successfully but UI could not be refreshed. Please reload the page.');
+                        document.getElementById("inventoryModal").classList.add("hidden");
+                        return;
+                    }
+                    
+                    const gamepadCard = button.closest('.flex.flex-col');
+                    
+                    // Update attributes on the button
+                    button.setAttribute('data-gamepad-name', gamepadName);
+                    button.setAttribute('data-gamepad-platform', platform);
+                    button.setAttribute('data-gamepad-price', price);
+                    
+                    // Update text content
+                    const nameElement = gamepadCard.querySelector('p.max-w-sm.pt-6.text-2xl.font-semibold');
+                    const priceElement = gamepadCard.querySelector('p.text-2xl:not(.max-w-sm)');
+                    
+                    if (nameElement) nameElement.textContent = gamepadName;
+                    if (priceElement) priceElement.textContent = `$${price}`;
+                    
+                    // Update image if a new one was uploaded
+                    if (result.data.gamepad_image) {
+                        const imageElement = gamepadCard.querySelector('img[src*="assets/images/"]');
+                        if (imageElement) {
+                            // Force browser to reload the image by adding timestamp
+                            const timestamp = new Date().getTime();
+                            imageElement.src = `{{ asset('assets/images/') }}/${result.data.gamepad_image}?t=${timestamp}`;
+                        }
+                    }
+
+                    // Close the modal
+                    document.getElementById("inventoryModal").classList.add("hidden");
+                    
+                    // Show success message
+                    alert('Gamepad updated successfully!');
+                } else {
+                    alert(result.message || 'Failed to update gamepad');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while updating the gamepad: ' + error.message);
+            }
+        });
+
+        // Close modal functionality
+        document.getElementById("closeInventoryModal").addEventListener("click", () => {
+            document.getElementById("inventoryModal").classList.add("hidden");
+        });
+        
+    </script>
 </section>
 @endsection
