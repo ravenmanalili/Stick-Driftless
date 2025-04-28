@@ -22,6 +22,18 @@
                 <div class="flex flex-col gap-3 py-3 xl:gap-4">
                     <form action="{{ route('login') }}" method="POST" id="signIn" class="w-full max-w-sm xl:max-w-md" onSubmit="return userLogin(this)">
                         @csrf
+                        
+                        <!-- Display validation errors -->
+                        @if ($errors->any())
+                            <div class="mb-4 text-sm text-red-500">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li class="text-red-500">{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <label for="email">Email</label>
                         <div class="relative py-2">                          
                             <input type="email" 
@@ -35,9 +47,11 @@
                                 <img src="https://icongr.am/entypo/mail.svg?size=20&color=000000" class="dark:hidden">
                             </div>
                         </div>
+                        
                         <label for="password">Password</label>
                         <div class="relative py-2">
                             <input type="password" 
+                                name="password"
                                 id="passwordInput"
                                 class="w-full py-2 pl-10 pr-10 border rounded-lg" 
                                 title="Must have at least one uppercase letter, lowercase letter, number, and special character"
@@ -58,6 +72,13 @@
                         </div>
         
                         <p class="py-3 font-semibold text-right cursor-pointer hover:underline md:text-sm lg:text-sm xl:py-4 xl:text-base">Forgot password?</p>
+                        
+                        <!-- Remember Me Checkbox -->
+                        <div class="flex items-center mb-4">
+                            <input type="checkbox" id="rememberMe" name="remember" class="mr-2">
+                            <label for="rememberMe" class="text-sm">Remember me</label>
+                        </div>
+
                         <button type="submit" 
                                 class="w-full py-2 text-white transition-all duration-300 bg-blue-900 border cursor-pointer rounded-xl hover:bg-blue-800 xl:py-2 xl:text-lg">
                                 Login
