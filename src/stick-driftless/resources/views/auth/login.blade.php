@@ -22,8 +22,6 @@
                 <div class="flex flex-col gap-3 py-3 xl:gap-4">
                     <form action="{{ route('login') }}" method="POST" id="signIn" class="w-full max-w-sm xl:max-w-md" onSubmit="return userLogin(this)">
                         @csrf
-                        
-                        <!-- Display validation errors -->
                         @if ($errors->any())
                             <div class="mb-4 text-sm text-red-500">
                                 <ul>

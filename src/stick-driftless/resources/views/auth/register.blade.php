@@ -22,6 +22,15 @@
                 <div class="flex flex-col gap-3 py-3 xl:gap-4">
                     <form action="{{ route('register') }}" method="POST" id="signUp" class="w-full max-w-sm xl:max-w-md" onSubmit="return userRegister(this)">
                         @csrf
+                        @if ($errors->any())
+                            <div class="mb-4 text-sm text-red-500">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li class="text-red-500">{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <label for="name">Name</label>
                         <div class="relative py-2">
                             <input type="text" 
