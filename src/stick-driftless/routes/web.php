@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\CartController;
@@ -13,6 +14,11 @@ use App\Http\Controllers\RetroController;
 use App\Http\Controllers\SwitchController;
 use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\XboxController;
+
+Route::get('/register', [AuthController::class, 'showRegister'])->name('show.register');
+Route::get('/login', [AuthController::class, 'showLogin'])->name('show.login');
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/catalogue', [CatalogueController::class, 'index'])->name('catalogue');

@@ -16,11 +16,15 @@
     @yield('styles')
 </head>
 <body class="overflow-x-hidden dark:bg-gray-950 dark:text-gray-100">
-    @include('layouts.header')
+    @if (!in_array(Route::currentRouteName(), ['show.login', 'show.register']))
+      @include('layouts.header')
+    @endif
     
     @yield('content')
     
-    @include('layouts.footer')
+    @if (!in_array(Route::currentRouteName(), ['show.login', 'show.register']))
+      @include('layouts.footer')
+    @endif
     
     @yield('scripts')
 
