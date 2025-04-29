@@ -16,7 +16,7 @@
     <section id="rightNav" class="flex items-center mx-6 max-xl:hidden xl:mx-auto"> 
       <a href="{{ route('cart') }}" class="m-4 text-lg font-semibold cursor-pointer hover:underline">Cart</a>
       <a href="{{ route('inventory') }}" class="m-4 text-lg font-semibold cursor-pointer hover:underline">Inventory</a>
-      <a href="forms/login.php" class="m-4 text-lg font-semibold cursor-pointer hover:underline">Sign Up</a>
+      <a href="{{ route('show.register') }}" class="m-4 text-lg font-semibold cursor-pointer hover:underline">Sign Up</a>
     </section>
   </section>
   <section id="menu" class="flex items-center justify-center mx-6 max-xl:hidden xl:mx-auto">

@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 
 <section id="controllerCategory" class="flex flex-col items-center justify-center pb-40 max-xl:pt-16 xl:pt-36">
