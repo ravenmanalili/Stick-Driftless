@@ -14,11 +14,25 @@
       </form>
     </section>
     <section id="rightNav" class="flex items-center mx-6 max-xl:hidden xl:mx-auto"> 
-      <a href="{{ route('cart') }}" class="m-4 text-lg font-semibold cursor-pointer hover:underline">Cart</a>
-      <a href="{{ route('inventory') }}" class="m-4 text-lg font-semibold cursor-pointer hover:underline">Inventory</a>
-      <a href="{{ route('show.register') }}" class="m-4 text-lg font-semibold cursor-pointer hover:underline">Sign Up</a>
+        @auth
+            <span class="m-4 text-lg font-semibold">{{ Auth::user()->name }}</span>
+            @if(Auth::user()->role == 1)
+                <a href="{{ route('inventory') }}" class="m-4 text-lg font-semibold cursor-pointer hover:underline">Inventory</a>
+            @elseif(Auth::user()->role == 2)
+                <a href="{{ route('cart') }}" class="m-4 text-lg font-semibold cursor-pointer hover:underline">Cart</a>
+            @endif
+            
+            <form action="{{ route('logout') }}" method="POST" class="m-4">
+                @csrf
+                <button type="submit" class="text-lg font-semibold cursor-pointer hover:underline">Logout</button>
+            </form>
+        @else
+            <a href="{{ route('show.register') }}" class="m-4 text-lg font-semibold cursor-pointer hover:underline">Sign Up</a>
+            <a href="{{ route('login') }}" class="m-4 text-lg font-semibold cursor-pointer hover:underline">Login</a>
+        @endauth
     </section>
   </section>
+  
   <section id="menu" class="flex items-center justify-center mx-6 max-xl:hidden xl:mx-auto">
     <a href="{{ route('home') }}" class="m-2 mx-4 mb-4 text-lg font-semibold hover:underline">Home</a>
     <a href="{{ route('catalogue') }}" class="m-2 mx-4 mb-4 text-lg font-semibold hover:underline">Catalogue</a>
@@ -46,9 +60,22 @@
     <a href="{{ route('home') }}" class="m-4 text-lg font-semibold hover:underline">Home</a>
     <a href="{{ route('catalogue') }}" class="m-4 text-lg font-semibold hover:underline">Catalogue</a>
     <a href="{{ route('customize') }}" class="m-4 text-lg font-semibold hover:underline">Customization</a>
-    <a href="forms/login.php" class="m-4 text-lg font-semibold hover:underline">Sign Up</a>
-    <a href="{{ route('cart') }}" class="m-4 text-lg font-semibold hover:underline">Cart</a>
-    <a href="{{ route('inventory') }}"  class="m-4 text-lg font-semibold hover:underline">Inventory</a>
+
+    @auth
+      @if(Auth::user()->role == 1)
+          <a href="{{ route('inventory') }}" class="m-4 text-lg font-semibold hover:underline">Inventory</a>
+      @elseif(Auth::user()->role == 2)
+          <a href="{{ route('cart') }}" class="m-4 text-lg font-semibold hover:underline">Cart</a>
+      @endif
+      
+      <span class="m-4 text-lg font-semibold">{{ Auth::user()->name }}</span>
+      <form action="{{ route('logout') }}" method="POST" class="m-4">
+        @csrf
+        <button type="submit" class="text-lg font-semibold cursor-pointer hover:underline">Logout</button>
+      </form>
+    @else
+      <a href="{{ route('show.register') }}" class="m-4 text-lg font-semibold hover:underline">Sign Up</a>
+      <a href="{{ route('login') }}" class="m-4 text-lg font-semibold hover:underline">Login</a>
+    @endauth
   </div>
 </section>
-

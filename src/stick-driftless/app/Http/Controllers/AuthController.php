@@ -21,7 +21,7 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:users',  // Ensure username is unique
             'email' => 'required|email|unique:users',
             'password' => 'required|string|min:8|confirmed',
         ]);
@@ -30,8 +30,8 @@ class AuthController extends Controller
         $user = User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
-            'password' => $validated['password'], // will be auto-hashed
-            'role' => 2, // set default role
+            'password' => bcrypt($validated['password']), // Hash the password
+            'role' => 2, // Set default role
         ]);
 
         Auth::login($user);
@@ -39,8 +39,25 @@ class AuthController extends Controller
         return redirect()->route('home');
     }
 
-    public function login ()
+    public function login(Request $request)
     {
+        $validated = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string|min:8',
+        ]);
 
+        if (Auth::attempt(['email' => $validated['email'], 'password' => $validated['password']], $request->remember)) {
+            // Authentication passed
+            return redirect()->route('home');
+        } else {
+            // Authentication failed
+            return back()->withErrors(['email' => 'Invalid credentials']);
+        }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('home');
     }
 }
