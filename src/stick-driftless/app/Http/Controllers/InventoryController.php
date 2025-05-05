@@ -71,7 +71,6 @@ class InventoryController extends Controller
                 'gamepad_image' => $imageName,
                 'status' => 1,
                 'created_at' => now(),
-                'updated_at' => now(),
             ]);
 
             $newGamepad = DB::table('gamepad')->where('gamepad_id', $gamepadId)->first();
@@ -192,6 +191,60 @@ class InventoryController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => 'Failed to update gamepad: ' . $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function delete(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'gamepad_id' => 'required|integer|exists:gamepad,gamepad_id',
+        ]);
+    
+        if ($validator->fails()) {
+            Log::error('Delete validation failed', ['errors' => $validator->errors()]);
+            return response()->json([
+                'success' => false,
+                'message' => 'Validation failed',
+                'errors' => $validator->errors()
+            ], 422);
+        }
+    
+        try {
+            DB::beginTransaction();
+    
+            // Update the status column to 0 (soft delete)
+            $affected = DB::table('gamepad')
+                ->where('gamepad_id', $request->gamepad_id)
+                ->update([
+                    'status' => 0,
+                    'updated_at' => now()
+                ]);
+    
+            DB::commit();
+    
+            if ($affected) {
+                Log::info('Gamepad soft deleted', ['gamepad_id' => $request->gamepad_id]);
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Gamepad deleted successfully'
+                ]);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Gamepad not found or already deleted'
+                ], 404);
+            }
+    
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error('Exception during delete', [
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to delete gamepad: ' . $e->getMessage()
             ], 500);
         }
     }
