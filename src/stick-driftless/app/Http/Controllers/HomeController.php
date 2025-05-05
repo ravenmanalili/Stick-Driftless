@@ -13,11 +13,8 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        // You can add database queries here to fetch any data needed for the home page
-        // For example:
-        // $featuredProducts = DB::table('products')->where('featured', true)->get();
-        
-        return view('home');
-    }
+{
+    $gamepads = \App\Models\Gamepad::take(3)->get(); // Get the first three gamepads
+    return view('home', compact('gamepads'));
+}
 }
