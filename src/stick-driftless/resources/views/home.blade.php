@@ -37,26 +37,14 @@
         <a href="{{ route('catalogue') }}" class="flex justify-center p-6 m-4 text-2xl font-extrabold text-gray-100 transition duration-500 transform rounded-lg cursor-pointer 2xl:w-xs xl:w-[248px] h-fit bg-gradient-to-r from-blue-700 to-blue-500 hover:scale-110 dark:bg-gradient-to-r dark:from-blue-950 dark:to-blue-900 max-sm:w-64 text-center">Shop all Favourites</a>
       </div>
 
+      @foreach($gamepads as $gamepad)
         <div class="flex flex-col items-center justify-center hover:underline">
-          <a href="{{ route('product-details') }}" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
-            <img src="{{ asset('assets/images/scuf-reflex-pro.png') }}" class="h-full m-1 w-sm max-xl:w-xs">
+          <a href="{{ route('product-details.show', $gamepad->gamepad_id) }}" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
+            <img src="{{ asset('assets/images/' . $gamepad->gamepad_image) }}" class="h-full m-1 w-sm max-xl:w-xs">
           </a>
-          <a href="{{ route('product-details') }}" class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Scuf Reflex Pro</a>
+          <a href="{{ route('product-details.show', $gamepad->gamepad_id) }}" class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">{{ $gamepad->gamepad_name }}</a>
         </div>
-
-        <div class="flex flex-col items-center justify-center hover:underline">
-          <a href="{{ route('product-details') }}" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
-            <img src="{{ asset('assets/images/razer-wolverine-v2-pro.png') }}" class="h-full m-1 w-sm max-xl:w-xs">
-          </a>
-          <a href="{{ route('product-details') }}" class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Razer Wolverine</a>
-        </div>
-
-        <div class="flex flex-col items-center justify-center hover:underline">
-          <a href="{{ route('product-details') }}" class="transition duration-500 transform border border-black rounded-lg hover:scale-110 dark:border-gray-100">
-            <img src="{{ asset('assets/images/victrix-pro-bfg.png') }}" class="h-full m-1 w-sm max-xl:w-xs">
-          </a>
-          <a href="{{ route('product-details') }}" class="p-6 m-4 text-2xl font-semibold cursor-pointer hover:underline">Victrix Pro BFG</a>
-        </div>
+      @endforeach
 
     </div>
   </section>
