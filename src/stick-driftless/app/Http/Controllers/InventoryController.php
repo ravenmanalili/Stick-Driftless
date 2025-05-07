@@ -28,6 +28,76 @@ class InventoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function add(Request $request)
+    {
+        Log::info('Add request received', [
+            'request_data' => $request->except(['gamepad_image']) // Don't log binary image data
+        ]);
+
+        $validator = Validator::make($request->all(), [
+            'gamepad_name' => 'required|string|max:255',
+            'platform' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'gamepad_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'gamepad_description' => 'nullable|string|max:255',
+        ]);
+
+        if ($validator->fails()) {
+            Log::error('Validation failed during add', ['errors' => $validator->errors()]);
+            return response()->json([
+                'success' => false,
+                'message' => 'Validation failed',
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
+        try {
+            DB::beginTransaction();
+
+            $imageName = null;
+
+            if ($request->hasFile('gamepad_image')) {
+                $image = $request->file('gamepad_image');
+                $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('assets/images'), $imageName);
+            }
+
+            $gamepadId = DB::table('gamepad')->insertGetId([
+                'gamepad_name' => $request->gamepad_name,
+                'gamepad_description' => $request->gamepad_description,
+                'platform' => $request->platform,
+                'price' => $request->price,
+                'gamepad_image' => $imageName,
+                'status' => 1,
+                'created_at' => now(),
+            ]);
+
+            $newGamepad = DB::table('gamepad')->where('gamepad_id', $gamepadId)->first();
+
+            DB::commit();
+
+            Log::info('Gamepad added successfully', ['data' => $newGamepad]);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Gamepad added successfully',
+                'data' => $newGamepad
+            ]);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error('Exception in add', [
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to add gamepad: ' . $e->getMessage()
+            ], 500);
+        }
+    }
+    
     public function update(Request $request)
     {
         // Log incoming request for debugging
@@ -41,6 +111,7 @@ class InventoryController extends Controller
             'platform' => 'required|string|max:255',
             'price' => 'required|numeric|min:0',
             'gamepad_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'gamepad_description' => 'nullable|string|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -64,7 +135,9 @@ class InventoryController extends Controller
             $updateData = [
                 'gamepad_name' => $request->gamepad_name,
                 'platform' => $request->platform,
-                'price' => $request->price
+                'price' => $request->price,
+                'gamepad_description' => $request->gamepad_description,
+                'updated_at' => now(),
             ];
             
             // Handle image upload if provided
@@ -118,6 +191,60 @@ class InventoryController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => 'Failed to update gamepad: ' . $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function delete(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'gamepad_id' => 'required|integer|exists:gamepad,gamepad_id',
+        ]);
+    
+        if ($validator->fails()) {
+            Log::error('Delete validation failed', ['errors' => $validator->errors()]);
+            return response()->json([
+                'success' => false,
+                'message' => 'Validation failed',
+                'errors' => $validator->errors()
+            ], 422);
+        }
+    
+        try {
+            DB::beginTransaction();
+    
+            // Update the status column to 0 (soft delete)
+            $affected = DB::table('gamepad')
+                ->where('gamepad_id', $request->gamepad_id)
+                ->update([
+                    'status' => 0,
+                    'updated_at' => now()
+                ]);
+    
+            DB::commit();
+    
+            if ($affected) {
+                Log::info('Gamepad soft deleted', ['gamepad_id' => $request->gamepad_id]);
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Gamepad deleted successfully'
+                ]);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Gamepad not found or already deleted'
+                ], 404);
+            }
+    
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error('Exception during delete', [
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to delete gamepad: ' . $e->getMessage()
             ], 500);
         }
     }
