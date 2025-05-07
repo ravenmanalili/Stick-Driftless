@@ -29,6 +29,8 @@ Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory
 Route::match(['post', 'put'], '/inventory/update', [InventoryController::class, 'update'])->name('inventory.update');
 Route::post('/inventory/add', [InventoryController::class, 'add'])->name('inventory.add');
 Route::post('/inventory/delete', [InventoryController::class, 'delete'])->name('inventory.delete');
+Route::get('/inventory/filter', [InventoryController::class, 'filter'])->name('inventory.filter');
+Route::get('/inventory/results', [InventoryController::class, 'search'])->name('inventory.results');
 Route::get('/playstation', [PlayStationController::class, 'index'])->name('playstation');
 Route::get('/product-details', [ProductDetailsController::class, 'index'])->name('product-details');
 Route::get('/product-details/{id}', [ProductDetailsController::class, 'index'])->name('product-details.show');

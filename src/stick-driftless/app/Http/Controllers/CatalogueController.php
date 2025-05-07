@@ -11,19 +11,21 @@ class CatalogueController extends Controller
     public function index(Request $request)
     {
         $query = $request->input('query');
+        $platform = $request->input('gamepad_platform');
 
-        if ($query) {
-            $gamepads = Gamepad::where('status', 1)
-                ->where(function ($q) use ($query) {
-                    $q->where('gamepad_name', 'like', "%{$query}%")
-                      ->orWhere('gamepad_description', 'like', "%{$query}%");
-                })
-                ->get();
-        } else {
-            $gamepads = Gamepad::where('status', 1)->get();
-        }
+        $gamepads = Gamepad::where('status', 1)
+            ->when($query, function ($q) use ($query) {
+                $q->where(function ($subQ) use ($query) {
+                    $subQ->where('gamepad_name', 'like', "%{$query}%")
+                        ->orWhere('gamepad_description', 'like', "%{$query}%");
+                });
+            })
+            ->when($platform, function ($q) use ($platform) {
+                $q->where('platform', $platform);
+            })
+            ->get();
 
-        return view('catalogue', compact('gamepads', 'query'));
+        return view('catalogue', compact('gamepads', 'query', 'platform'));
     }
 
 }

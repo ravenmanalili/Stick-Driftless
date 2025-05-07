@@ -1,13 +1,72 @@
 @extends('layouts.app')
 @section('content')
 
-<h1 class="flex text-4xl font-semibold text-center py-7 max-xl:justify-center max-xl:pt-24 xl:justify-start xl:px-32 xl:pt-40">
+<h1 class="flex text-4xl font-semibold text-center max-xl:justify-center max-xl:pt-24 xl:justify-start xl:px-32 xl:pt-40">
   @if(request('query'))
     Search results for "{{ request('query') }}"
   @else
     Featured
   @endif
 </h1>
+
+<div id="catalogueCategory" class="flex justify-between text-center py-7 max-xl:justify-center xl:justify-start xl:px-32">
+    <div class="flex flex-row gap-4 text-xl">
+        {{-- All --}}
+        <form action="{{ route('catalogue') }}" method="GET">
+            @if(request('query'))
+                <input type="hidden" name="query" value="{{ request('query') }}">
+            @endif
+            <button type="submit" class="cursor-pointer {{ !request('gamepad_platform') ? 'font-bold text-blue-500' : '' }}">
+                All
+            </button>
+        </form>
+
+        {{-- PlayStation --}}
+        <form action="{{ route('catalogue') }}" method="GET">
+            <input type="hidden" name="gamepad_platform" value="PlayStation">
+            @if(request('query'))
+                <input type="hidden" name="query" value="{{ request('query') }}">
+            @endif
+            <button type="submit" class="cursor-pointer {{ request('gamepad_platform') == 'PlayStation' ? 'font-bold text-blue-500' : '' }}">
+                PlayStation
+            </button>
+        </form>
+
+        {{-- Xbox --}}
+        <form action="{{ route('catalogue') }}" method="GET">
+            <input type="hidden" name="gamepad_platform" value="Xbox">
+            @if(request('query'))
+                <input type="hidden" name="query" value="{{ request('query') }}">
+            @endif
+            <button type="submit" class="cursor-pointer {{ request('gamepad_platform') == 'Xbox' ? 'font-bold text-blue-500' : '' }}">
+                Xbox
+            </button>
+        </form>
+
+        {{-- Nintendo --}}
+        <form action="{{ route('catalogue') }}" method="GET">
+            <input type="hidden" name="gamepad_platform" value="Nintendo">
+            @if(request('query'))
+                <input type="hidden" name="query" value="{{ request('query') }}">
+            @endif
+            <button type="submit" class="cursor-pointer {{ request('gamepad_platform') == 'Nintendo' ? 'font-bold text-blue-500' : '' }}">
+                Nintendo
+            </button>
+        </form>
+
+        {{-- Retro --}}
+        <form action="{{ route('catalogue') }}" method="GET">
+            <input type="hidden" name="gamepad_platform" value="Retro">
+            @if(request('query'))
+                <input type="hidden" name="query" value="{{ request('query') }}">
+            @endif
+            <button type="submit" class="cursor-pointer {{ request('gamepad_platform') == 'Retro' ? 'font-bold text-blue-500' : '' }}">
+                Retro
+            </button>
+        </form>
+    </div>
+</div>
+
 <section id="catalogueControllers" class="flex flex-col items-center justify-center pb-40">
   <div id="product-container" class="grid grid-cols-4 p-6 gap-x-8 gap-y-8 max-xl:grid-cols-3 max-xl:gap-x-4 max-md:grid-cols-1">
   @forelse($gamepads as $gamepad)

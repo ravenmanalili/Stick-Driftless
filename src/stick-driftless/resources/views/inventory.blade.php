@@ -5,22 +5,51 @@
     <header id="inventoryHeader" class="flex flex-row justify-between">
         <div class="text-3xl font-semibold">Inventory Management</div>
         <div id="inventorySearchInputField" class="-m-4 max-xl:hidden">
-            <form action="{{ route('results') }}" method="GET" class="relative flex items-center max-xl:flex-col">
-                <input type="text" name="search" class="p-3 px-20 m-4 font-semibold border border-gray-300 rounded-lg w-lg text-md" placeholder="Search Inventory">
-                <div class="absolute inset-y-0 left-0 flex items-center px-12 pointer-events-none">
+        <form action="{{ route('inventory.results') }}" method="GET" class="relative flex items-center max-xl:flex-col">
+            <input type="text" name="search" class="p-3 px-20 m-4 font-semibold border border-gray-300 rounded-lg w-lg text-md" placeholder="Search Inventory" value="{{ request('search') }}">
+            <input type="hidden" name="gamepad_platform" value="{{ request('gamepad_platform') }}">
+            <div class="absolute inset-y-0 left-0 flex items-center px-12 pointer-events-none">
                 <img src="https://icongr.am/entypo/magnifying-glass.svg?size=20&color=f3f4f6" class="dark:block">
-                </div>
-            </form>
+            </div>
+        </form>
         </div>
     </header>
 
     <div id="inventoryCategory" class="flex justify-between">
         <div class="flex flex-row gap-4 text-xl">
-            <div class="cursor-pointer">All</div>
-            <div class="cursor-pointer">PlayStation</div>
-            <div class="cursor-pointer">Xbox</div>
-            <div class="cursor-pointer">Nintendo</div>
-            <div class="cursor-pointer">Retro</div>
+            <a href="{{ route('inventory.filter') }}" 
+            class="cursor-pointer {{ !request('gamepad_platform') ? 'font-bold text-blue-500' : '' }}">
+                All
+            </a>
+
+            <form action="{{ route('inventory.filter') }}" method="GET">
+                <input type="hidden" name="gamepad_platform" value="PlayStation">
+                <button type="submit" class="cursor-pointer {{ request('gamepad_platform') == 'PlayStation' ? 'font-bold text-blue-500' : '' }}">
+                    PlayStation
+                </button>
+            </form>
+
+            <form action="{{ route('inventory.filter') }}" method="GET">
+                <input type="hidden" name="gamepad_platform" value="Xbox">
+                <button type="submit" class="cursor-pointer {{ request('gamepad_platform') == 'Xbox' ? 'font-bold text-blue-500' : '' }}">
+                    Xbox
+                </button>
+            </form>
+
+            <form action="{{ route('inventory.filter') }}" method="GET">
+                <input type="hidden" name="gamepad_platform" value="Nintendo">
+                <button type="submit" class="cursor-pointer {{ request('gamepad_platform') == 'Nintendo' ? 'font-bold text-blue-500' : '' }}">
+                    Nintendo
+                </button>
+            </form>
+
+            <form action="{{ route('inventory.filter') }}" method="GET">
+                <input type="hidden" name="gamepad_platform" value="Retro">
+                <button type="submit" class="cursor-pointer {{ request('gamepad_platform') == 'Retro' ? 'font-bold text-blue-500' : '' }}">
+                    Retro
+                </button>
+            </form>
+            
         </div>
         
         <div>Filter</div>
@@ -28,8 +57,8 @@
 
     <div id="inventoryCatalogue">
         <div class="grid grid-cols-4 pb-8 gap-x-8 gap-y-8 max-xl:grid-cols-3 max-xl:gap-x-4 max-md:grid-cols-1">
-        <div class="flex flex-col items-center justify-center">
-            <div class="relative flex flex-col items-center justify-center p-2 border border-black rounded-lg 2xl:h-[500px] xl:h-[376px] max-xl:h-[376px] 2xl:w-96 dark:border-gray-100">
+            <div class="flex flex-col items-center justify-center">
+                <div class="relative flex flex-col items-center justify-center p-2 border border-black rounded-lg 2xl:h-[500px] xl:h-[376px] max-xl:h-[376px] 2xl:w-96 dark:border-gray-100">
                     <div class="2xl:min-h-80 2xl:max-h-80 max-2xl:min-h-52 max-2xl:max-h-96">
                         <button id="addToInventoryButton" class="cursor-pointer openCreateModal">
                             <img src="https://icongr.am/entypo/plus.svg?size=128&color=ffffff" class="m-1 w-xs max-xl:w-xs h-fit">
