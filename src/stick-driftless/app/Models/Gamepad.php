@@ -11,7 +11,7 @@ class Gamepad extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'gamepad_name', 'platform', 'price', 'gamepad_image'
+        'gamepad_name', 'gamepad_description', 'platform', 'price', 'gamepad_image', 'status'
     ];
     
     protected $casts = [

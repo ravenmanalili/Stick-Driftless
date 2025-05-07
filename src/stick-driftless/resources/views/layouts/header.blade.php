@@ -5,8 +5,8 @@
       <button class="m-4 text-lg font-semibold cursor-pointer hover:text-gray-700" onClick="toggleBurgerMenu()">☰</button>
     </section>
     <section id="searchInputField" class="max-xl:hidden">
-      <form action=""{{ route('results') }}" method="GET" class="relative flex items-center max-xl:flex-col">
-        <input type="text" class="p-3 px-20 m-4 text-lg font-semibold border border-black rounded-lg w-3xl dark:border-gray-300" placeholder="Looking for something?">
+      <form action="{{ route('catalogue') }}" method="GET" class="relative flex items-center max-xl:flex-col">
+        <input type="text" name="query" value="{{ request('query') }}" class="p-3 px-20 m-4 text-lg font-semibold border border-black rounded-lg w-3xl dark:border-gray-300" placeholder="Looking for something?">
         <div class="absolute inset-y-0 left-0 flex items-center px-12 pointer-events-none">
           <img src="https://icongr.am/entypo/magnifying-glass.svg?size=20&color=ffffff" class="hidden dark:block">
           <img src="https://icongr.am/entypo/magnifying-glass.svg?size=20&color=000000" class="block dark:hidden">
@@ -49,8 +49,8 @@
 
 <section id="burgerMenu" class="fixed z-50 w-screen transition-all duration-500 top-14 bg-gradient-to-r from-blue-300 to-blue-100 dark:bg-gradient-to-r dark:from-blue-950 dark:to-blue-950 max-xl:hidden xl:hidden">
   <div class="flex flex-col items-center justify-center pt-8">
-    <form action="{{ route('results') }}" method="GET" class="relative max-xl:flex-col">
-      <input type="text" class="p-3 px-12 m-4 text-lg font-semibold border border-black rounded-lg w-2xl dark:border-gray-300 max-md:w-fit max-md:text-sm" placeholder="Looking for something?">
+    <form action="{{ route('catalogue') }}" method="GET" class="relative max-xl:flex-col">
+      <input type="text" name="query" value="{{ request('query') }}" class="p-3 px-12 m-4 text-lg font-semibold border border-black rounded-lg w-2xl dark:border-gray-300 max-md:w-fit max-md:text-sm" placeholder="Looking for something?">
       <div class="absolute inset-y-0 left-0 flex items-center px-8 pointer-events-none">
         <img src="https://icongr.am/entypo/magnifying-glass.svg?size=20&color=ffffff" class="hidden dark:block">
         <img src="https://icongr.am/entypo/magnifying-glass.svg?size=20&color=000000" class="block dark:hidden">
