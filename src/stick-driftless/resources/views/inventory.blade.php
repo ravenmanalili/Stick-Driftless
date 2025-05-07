@@ -28,8 +28,20 @@
 
     <div id="inventoryCatalogue">
         <div class="grid grid-cols-4 pb-8 gap-x-8 gap-y-8 max-xl:grid-cols-3 max-xl:gap-x-4 max-md:grid-cols-1">
+        <div class="flex flex-col items-center justify-center">
+            <div class="relative flex flex-col items-center justify-center p-2 border border-black rounded-lg 2xl:h-[500px] xl:h-[376px] max-xl:h-[376px] 2xl:w-96 dark:border-gray-100">
+                    <div class="2xl:min-h-80 2xl:max-h-80 max-2xl:min-h-52 max-2xl:max-h-96">
+                        <button id="addToInventoryButton" class="cursor-pointer openCreateModal">
+                            <img src="https://icongr.am/entypo/plus.svg?size=128&color=ffffff" class="m-1 w-xs max-xl:w-xs h-fit">
+                            <p class="max-w-sm text-2xl font-semibold">
+                                Add to Inventory
+                            </p>
+                        </button>
+                    </div>
+                </div>
+            </div>
         @foreach($gamepads as $gamepad)
-            @if($gamepad->status == 1) <!-- Only display if status is 1 (active) -->
+            @if($gamepad->status == 1)
                 <div class="flex flex-col items-center justify-center gamepad-card">
                     <div class="relative flex flex-col items-center justify-center p-2 border border-black rounded-lg 2xl:h-[500px] xl:h-[376px] max-xl:h-[376px] 2xl:w-96 dark:border-gray-100">
                         <div class="absolute z-10 flex space-x-2 top-4 right-4">
@@ -61,18 +73,7 @@
                 </div>
             @endif
         @endforeach
-            <div class="flex flex-col items-center justify-center">
-                <div class="relative flex flex-col items-center justify-center p-2 border border-black rounded-lg 2xl:h-[500px] xl:h-[376px] max-xl:h-[376px] 2xl:w-96 dark:border-gray-100">
-                    <div class="2xl:min-h-80 2xl:max-h-80 max-2xl:min-h-52 max-2xl:max-h-96">
-                        <button id="addToInventoryButton" class="cursor-pointer openCreateModal">
-                            <img src="https://icongr.am/entypo/plus.svg?size=128&color=ffffff" class="m-1 w-xs max-xl:w-xs h-fit">
-                            <p class="max-w-sm text-2xl font-semibold">
-                                Add to Inventory
-                            </p>
-                        </button>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
 
